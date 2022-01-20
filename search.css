@@ -1,0 +1,90 @@
+
+.container{
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  color: #066;
+
+}
+
+.container-table{
+    display:flex;
+    position: relative;
+    flex-wrap: wrap;
+    background-color:  white;
+
+
+    border-radius: 8px;
+
+    margin-top: 20vh;
+    margin-right: 45vh;
+    margin-left: 45vh;
+
+    height: 90vh;
+}
+
+.container-footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-top: 5vh;
+}
+
+.mlogo{
+  position: fixed;
+  height: 12vh;
+  width: 12vh;
+  background-color: #555;
+}
+
+
+
+.title{
+
+  display: flex;
+  position: fixed;
+  margin-top: 2vh;
+  margin-left:15vh;
+  font-size: 20px;
+
+}
+
+.adress{
+  display: flex;
+  position: fixed;
+  margin-top: 6vh;
+  margin-left:15vh;
+  font-size: 15px;
+
+}
+
+tr:nth-child(odd){
+  background-color: #cce6ff;
+}
+
+tr {
+  background-color: blue;
+  position: static;
+  height: 10vh;
+  width: 10vh;
+  margin-bottom: 5vh;
+}
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-left: 70vh;
+
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
