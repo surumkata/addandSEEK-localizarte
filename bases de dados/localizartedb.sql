@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 20-Jan-2022 às 15:09
+-- Tempo de geração: 20-Jan-2022 às 15:59
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `localizartedb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `museums`
+--
+
+DROP TABLE IF EXISTS `museums`;
+CREATE TABLE IF NOT EXISTS `museums` (
+  `name` varchar(60) NOT NULL,
+  `adress` varchar(100) NOT NULL,
+  `price` float NOT NULL,
+  `categories` varchar(150) NOT NULL,
+  `picture` varchar(150) NOT NULL,
+  `contact` varchar(40) NOT NULL,
+  `website` varchar(150) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `museums`
+--
+
+INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `picture`, `contact`, `website`) VALUES
+('museu do prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, 'painting', '/pictures/museums/capa-museu-do-prado.jpg', '+34913302800', 'https://www.museodelprado.es');
 
 -- --------------------------------------------------------
 
