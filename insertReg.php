@@ -3,10 +3,14 @@
 require_once("connectDB.php");
 
 $username = $_POST['username'];
-$psw =  $_POST['password'];
+$name = $_POST['name'];
+$email = $_POST['email'];
+$birthdate = strtotime($_POST["birthdate"]);
+$birthdate = date('Y-m-d', $birthdate);
+$psw =  md5($_POST['password']);
 
 $checkName = mysqli_query($connection,"SELECT name FROM users WHERE name='$username' ");
-$sql = "INSERT INTO users (name,password) values('$username','$psw')";
+$sql = "INSERT INTO users (username,name,password,email,birthdate,admin,preferences) values('$username','$name','$psw','$email','$birthdate','0','')";
 
 if(mysqli_num_rows($checkName) > 0){
     echo "Name already exists";

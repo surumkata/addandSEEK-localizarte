@@ -1,3 +1,9 @@
+<?php
+    $today = date("Y-m-d");
+    $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +17,21 @@
     <form action="insertReg.php" method="post">
         <h1>Sign Up</h1>
         <div>
+            <label for="name">Name:</label>
+            <input type="name" name="name" id="name">
+        </div>
+        <div>
             <label for="username">Username:</label>
             <input type="text" name="username" id="username">
         </div>
         <div>
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
+        </div>
+
+        <div>
+              <label for="birthdate">Birth date:</label>
+              <input type="date" id="birthdate" name="birthdate" max='<?php echo $today; ?>' min="1920-01-01"><br>
         </div>
         <div>
             <label for="password">Password:</label>
