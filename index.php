@@ -1,3 +1,8 @@
+<?php
+require_once("connectDB.php");
+$_SESSION['loginErro'] = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

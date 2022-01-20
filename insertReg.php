@@ -16,7 +16,7 @@ if(mysqli_num_rows($checkName) > 0){
     echo "Name already exists";
 }else{
   if (mysqli_query($connection,$sql) === TRUE) {
-    echo "New record created successfully";
+    header('Location: http://localhost/LI4/login.php');
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_connect_error();
   }

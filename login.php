@@ -30,6 +30,7 @@
         </div>
         <?php
           if($_SESSION['loginErro'] == 1){
+            $_SESSION['loginErro'] = 0;
             ?>
             <script type="text/javascript">
               loginError();
