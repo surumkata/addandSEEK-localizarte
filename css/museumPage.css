@@ -1,0 +1,15 @@
+
+
+
+h1{
+  color: blue;
+}
+
+h2{
+  color: blue;
+}
+
+#ticketPrice img:first-child{
+  padding: 1%;
+  width: 3%;
+}
