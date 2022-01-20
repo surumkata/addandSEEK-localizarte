@@ -12,6 +12,8 @@ $psw =  md5($_POST['password']);
 $checkName = mysqli_query($connection,"SELECT name FROM users WHERE name='$username' ");
 $sql = "INSERT INTO users (username,name,password,email,birthdate,admin,preferences) values('$username','$name','$psw','$email','$birthdate','0','')";
 
+// TODO: verificar se o email tb ja esta a ser utilizado
+
 if(mysqli_num_rows($checkName) > 0){
     echo "Name already exists";
 }else{

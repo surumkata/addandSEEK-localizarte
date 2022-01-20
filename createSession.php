@@ -5,6 +5,7 @@ require_once("connectDB.php");
 
 
 
+
 if(isSet($_POST['credential']) && isSet($_POST['password'])){
       $consult = "SELECT * FROM users WHERE (LOWER(username) = LOWER('" . $_POST['credential'] . "') OR LOWER(email)=LOWER('" . $_POST['credential'] . "') ) AND password = '" . md5($_POST['password']) . "'";
       $resultado = mysqli_query($connection,$consult);
@@ -17,10 +18,10 @@ if(isSet($_POST['credential']) && isSet($_POST['password'])){
            $_SESSION['type'] = "admin";
        }else{
            $_SESSION['type'] = "user";
-       $_SESSION['loginErro'] = 0;
-       echo "sessao iniciada";
-       header('Location: http://localhost/LI4/home.php');
      }
+     $_SESSION['loginErro'] = 0;
+     echo "sessao iniciada";
+     header('Location: http://localhost/LI4/index.php');
    }else{
      $_SESSION['loginErro'] = 1;
      header('Location: http://localhost/LI4/login.php');
