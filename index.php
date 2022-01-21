@@ -25,7 +25,8 @@ body {font-family: "Lato", sans-serif}
 
 <div class="w3-top">
   <div class="w3-bar w3-orange w3-card">
-    <img href="index.php" src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
+    <a href="index.php">
+    <img src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%"> </a>
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="login.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
     <a href="register.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">REGISTER</a>

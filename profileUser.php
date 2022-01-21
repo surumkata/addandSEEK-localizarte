@@ -35,223 +35,118 @@ if(str_contains($pfs[0],"1")){
   $behind = 1;
 }
 if(str_contains($pfs[0],"2")){
-  if($behind == 1) $preferences = $preferences."/Biographical";
+  if($behind == 1) $preferences = $preferences." Biographical";
   else {
     $preferences = $preferences."Biographical";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"3")){
-  if($behind == 1) $preferences = $preferences."/Community";
+  if($behind == 1) $preferences = $preferences." Community";
   else {
     $preferences = $preferences."Community";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"4")){
-  if($behind == 1) $preferences = $preferences."/Historical";
+  if($behind == 1) $preferences = $preferences." Historical";
   else {
     $preferences = $preferences."Historical";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"5")){
-  if($behind == 1) $preferences = $preferences."/Neighborhood";
+  if($behind == 1) $preferences = $preferences." Neighborhood";
   else {
     $preferences = $preferences."Neighborhood";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"6")){
-  if($behind == 1) $preferences = $preferences."/Military";
+  if($behind == 1) $preferences = $preferences." Military";
   else {
     $preferences = $preferences."Military";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"7")){
-  if($behind == 1) $preferences = $preferences."/Science";
+  if($behind == 1) $preferences = $preferences." Science";
   else {
     $preferences = $preferences."Science";
     $behind = 1;
   }
 }
 if(str_contains($pfs[0],"8")){
-  if($behind == 1) $preferences = $preferences."/Themed";
+  if($behind == 1) $preferences = $preferences." Themed";
   else {
     $preferences = $preferences."Themed";
     $behind = 1;
   }
 }
-
-
-
 ?>
 
-
-<!---
-<!DOCTYPE html>
-
 <html lang="en">
-<link rel="stylesheet" href="https://www.phptutorial.net/app/css/style.css">
-<head>
-  <title><?php echo $name; ?>'s profile</title>
-</head>
-<head>
-    <h1>User Profile</h1>
-    <meta charset="UTF-8">
-</head>
-<body>
-<main>
-  <form method="POST" action="editProfile/editImage.php">
-  <h2>Profile Picture: </h2>
-  <img src=<?php echo $profileImg; ?>>
-   <input type="submit" value="Edit Profile Picture"/>
-   </form>
-   <form method="POST" action="editProfile/editInfo.php">
-   <h2>Name: <?php echo $name; ?> </h2>
-   <h2>Username: <?php echo $username; ?> </h2>
-   <h2>Email: <?php echo $email; ?> </h2>
-   <h2>Birth date: <?php echo $birthdate; ?> </h2>
-   <input type="submit" value="Edit Info"/>
- </form>
-</main>
-</body>
---->
-
-<html lang="en">
-<link rel="stylesheet" href="https://www.phptutorial.net/app/css/style.css">
-<head>
-  <title><?php echo $name; ?>'s profile</title>
-</head>
 <head>
     <link href="css/profileUser.css" rel="stylesheet" id="profileUser-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"> </script>
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     <meta charset="UTF-8">
 </head>
 <body>
-<!-- Include the above in your HEAD tag ---------->
+  <div class="w3-top">
+    <div class="w3-bar w3-orange w3-card">
+      <a href="index.php">
+      <img src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%"> </a>
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
+      <a href="sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
+      <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+      <form method="GET" action="search.php">
+        <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
+      <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
+    </form>
+    </div>
+  </div>
+  <br><br>
 
-<div class="container">
-    <div class="main-body">
-
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
-
-          <div class="row gutters-sm">
-
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src=<?php echo $profileImg; ?> alt="Admin" class="rounded-circle" width="150">
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="60%" height="60%" src="<?php echo $profileImg; ?>"><br><span class="font-weight-bold"><?php echo $name; ?></span><span class="text-black-50"><?php echo $username; ?></span><span> </span></div>
+        </div>
+        <div class="col-md-9 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"><?php echo $name; ?>'s Profile</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Email</label><h6><?php echo $email ?></h6></div>
+                    <div class="col-md-6"><label class="labels">Birth Date</label><h6><?php echo $birthdate ?></h6></div>
                   </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6">
+                      <label class="labels">Preferences</label><h6><?php echo $preferences ?></h6>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-3">
+                      <a href="editProfile/editInfo.php" class="btn btn-primary profile-button" type="button">Edit Information</a>
+                  </div>
+                    <div class="col-md-3">
+                      <a href="historico.php" class="btn btn-primary profile-button" type="button">View History</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="editProfile/changePassword.php" class="btn btn-primary profile-button" target="_blank" rel="noopener noreferrer" type="button">Change Password</a>
+                </div>
                 </div>
               </div>
             </div>
-
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-
-                  <div class="row">
-                  <form method="POST" action="historico.php">
-                    <input type="submit" value="Histórico"/>
-                  </form>
-                  <hr>
-                </div>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?php echo $name; ?>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Password</h6>
-                    </div>
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " href="editProfile/changePassword.php">Change Password</a>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Username</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?php echo $username; ?>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?php echo $email; ?>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Birth date</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?php echo $birthdate; ?>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " href="editProfile/editInfo.php">Edit Info</a>
-                    </div>
-                  </div>
-
-                  <hr>
-
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <h6 class="mb-0">Preferences</h6>
-
-                      <?php
-
-                        echo $preferences;
-
-                      ?>
-
-
-
-                      <a class="btn btn-info " href="editProfile/changePreferences.php">Edit Preferences</a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-
         </div>
     </div>
-      </body>
+</div>
+</div>
+</div>
+</body>

@@ -1,53 +1,57 @@
-body{
-    margin-top:20px;
-    color: #1a202c;
-    text-align: left;
-    background-color: #e2e8f0;
-}
-.main-body {
-    padding: 15px;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+body {
+    background: #EFF4F8 !important;
 }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
 }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
 }
 
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
+.profile-button:hover {
+    background: #682773
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
 }
 
-.bg-gray-300 {
-    background-color: #e2e8f0;
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
 }
-.h-100 {
-    height: 100%!important;
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
 }
-.shadow-none {
-    box-shadow: none!important;
+
+.labels {
+    font-size: 11px
 }
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+.button-img{
+  border:none;
+  display:inline-block;
+  padding:16px 16px;
+  vertical-align:middle;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  background-color:inherit;
+  text-align:center;
+  cursor:pointer;
+  white-space:nowrap !important;}
