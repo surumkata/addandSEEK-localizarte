@@ -21,7 +21,7 @@ if(isSet($museum)){
     <html lang="en">
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
-      <link rel="stylesheet" href="../css/museumPage.css">
+      <link rel="stylesheet" href="../css/museumPage.css?ts=<?=time()?>">
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -29,72 +29,79 @@ if(isSet($museum)){
 
     <body>
     <main>
-      <form method="POST" action="../search.php">
-        <input type="hidden" name = 'search' value="<?php echo $search; ?>"/>
-        <input type="submit" value="Return"/>
-      </form>
-
-      <form method="POST" action="../logout.php">
-        <input type="submit" value="Log out"/>
-      </form>
-
-      <h1>
-        <?php echo $registo[0]; ?>
-      </h1>
-      <div id = "museumImage">
-            <img src=<?php echo $image; ?> alt="MuseumImage">
-      </div>
-
-      <h2>
-        <?php
-        echo $registo[1];
-        ?>
-
-      </h2>
-      <h3>
-        <div id = "ticketPrice">
-        <img src="../pictures/assets/ticket.png" alt="ticket">
-        Price: <?php echo $registo[2]; ?> $
-      </div>
-      </h3>
-      <h4>
-        <div class="webSite">
-          Site: <a href = <?php echo $registo[5]; ?>> Visit <?php echo $registo[0]; ?></a>
-
+      <header>
+        <nav class = "nav">
+            <div id = "returnButton">
+              <form method="POST" action="../search.php">
+                <input type="hidden" name = 'search' value="<?php echo $search; ?>"/>
+                <input type="submit" value="Return" class = "button"/>
+              </form>
+            </div>
+            <div id = "logOutButton">
+              <form method="POST" action="../logout.php">
+                <input type="submit" value="Log out" class = "button"/>
+              </form>
+          </div>
+        </nav>
+      </header>
+      <div class="mainbody">
+        <div id = "museumTitle">
+          <p><?php echo $registo[0]; ?></p>
         </div>
-      </h4>
-
-      <h5>
-        <div class="contact">
-          Contact: <?php echo $registo[4]; ?>
+        <div id = "museumImage">
+              <img src=<?php echo $image; ?> alt="MuseumImage">
         </div>
-      </h5>
 
-      <h6>
-        <div class="categories">
+        <h2>
           <?php
-            $categories = explode(";",$registo[3]);
-            foreach ($categories as &$value) {
-              echo $value;
-            }
+          echo $registo[1];
+          ?>
 
-           ?>
-
+        </h2>
+        <h3>
+          <div id = "ticketPrice">
+          <img src="../pictures/assets/ticket.png" alt="ticket">
+          Price: <?php echo $registo[2]; ?> $
         </div>
-      </h6>
+        </h3>
+        <h4>
+          <div class="webSite">
+            Site: <a href = <?php echo $registo[5]; ?>> Visit <?php echo $registo[0]; ?></a>
 
-      <h6>
-        <div class="description">
-          Description: <?php echo $registo[6]; ?>
-        </div>
-      </h6>
+          </div>
+        </h4>
+
+        <h5>
+          <div class="contact">
+            Contact: <?php echo $registo[4]; ?>
+          </div>
+        </h5>
+
+        <h6>
+          <div class="categories">
+            <?php
+              $categories = explode(";",$registo[3]);
+              foreach ($categories as &$value) {
+                echo $value;
+              }
+
+             ?>
+
+          </div>
+        </h6>
+
+        <h6>
+          <div class="description">
+            Description: <?php echo $registo[6]; ?>
+          </div>
+        </h6>
 
 
-      <form method="POST" action="museumEdit.php">
-        <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
-        <input type="submit" value="Edit"/>
-      </form>
-
+        <form method="POST" action="museumEdit.php">
+          <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
+          <input type="submit" value="Edit"/>
+        </form>
+      </div>
     </main>
     </body>
 
