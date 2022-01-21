@@ -56,15 +56,14 @@ if(isSet($museum)){
       </h3>
       <h4>
         <div class="webSite">
-
-          Site: <a href = <?php echo $registo[6]; ?>> Visit <?php echo $registo[0]; ?></a>
+          Site: <a href = <?php echo $registo[5]; ?>> Visit <?php echo $registo[0]; ?></a>
 
         </div>
       </h4>
 
       <h5>
         <div class="contact">
-          Contact: <?php echo $registo[5]; ?>
+          Contact: <?php echo $registo[4]; ?>
         </div>
       </h5>
 
@@ -78,6 +77,12 @@ if(isSet($museum)){
 
            ?>
 
+        </div>
+      </h6>
+
+      <h6>
+        <div class="description">
+          Description: <?php echo $registo[6]; ?>
         </div>
       </h6>
 
