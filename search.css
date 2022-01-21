@@ -32,15 +32,6 @@
   margin-top: 5vh;
 }
 
-.mlogo{
-  position: fixed;
-  height: 12vh;
-  width: 12vh;
-  background-color: #555;
-}
-
-
-
 .title{
 
   display: flex;
@@ -55,8 +46,8 @@
   display: flex;
   position: fixed;
   margin-top: 6vh;
-  margin-left:15vh;
-  font-size: 15px;
+  margin-left:17vh;
+  font-size: 12px;
 
 }
 

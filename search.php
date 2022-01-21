@@ -3,8 +3,8 @@ require_once("connectDB.php");
 $searchkey = strtolower($_POST['search']);
 
 $searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
-//serchByPreferences
-//search by parts of the search key
+//TODO : fazer outras queries de pesquisa
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +20,10 @@ $searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$s
          <table>
            <?php
               while($row = mysqli_fetch_assoc($searchByName)){
+                $refName = str_replace(' ', '-', $row["name"]);
+                $textName = ucfirst($row["name"]);
                 echo "<tr>";
-                echo "<td class=mlogo><img></img></td>";
-                echo "<td class=title>".$row["name"]." </td>";
+                echo "<td class=title><a href=museum/museum.php?name=".$refName .">".$textName." </a> </td>";
                 echo "<td class=adress>".$row["adress"]." </td>";
                 echo "</tr>";
 
