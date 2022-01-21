@@ -161,7 +161,7 @@ if(str_contains($pfs[0],"8")){
                 <div class="card-body">
 
                   <div class="row">
-                  <form method="POST" action="historico.php">
+                  <form method="POST" action="history.php">
                     <input type="submit" value="Histórico"/>
                   </form>
                   <hr>

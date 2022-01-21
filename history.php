@@ -1,12 +1,8 @@
 <?php
 require_once("connectDB.php");
-$searchkey = str_replace('+',' ',strtolower($_GET['key']));
-$_SESSION['searchKey'] = $searchkey;
 
-$searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
-$searchBySubString = mysqli_query($connection,"SELECT * FROM museums WHERE name LIKE '%$searchkey%' ");
-$rowNumb = mysqli_num_rows ( $searchBySubString );
-//TODO : fazer outras queries de pesquisa
+//get 5 last visited places order by datetime
+$result = mysqli_query($connection,"SELECT museum FROM history WHERE username='".$_SESSION['username']."' ORDER BY datetime DESC LIMIT 5 ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +10,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" type="text/css" href="css/searchPage.css">
+    <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,6 +20,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
     </style>
   </head>
   <body>
+
     <div class="w3-top">
       <div class="w3-bar w3-orange w3-card">
         <img href="index.php" src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
@@ -41,19 +39,13 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
        <div class="container-table">
          <table>
            <?php
-            if($rowNumb>0){
-              while($row = mysqli_fetch_assoc($searchBySubString)){
-                $refName = str_replace(' ', '-', $row["name"]);
-                $textName = ucfirst($row["name"]);
+              while(($row = mysqli_fetch_assoc($result)) ){
+                $textName = ucfirst($row["museum"]);
+                $refName = str_replace(' ', '-', $row["museum"]);
                 echo "<tr>";
                 echo "<td class=title><a href=museum/museum.php?name=".$refName .">".$textName." </a> </td>";
-                echo "<td class=adress>".$row["adress"]." </td>";
                 echo "</tr>";
-              }
-            }else{
-                  echo "<h1 class=notFound>No results...</h1>";
-              }
-              ?>
+              }?>
 
           </table>
 
@@ -63,18 +55,3 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 
   </body>
 </html>
-
-<!---
-<div class="container-footer">
-    <ul class="pagination">
-      <li><a href="#">«</a></li>
-      <li><a href="#">1</a></li>
-      <li><a class="active" href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">»</a></li>
-    </ul>
-</div>->

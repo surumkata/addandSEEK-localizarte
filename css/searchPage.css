@@ -42,6 +42,13 @@
 
 }
 
+.notFound{
+  margin-left:40vh;
+  font-size: 13px;
+  color: red;
+
+}
+
 tr:nth-child(odd){
   background-color: #cce6ff;
 }
