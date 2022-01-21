@@ -18,32 +18,32 @@
         <h1>Sign Up</h1>
         <div>
             <label for="name">Name:</label>
-            <input type="name" name="name" id="name">
+            <input type="name" required name="name" id="name">
         </div>
         <div>
             <label for="username">Username:</label>
-            <input type="text" name="username" id="username">
+            <input type="text" required name="username" id="username">
         </div>
         <div>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" required name="email" id="email">
         </div>
 
         <div>
               <label for="birthdate">Birth date:</label>
-              <input type="date" id="birthdate" name="birthdate" max='<?php echo $today; ?>' min="1920-01-01"><br>
+              <input type="date" id="birthdate" required name="birthdate" max='<?php echo $today; ?>' min="1920-01-01"><br>
         </div>
         <div>
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" required name="password" id="password">
         </div>
         <div>
             <label for="password2">Password Again:</label>
-            <input type="password" name="password2" id="password2">
+            <input type="password" required name="password2" id="password2">
         </div>
         <div>
             <label for="agree">
-                <input type="checkbox" name="agree" id="agree" value="yes"/> I agree
+                <input type="checkbox" required name="agree" id="agree" value="yes"/> I agree
                 with the
                 <a href="#" title="term of services">term of services</a>
             </label>
