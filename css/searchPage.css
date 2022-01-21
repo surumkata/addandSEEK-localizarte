@@ -1,23 +1,13 @@
 
 .container{
-  display: flex;
-  position: relative;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
   color: #066;
 
 }
 
 .container-table{
-    display:flex;
-    position: relative;
-    flex-wrap: wrap;
-    background-color:  white;
-
 
     border-radius: 8px;
-
     margin-top: 20vh;
     margin-right: 45vh;
     margin-left: 45vh;
@@ -46,8 +36,9 @@
   display: flex;
   position: fixed;
   margin-top: 6vh;
-  margin-left:17vh;
-  font-size: 12px;
+  margin-left:20vh;
+
+  font-size: 13px;
 
 }
 

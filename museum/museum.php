@@ -3,6 +3,11 @@ require_once("../connectDB.php");
 
 
 $museum = str_replace('-', ' ',$_GET['name']);
+
+//add to history
+mysqli_query($connection,"INSERT INTO history (museum,username) values('$museum','".$_SESSION['username']."') ");
+
+
 $search = $_SESSION['searchKey'];
 
 if(isSet($museum)){

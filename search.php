@@ -2,16 +2,18 @@
 require_once("connectDB.php");
 $searchkey = str_replace('+',' ',strtolower($_GET['key']));
 $_SESSION['searchKey'] = $searchkey;
-$searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
-//TODO : fazer outras queries de pesquisa
 
+$searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
+$searchBySubString = mysqli_query($connection,"SELECT * FROM museums WHERE name LIKE '%$searchkey%' ");
+
+//TODO : fazer outras queries de pesquisa
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" type="text/css" href="search.css">
+	  <link rel="stylesheet" type="text/css" href="css/searchPage.css">
   </head>
   <body>
 
@@ -19,7 +21,7 @@ $searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$s
        <div class="container-table">
          <table>
            <?php
-              while($row = mysqli_fetch_assoc($searchByName)){
+              while($row = mysqli_fetch_assoc($searchBySubString)){
                 $refName = str_replace(' ', '-', $row["name"]);
                 $textName = ucfirst($row["name"]);
                 echo "<tr>";
