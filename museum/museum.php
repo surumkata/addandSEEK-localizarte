@@ -7,7 +7,6 @@ $museum = str_replace('-', ' ',$_GET['name']);
 //add to history
 mysqli_query($connection,"INSERT INTO history (museum,username) values('$museum','".$_SESSION['username']."') ");
 
-
 $search = $_SESSION['searchKey'];
 
 if(isSet($museum)){
@@ -27,90 +26,74 @@ if(isSet($museum)){
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
       <link rel="stylesheet" href="../css/museumPage.css?ts=<?=time()?>">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
 
-    <body>
-    <main>
-      <header>
-        <nav class = "nav">
-            <div id = "returnButton">
-              <form method="POST" action="../search.php">
-                <input type="hidden" name = 'search' value="<?php echo $search; ?>"/>
-                <input type="submit" value="Return" class = "button"/>
-              </form>
-            </div>
-            <div id = "logOutButton">
-              <form method="POST" action="../logout.php">
-                <input type="submit" value="Log out" class = "button"/>
-              </form>
-          </div>
-        </nav>
-      </header>
-      <div class="mainbody">
-        <div id = "museumTitle">
-          <p><?php echo $registo[0]; ?></p>
-        </div>
-        <div id = "museumImage">
-              <img src=<?php echo $image; ?> alt="MuseumImage">
-        </div>
-
-        <h2>
-          <?php
-          echo $registo[1];
-          ?>
-
-        </h2>
-        <h3>
-          <div id = "ticketPrice">
-          <img src="../pictures/assets/ticket.png" alt="ticket">
-          Price: <?php echo $registo[2]; ?> $
-        </div>
-        </h3>
-        <h4>
-          <div class="webSite">
-            Site: <a href = <?php echo $registo[5]; ?>> Visit <?php echo $registo[0]; ?></a>
-
-          </div>
-        </h4>
-
-        <h5>
-          <div class="contact">
-            Contact: <?php echo $registo[4]; ?>
-          </div>
-        </h5>
-
-        <h6>
-          <div class="categories">
-            <?php
-              $categories = explode(";",$registo[3]);
-              foreach ($categories as &$value) {
-                echo $value;
-              }
-
-             ?>
-
-          </div>
-        </h6>
-
-        <h6>
-          <div class="description">
-            Description: <?php echo $registo[6]; ?>
-          </div>
-        </h6>
-
-
-        <form method="POST" action="museumEdit.php">
-          <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
-          <input type="submit" value="Edit"/>
+    <body style="background-color:#eff4f8">
+      <div class="w3-top">
+        <div class="w3-bar w3-orange w3-card">
+          <img href="../index.php" src="../pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
+          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a href="../profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
+          <a href="../sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+          <form method="GET" action="../search.php">
+            <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
+          <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
         </form>
+        </div>
       </div>
-    </main>
+
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%" id="body">
+        <h1 class="w3-wide"><?php echo $registo[0]; ?></h1>
+        <div style="padding:3%">
+          <img src=<?php echo $image;?> class="w3-image" alt="Museum" style="width:70%">
+        </div>
+        <footer class="w3-container w3-padding-64 w3-left-align w3-opacity w3-white w3-large" style="width:100%;height:150%">
+          <img src="../pictures/assets/location.png" alt="address" style="width:5%">
+          <a>Adress: <?php echo $registo[1];?> </a>
+          <br><br>
+          <img src="../pictures/assets/ticket.png" alt="ticket" style="width:4%">
+          <a>Price: <?php echo $registo[2]; ?> $</a>
+          <br><br>
+          <img src="../pictures/assets/website.png" alt="site" style="width:4%">
+          <a>Site:  <a href = <?php echo $registo[5]; ?>> Visit <?php echo $registo[0]; ?></a>
+          <br><br>
+          <img src="../pictures/assets/contact.png" alt="contact" style="width:4%">
+          <a>Contact: <?php echo $registo[4]; ?></a>
+          <br><br>
+
+
+          <img src="../pictures/assets/category.png" alt="categories" style="width:4%">
+          <a>Categories:</a>
+          <?php
+            $categories = explode(";",$registo[3]);
+            foreach ($categories as &$value) {
+              switch ($value) {
+                case '1':
+                  echo "painting";
+                  break;
+
+                default:
+                  echo "Preciso corrigir";
+                  break;
+              }
+            }
+           ?>
+           <br><br>
+           <a><strong>Description:</strong><p><?php echo $registo[6]; ?></p></a>
+
+           <form method="POST" action="museumEdit.php">
+             <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
+             <input type="submit" class="w3-button" value="Edit" style="position:relative;left:90%"/>
+           </form>
+        </footer>
+
+    </div>
     </body>
-
-
     <?php
   }else{
     echo "museum not found";

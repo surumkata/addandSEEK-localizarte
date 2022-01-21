@@ -1,9 +1,9 @@
 <?php
 
 require_once("../connectDB.php");
-
+$oldName = $_POST['oldName'];
 $newName = $_POST['museumName'];
-$newImage = str_replace(' ', '_',$newName);
+$newImage = str_replace(' ', '_',$newName).$_SESSION['username'];
 
 if(isSet($_FILES["fileToUpload"])){
   $target_dir = "../pictures/submissions/";
@@ -66,7 +66,7 @@ if ($uploadOk == 0) {
   $contact = $_POST['contact'];
   $categories = $_POST['categories'];
   $description = $_POST['description'];
-  $oldName = $_POST['oldName'];
+
 
   $id = $oldName .";".$_SESSION['username'];
   $consult = "SELECT * FROM requests WHERE (LOWER( id ) = LOWER('".$id."'))";
@@ -90,7 +90,9 @@ if ($uploadOk == 0) {
       echo " nao conseguiu inserir";
     }
   }
-  header('Location: http://localhost/LI4/museum/museum.php');
-
 }
+  $refName = str_replace(' ', '-', $oldName);
+  header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
+
+
 ?>
