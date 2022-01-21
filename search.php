@@ -1,7 +1,7 @@
 <?php
 require_once("connectDB.php");
-$searchkey = strtolower($_POST['search']);
-$_SESSION['searchKey'] = strtolower($_POST['search']);
+$searchkey = str_replace('+',' ',strtolower($_GET['key']));
+$_SESSION['searchKey'] = $searchkey;
 $searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
 //TODO : fazer outras queries de pesquisa
 
