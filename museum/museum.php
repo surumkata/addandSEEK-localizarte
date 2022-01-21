@@ -2,7 +2,7 @@
 require_once("../connectDB.php");
 
 
-$museum = "museu do prado";
+$museum = str_replace('-', ' ',$_GET['name']);
 $search = $_SESSION['searchKey'];
 
 if(isSet($museum)){

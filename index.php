@@ -40,8 +40,8 @@ $_SESSION['loginErro'] = 0;
 </form>
 
 
-  <form method="POST" action="search.php">
-    <input type="text" name="search" id="search">
+  <form method="GET" action="search.php">
+    <input type="text" name="key" id="search">
     <?php // TODO: runlo mete condicao de procurar alguma coisa
           // antes de redirecionar no Search ?>
     <button type="submit">Search</button>
