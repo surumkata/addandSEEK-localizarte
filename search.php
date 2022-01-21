@@ -22,13 +22,15 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
     .mySlides {display: none}
     </style>
   </head>
-  <body>
+  <body style="background-color: #eff4f8">
     <div class="w3-top">
       <div class="w3-bar w3-orange w3-card">
         <img href="index.php" src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-        <a href="sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
+        <a href="sugestion.php">
+        <img class="w3-bar-item w3-button w3-padding-large w3-hide-small" src="pictures/assets/dice.png" width="50" height="50">
+        </a>
         <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
         <form method="GET" action="search.php">
           <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
