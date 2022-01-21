@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 21, 2022 at 03:59 PM
+-- Generation Time: Jan 21, 2022 at 10:00 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -39,7 +39,28 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`id_history`, `username`, `museum`, `datetime`) VALUES
-(17, 'runlo', 'museu do prado', '2022-01-21 15:59:07');
+(17, 'runlo', 'museu do prado', '2022-01-21 15:59:07'),
+(18, 'runlo', 'museu do prado', '2022-01-21 16:25:03'),
+(19, 'runlo', 'museu do prado', '2022-01-21 16:25:20'),
+(20, 'runlo', 'museu do prado', '2022-01-21 16:28:48'),
+(21, 'runlo', 'museu do prado', '2022-01-21 16:34:56'),
+(22, 'runlo', 'museu do prado', '2022-01-21 16:47:55'),
+(23, 'runlo', 'museu de arqueologia D. Diogo de Sousa', '2022-01-21 17:03:58'),
+(24, 'runlo', 'museu do douro', '2022-01-21 17:11:38'),
+(25, 'runlo', 'museu do douro', '2022-01-21 17:12:38'),
+(26, 'runlo', 'museu do douro', '2022-01-21 17:34:40'),
+(27, 'runlo', 'museu do douro', '2022-01-21 17:36:07'),
+(28, 'runlo', 'museu de arqueologia D. Diogo de Sousa', '2022-01-21 17:36:17'),
+(29, 'runlo', 'museu do prado', '2022-01-21 18:41:55'),
+(30, 'runlo', 'museu do prado', '2022-01-21 21:06:41'),
+(31, 'runlo', 'museu do prado', '2022-01-21 21:07:18'),
+(32, 'runlo', 'museu do prado', '2022-01-21 21:07:24'),
+(33, 'runlo', 'museu do prado', '2022-01-21 21:09:41'),
+(34, 'runlo', 'museu do prado', '2022-01-21 21:10:02'),
+(35, 'runlo', 'museu dos Biscaínhos', '2022-01-21 21:10:26'),
+(36, 'runlo', 'museu dos Biscaínhos', '2022-01-21 21:10:52'),
+(38, 'runlo', 'museu dos Biscaínhos', '2022-01-21 21:14:30'),
+(39, 'runlo', 'museu do prado', '2022-01-21 21:55:09');
 
 -- --------------------------------------------------------
 
@@ -62,7 +83,10 @@ CREATE TABLE `museums` (
 --
 
 INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `contact`, `website`, `description`) VALUES
-('museu do prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, '1', '+34913302800', 'https://www.museodelprado.es', '');
+('museu do prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, '1', '+34913302800', 'https://www.museodelprado.es', ''),
+('museu do douro', 'R. do Marquês de Pombal, 5050-282 Peso da Régua', 30, '8;3', '254 310 190', 'https://www.museudodouro.pt/', 'O Museu do Douro é um museu localizado em Peso da Régua dedicado ao estudo e divulgação do património da Região Demarcada do Douro e dos seus vinhos, nomeadamente o vinho do Porto. '),
+('museu de arqueologia D. Diogo de Sousa', 'Rua dos Bombeiros Voluntários', 3, '4;7', '253 615 844', 'mdds.imc-ip.pt', 'O Museu de Arqueologia D. Diogo de Sousa é um museu de arqueologia'),
+('museu dos Biscaínhos', 'Rua dos Biscaínhos', 1, '4', '253 204 650', 'www.ipmuseus.pt/pt-PT/museus_palacios/ContentDetail.aspx?id=1111', 'O Palácio dos Biscainhos localiza-se na freguesia da Sé, cidade e concelho de Braga, distrito de mesmo nome, em Portugal. Foi erguido no século XVII e modificado ao longo dos séculos.');
 
 -- --------------------------------------------------------
 
@@ -111,7 +135,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `name`, `password`, `email`, `birthdate`, `admin`, `preferences`) VALUES
 ('biladeiro', 'biladeiro', '69ed29fa5d6c9707d8a0e494e10641f0', 'localizarte@outlook.pt', '2001-01-20', 1, ''),
-('runlo', 'Gonçalo Pereira', '6c6f35f15c9f3f7d88ddc5be3e746c23', 'phpmaster@gmail.com', '2001-05-06', 0, ''),
+('runlo', 'Gonçalo Pereira', '6c6f35f15c9f3f7d88ddc5be3e746c23', 'phpmaster@gmail.com', '2001-05-06', 0, '3;4;8'),
 ('surumkata', 'Tiago Silva', '1416bda6db1517eed29b34c964f70180', 'tstiagosilva2001@gmail.com', '2001-07-27', 0, '');
 
 --
@@ -151,7 +175,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables
