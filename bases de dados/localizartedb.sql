@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 20-Jan-2022 às 15:59
+-- Tempo de geração: 21-Jan-2022 às 01:29
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -33,18 +33,45 @@ CREATE TABLE IF NOT EXISTS `museums` (
   `adress` varchar(100) NOT NULL,
   `price` float NOT NULL,
   `categories` varchar(150) NOT NULL,
-  `picture` varchar(150) NOT NULL,
   `contact` varchar(40) NOT NULL,
   `website` varchar(150) NOT NULL,
+  `description` varchar(300) NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `museums`
 --
 
-INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `picture`, `contact`, `website`) VALUES
-('museu do prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, 'painting', '/pictures/museums/capa-museu-do-prado.jpg', '+34913302800', 'https://www.museodelprado.es');
+INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `contact`, `website`, `description`) VALUES
+('museu do prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, '1', '+34913302800', 'https://www.museodelprado.es', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `requests`
+--
+
+DROP TABLE IF EXISTS `requests`;
+CREATE TABLE IF NOT EXISTS `requests` (
+  `id` varchar(150) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `price` float NOT NULL,
+  `categories` varchar(15) NOT NULL,
+  `contact` varchar(40) NOT NULL,
+  `website` varchar(150) NOT NULL,
+  `picture` tinyint(1) NOT NULL,
+  `newName` varchar(60) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `requests`
+--
+
+INSERT INTO `requests` (`id`, `address`, `price`, `categories`, `contact`, `website`, `picture`, `newName`, `description`) VALUES
+('museu do prado;runlo', 'C. de Ruiz de AlarcÃ³n, 23, 28014 Madrid, Espanha', 15, '1', '+34913302800', 'https://www.museodelprado.es', 0, 'museu do prado', 'ganda fixe mesmo');
 
 -- --------------------------------------------------------
 
