@@ -3,17 +3,19 @@ require_once("../connectDB.php");
 
 
 $museum = "museu do prado";
+$search = $_SESSION['searchKey'];
 
 if(isSet($museum)){
   $consult = "SELECT * FROM museums WHERE (LOWER( name ) = LOWER('".$museum."'))";
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
-  $name = str_replace(' ', '_',$registo[0]);
-  $image = $string = "../pictures/museums/".$name.".png";
-  if (!file_exists($image)) {
-    $image = "../pictures/museums/museum_default.png";
-  }
-    ?>
+  if(mysqli_num_rows($resultado) > 0){
+    $name = str_replace(' ', '_',$registo[0]);
+    $image = $string = "../pictures/museums/".$name.".png";
+    if (!file_exists($image)) {
+      $image = "../pictures/museums/museum_default.png";
+    }
+      ?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -28,6 +30,7 @@ if(isSet($museum)){
     <body>
     <main>
       <form method="POST" action="../search.php">
+        <input type="hidden" name = 'search' value="<?php echo $search; ?>"/>
         <input type="submit" value="Return"/>
       </form>
 
@@ -100,6 +103,7 @@ if(isSet($museum)){
   }else{
     echo "museum not found";
   }
+}
 /*
      $going= 'Indore, MP 452001';
     $address =$going; // Google HQ

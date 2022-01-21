@@ -2,7 +2,8 @@
 
 require_once("../connectDB.php");
 
-echo "gravar cenas";
+$newName = $_POST['museumName'];
+$newImage = str_replace(' ', '_',$newName);
 
 if(isSet($_FILES["fileToUpload"])){
   $target_dir = "../pictures/submissions/";
@@ -10,7 +11,7 @@ if(isSet($_FILES["fileToUpload"])){
   $notUpload = 0;
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  $target_file = $target_dir . $_SESSION['username'] . "." . $imageFileType;
+  $target_file = $target_dir . $newImage . "." . $imageFileType;
   unset($_SESSION['museum_image']);
   // Check if image file is a actual image or fake image
   if(isset($_POST["submit"])) {
@@ -36,11 +37,12 @@ if(isSet($_FILES["fileToUpload"])){
   }
 
   // Check if $uploadOk is set to 0 by an error
-
-}else{
+}else{echo "entrei";
   $notUpload = 1;
   $uploadOk = 1;
 }
+
+echo $notUpload;
 
 if ($uploadOk == 0) {
   $_SESSION['upload'] = $error;
@@ -57,7 +59,7 @@ if ($uploadOk == 0) {
   if($notUpload == 1) $picture = 0;
   else  $picture = 1;
 
-  $newName = $_POST['museumName'];
+
   $address = $_POST['address'];
   $price = $_POST['price'];
   $site = $_POST['website'];

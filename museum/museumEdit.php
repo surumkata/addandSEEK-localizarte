@@ -28,7 +28,7 @@ if(isSet($museum)){
 
     <body>
     <main>
-    <form action="upload.php" method="post">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="oldName" value="<?php echo $museum ?>">
       <h1>
         <input type="text" class="form-control" required name="museumName" value="<?php echo $registo[0]; ?>" $
