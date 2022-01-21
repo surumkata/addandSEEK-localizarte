@@ -16,6 +16,75 @@ if (!file_exists($profileImg)) {
 }
 
 
+$consult = "SELECT preferences FROM users WHERE username = ('" . $_SESSION['username'] . "')";
+$resultado = mysqli_query($connection,$consult);
+$pfs = mysqli_fetch_row($resultado);
+
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+$preferences = "";
+
+$behind = 0;
+
+if(str_contains($pfs[0],"1")){
+  $preferences = "Art";
+  $behind = 1;
+}
+if(str_contains($pfs[0],"2")){
+  if($behind == 1) $preferences = $preferences."/Biographical";
+  else {
+    $preferences = $preferences."Biographical";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"3")){
+  if($behind == 1) $preferences = $preferences."/Community";
+  else {
+    $preferences = $preferences."Community";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"4")){
+  if($behind == 1) $preferences = $preferences."/Historical";
+  else {
+    $preferences = $preferences."Historical";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"5")){
+  if($behind == 1) $preferences = $preferences."/Neighborhood";
+  else {
+    $preferences = $preferences."Neighborhood";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"6")){
+  if($behind == 1) $preferences = $preferences."/Military";
+  else {
+    $preferences = $preferences."Military";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"7")){
+  if($behind == 1) $preferences = $preferences."/Science";
+  else {
+    $preferences = $preferences."Science";
+    $behind = 1;
+  }
+}
+if(str_contains($pfs[0],"8")){
+  if($behind == 1) $preferences = $preferences."/Themed";
+  else {
+    $preferences = $preferences."Themed";
+    $behind = 1;
+  }
+}
+
+
 
 ?>
 
@@ -92,11 +161,29 @@ if (!file_exists($profileImg)) {
                 <div class="card-body">
 
                   <div class="row">
+                  <form method="POST" action="historico.php">
+                    <input type="submit" value="Histórico"/>
+                  </form>
+                  <hr>
+                </div>
+
+                  <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       <?php echo $name; ?>
+                    </div>
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Password</h6>
+                    </div>
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " href="editProfile/changePassword.php">Change Password</a>
                     </div>
                   </div>
 
@@ -139,8 +226,23 @@ if (!file_exists($profileImg)) {
                     <div class="col-sm-12">
                       <a class="btn btn-info " href="editProfile/editInfo.php">Edit Info</a>
                     </div>
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " href="editProfile/changePassword.php">Change Password</a>
+                      <h6 class="mb-0">Preferences</h6>
+
+                      <?php
+
+                        echo $preferences;
+
+                      ?>
+
+
+
+                      <a class="btn btn-info " href="editProfile/changePreferences.php">Edit Preferences</a>
                     </div>
                   </div>
 

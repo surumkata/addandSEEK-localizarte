@@ -36,6 +36,14 @@ require_once("../connectDB.php");
                 <input type="password" name = "newpsw2" value="" required class="form-control" placeholder="Confirm Password">
             </div>
 
+            <div>
+              <?php if(isSet($_SESSION['error'])){
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+                }
+              ?>
+            </div>
+
             <div class="col-sm-9 text-secondary">
               <input type="submit" class="btn btn-primary px-4" value="Save Changes">
             </div>
