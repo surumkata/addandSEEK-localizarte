@@ -1,6 +1,5 @@
-
 <?php
-require_once("connectDB.php");
+require_once("../connectDB.php");
 
 
 $museum = "museu do prado";
@@ -9,14 +8,18 @@ if(isSet($museum)){
   $consult = "SELECT * FROM museums WHERE (LOWER( name ) = LOWER('".$museum."'))";
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
-
+  $name = str_replace(' ', '_',$registo[0]);
+  $image = $string = "../pictures/museums/".$name.".png";
+  if (!file_exists($image)) {
+    $image = "../pictures/museums/museum_default.png";
+  }
     ?>
 
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
-      <link rel="stylesheet" href="css/museumPage.css">
+      <link rel="stylesheet" href="../css/museumPage.css">
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,33 +27,37 @@ if(isSet($museum)){
 
     <body>
     <main>
-      <form method="POST" action="search.php">
+      <form method="POST" action="../search.php">
         <input type="submit" value="Return"/>
       </form>
 
-      <form method="POST" action="logout.php">
+      <form method="POST" action="../logout.php">
         <input type="submit" value="Log out"/>
       </form>
 
       <h1>
         <?php echo $registo[0]; ?>
       </h1>
-      <img src=<?php echo $registo[4]; ?> alt="MuseumImage">
+      <div id = "museumImage">
+            <img src=<?php echo $image; ?> alt="MuseumImage">
+      </div>
+
       <h2>
         <?php
         echo $registo[1];
         ?>
+
       </h2>
       <h3>
         <div id = "ticketPrice">
-        <img src="pictures/assets/ticket.png" alt="ticket">
+        <img src="../pictures/assets/ticket.png" alt="ticket">
         Price: <?php echo $registo[2]; ?> $
       </div>
       </h3>
       <h4>
         <div class="webSite">
 
-          Site: <?php echo $registo[6]; ?>
+          Site: <a href = <?php echo $registo[6]; ?>> Visit <?php echo $registo[0]; ?></a>
 
         </div>
       </h4>
@@ -75,7 +82,8 @@ if(isSet($museum)){
       </h6>
 
 
-      <form method="POST" action="logout.php">
+      <form method="POST" action="museumEdit.php">
+        <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
         <input type="submit" value="Edit"/>
       </form>
 
