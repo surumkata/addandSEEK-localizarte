@@ -16,7 +16,7 @@ $rowNumb = mysqli_num_rows($result);
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/table.css" rel="stylesheet"
+    <link href="css/table.css" rel="stylesheet">
   </head>
   <div class="w3-top orange">
     <div class="w3-bar w3-card">
@@ -42,8 +42,8 @@ $rowNumb = mysqli_num_rows($result);
           <div class="w3-center">
             <table class="table table-hover col-sm-2">
               <thead class="thead-custom">
-                <th>Museum Name</th>
-                <th>Username</th>
+                <th class="align-center">Museum Name</th>
+                <th class="align-center">Username</th>
               </thead>
               <tbody class="table-custom">
                 <?php
@@ -55,11 +55,14 @@ $rowNumb = mysqli_num_rows($result);
                        $userName = $names[1];
                      ?>
                      <tr onclick="window.location.assign('requestVal.php?m=<?php echo $refName .'&u='.$userName; ?>')">
-                        <td><?php echo $museuName;  ?></td>                                                  <!--coluna do museu-->
-                        <td><?php echo $userName;   ?></td>                                                    <!--coluna do username-->
-                     </tr> <?php }}else{
-                       echo "No submssions!";
-                     } ?>
+                        <td class="align-center"><?php echo $museuName;  ?></td>                                                  <!--coluna do museu-->
+                        <td class="align-center"><?php echo $userName;   ?></td>                                                    <!--coluna do username-->
+                     </tr> <?php }}else{?>
+                        <td>No submissions...</td>
+                        <td></td>
+                  <?php
+                     }
+                     ?>
               </tbody>
             </table>
           </div>
