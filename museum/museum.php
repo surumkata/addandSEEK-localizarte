@@ -1,6 +1,8 @@
 <?php
 require_once("../connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
 
 $museum = str_replace('-', ' ',$_GET['name']);
 $_SESSION['museum'] = $museum;
@@ -177,6 +179,10 @@ $behind = 1;
     echo "museum not found";
   }
 }
+}
+}
+else header('Location: http://localhost/LI4/login.php');
+
 /*
      $going= 'Indore, MP 452001';
     $address =$going; // Google HQ

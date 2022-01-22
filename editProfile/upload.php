@@ -2,6 +2,9 @@
 
 require_once("../connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
 $target_dir = "../pictures/users/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -43,4 +46,7 @@ if ($uploadOk == 0) {
       header('Location: http://localhost/Li4/editProfile/editImage.php');
   }
 }
+}
+}
+else header('Location: http://localhost/LI4/login.php');
 ?>

@@ -1,6 +1,12 @@
 <?php
 require_once("connectDB.php");
 
+
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+    if($_SESSION['type'] == "admin"){
+
+
 $aux = $_GET["m"];
 $user = $_GET["u"];
 
@@ -120,3 +126,11 @@ $row = mysqli_fetch_assoc($result);
 
   </body>
 </html>
+
+<?php
+}else{
+  echo "Permition Denied";
+}
+}
+}else header('Location: http://localhost/LI4/login.php');
+?>

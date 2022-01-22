@@ -1,6 +1,10 @@
 <?php
 require_once("connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+    if($_SESSION['type'] == "admin"){
+
 $consult = "SELECT id FROM requests";
 $result = mysqli_query($connection,$consult);
 $rowNumb = mysqli_num_rows($result);
@@ -81,3 +85,10 @@ $rowNumb = mysqli_num_rows($result);
 
   </body>
 </html>
+<?php
+}else{
+  echo "Permition Denied";
+}
+}
+}else header('Location: http://localhost/LI4/login.php');
+?>

@@ -1,6 +1,10 @@
 <?php
 require_once("connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
 $consult = "SELECT * FROM users WHERE username = ('" . $_SESSION['username'] . "')";
 $resultado = mysqli_query($connection,$consult);
 $registo = mysqli_fetch_row($resultado);
@@ -162,3 +166,7 @@ if(str_contains($pfs[0],"8")){
 </div>
 </div>
 </body>
+<?php }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

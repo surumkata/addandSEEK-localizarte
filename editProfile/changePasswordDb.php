@@ -1,6 +1,11 @@
 <?php
 require_once("../connectDB.php");
 
+
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
 $currentpsw = $_POST['currentpsw'];
 $newpsw = $_POST['newpsw'];
 $newpsw2 = $_POST['newpsw2'];
@@ -33,5 +38,7 @@ else{
 }
 
 
-
- ?>
+}
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

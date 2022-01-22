@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
 require_once("../connectDB.php");
+
+
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
 $username = $_SESSION['username'];
 $profileImg = "../pictures/users/" . $username . ".png";
 if (!file_exists($profileImg)) {
@@ -32,3 +37,7 @@ if (!file_exists($profileImg)) {
   </form>
 </main>
 </body>
+<?php }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

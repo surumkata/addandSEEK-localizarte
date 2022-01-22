@@ -1,5 +1,11 @@
 <?php
 require_once("connectDB.php");
+
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
+
 $searchkey = str_replace('+',' ',strtolower($_GET['key']));
 $_SESSION['searchKey'] = $searchkey;
 
@@ -94,3 +100,8 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 
 	</body>
 </html>
+<?php
+  }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>
