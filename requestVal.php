@@ -77,13 +77,15 @@ $row = mysqli_fetch_assoc($result);
 
           <form action="approve.php" method="post">
             <input type="hidden" name="reqID" value=<?php echo $postID; ?>>
-            <input type="submit" value="Approve" />
+            <input type="image" id="image" alt="Approve" src="pictures/assets/yes.png"/>
           </form>
 
           <form action="reject.php" method="post">
               <input type="hidden" name="reqID" value=<?php echo $postID; ?>>
-              <input type="submit" value="Reject" />
+              <input type="image" id="image" alt="Reject" src="pictures/assets/no.png"/>
           </form>
+
+
 
 
         </div>
