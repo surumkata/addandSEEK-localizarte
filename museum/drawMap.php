@@ -32,7 +32,7 @@ if(isSet($_SESSION['username'])){
 <!DOCTYPE html>
         <html>
            <head>
-              <title>$location map</title>
+              <title>Map</title>
               <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
               <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>

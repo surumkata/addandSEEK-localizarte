@@ -87,6 +87,7 @@ if(str_contains($pfs[0],"8")){
 
 <html lang="en">
 <head>
+    <title>Profile</title>
     <link href="css/default.css" rel="stylesheet">
     <link href="css/profileUser.css" rel="stylesheet" id="profileUser-css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">

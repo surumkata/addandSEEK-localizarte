@@ -6,7 +6,7 @@ $_SESSION['loginErro'] = 0;
 
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/default.css">

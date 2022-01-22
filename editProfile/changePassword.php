@@ -4,7 +4,7 @@ require_once("../connectDB.php");
 
 <html lang="en">
 <head>
-  <title>change password</title>
+  <title>Change password</title>
 </head>
 <head>
     <link rel="stylesheet" href="../css/password.css">
