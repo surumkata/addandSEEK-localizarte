@@ -6,7 +6,7 @@ $password = "";
 $db_name = "localizarteDB";
 // Create connection
 $connection = mysqli_connect($servername, $username, $password, $db_name);
-
+mysqli_set_charset($connection,'utf8');
 session_start();
 
 
