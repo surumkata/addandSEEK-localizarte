@@ -7,7 +7,6 @@ $museum = str_replace('-', ' ',$_GET['name']);
 //add to history
 mysqli_query($connection,"INSERT INTO history (museum,username) values('$museum','".$_SESSION['username']."') ");
 
-$search = $_SESSION['searchKey'];
 
 if(isSet($museum)){
   $consult = "SELECT * FROM museums WHERE (LOWER( name ) = LOWER('".$museum."'))";
@@ -125,7 +124,7 @@ $behind = 1;
           <img src=<?php echo $image;?> class="w3-image" alt="Museum" style="width:70%">
         </div>
         <footer class="w3-container w3-padding-64 w3-left-align w3-opacity w3-white w3-large" style="width:100%;height:150%">
-          <a href="drawMap.php?address=<?php echo $registo[1];?>&name=<?php echo $museum; ?>">
+          <a href="drawMap.php?address=<?php echo $registo[1];?>&name=<?php echo $museum; ?>" style="text-decoration:none">
             <img src="../pictures/assets/location.png" alt="address" style="width:5%">
           </a>
           <a>Adress: <?php echo $registo[1];?> </a>
