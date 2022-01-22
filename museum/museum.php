@@ -19,6 +19,70 @@ if(isSet($museum)){
     if (!file_exists($image)) {
       $image = "../pictures/museums/museum_default.png";
     }
+    if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+$preferences = "";
+
+$behind = 0;
+
+if(str_contains($registo[3],"1")){
+  $preferences = "Art";
+  $behind = 1;
+}
+if(str_contains($registo[3],"2")){
+  if($behind == 1) $preferences = $preferences." Biographical";
+  else {
+    $preferences = $preferences."Biographical";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"3")){
+  if($behind == 1) $preferences = $preferences." Community";
+  else {
+    $preferences = $preferences."Community";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"4")){
+  if($behind == 1) $preferences = $preferences." Historical";
+  else {
+    $preferences = $preferences."Historical";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"5")){
+  if($behind == 1) $preferences = $preferences." Neighborhood";
+  else {
+    $preferences = $preferences."Neighborhood";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"6")){
+  if($behind == 1) $preferences = $preferences." Military";
+  else {
+    $preferences = $preferences."Military";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"7")){
+  if($behind == 1) $preferences = $preferences." Science";
+  else {
+    $preferences = $preferences."Science";
+    $behind = 1;
+  }
+}
+if(str_contains($registo[3],"8")){
+  if($behind == 1) $preferences = $preferences." Themed";
+  else {
+    $preferences = $preferences."Themed";
+    $behind = 1;
+  }
+}
+
       ?>
 
     <!DOCTYPE html>
@@ -27,6 +91,7 @@ if(isSet($museum)){
       <title>Localizarte-<?php echo $museum ;?></title>
       <link rel="stylesheet" href="../css/museumPage.css?ts=<?=time()?>">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -53,7 +118,9 @@ if(isSet($museum)){
           <img src=<?php echo $image;?> class="w3-image" alt="Museum" style="width:70%">
         </div>
         <footer class="w3-container w3-padding-64 w3-left-align w3-opacity w3-white w3-large" style="width:100%;height:150%">
-          <img src="../pictures/assets/location.png" alt="address" style="width:5%">
+          <a href="drawMap.php?address=<?php echo $registo[1];?>&name=<?php echo $museum; ?>">
+            <img src="../pictures/assets/location.png" alt="address" style="width:5%">
+          </a>
           <a>Adress: <?php echo $registo[1];?> </a>
           <br><br>
           <img src="../pictures/assets/ticket.png" alt="ticket" style="width:4%">
@@ -65,24 +132,8 @@ if(isSet($museum)){
           <img src="../pictures/assets/contact.png" alt="contact" style="width:4%">
           <a>Contact: <?php echo $registo[4]; ?></a>
           <br><br>
-
-
           <img src="../pictures/assets/category.png" alt="categories" style="width:4%">
-          <a>Categories:</a>
-          <?php
-            $categories = explode(";",$registo[3]);
-            foreach ($categories as &$value) {
-              switch ($value) {
-                case '1':
-                  echo "painting";
-                  break;
-
-                default:
-                  echo "Preciso corrigir";
-                  break;
-              }
-            }
-           ?>
+          <a>Categories:<?php echo $preferences ?></a>
            <br><br>
            <a><strong>Description:</strong><p><?php echo $registo[6]; ?></p></a>
 

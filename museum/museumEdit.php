@@ -15,13 +15,67 @@ if(isSet($museum)){
     $image = "../pictures/museums/museum_default.png";
   }
 
+  if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+  }
+
+  $preferences = $registo[6];
+
+
+  $art = 0;
+  $biographical = 0;
+  $community = 0;
+  $historical = 0;
+  $neighborhood = 0;
+  $military = 0;
+  $science = 0;
+  $themed = 0;
+
+  if(str_contains($preferences,"1")){
+    $art = 1;
+  }
+  if(str_contains($preferences,"2")){
+    $biographical = 1;
+  }
+  if(str_contains($preferences,"3")){
+    $community = 1;
+  }
+  if(str_contains($preferences,"4")){
+    $historical = 1;
+  }
+  if(str_contains($preferences,"5")){
+    $neighborhood = 1;
+  }
+  if(str_contains($preferences,"6")){
+    $military = 1;
+  }
+  if(str_contains($preferences,"7")){
+    $science = 1;
+  }
+  if(str_contains($preferences,"8")){
+    $themed = 1;
+  }
+
     ?>
 
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
+      <link href="../css/preferencesOnly.css" rel="stylesheet">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+      <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+    function chk(j) {
+      var total=0;
+      var elem = document.getElementsByName('preferences[]');
+      for(var i=0; i < elem.length; i++){
+        if(elem[i].checked==true){
+          total =total +1;}
+      }
+    } </script>
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -80,17 +134,26 @@ if(isSet($museum)){
           <label for="contact">Contact:</label>
           <input type="text" class="form-control" required name="contact" value="<?php echo $registo[4]; ?>" />
           <br><br>
-          <h6>
-            <div class="categories">
-              <?php
-                $categories = explode(";",$registo[3]);
-                foreach ($categories as &$value) {
-                  echo $value;
-                }
-               ?>
-               <input type="hidden" name="categories" value="<?php echo $registo[3] ?>">
-            </div>
-          </h6>
+          <img src="../pictures/assets/category.png" alt="category" style="width:4%">
+          <label class="labels">Categories:</label>
+                    <ul class="ks-cboxtags">
+                      <?php if($art == 0){ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" onclick='chk(0)'><label for="checkboxOne">Art</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" checked><label for="checkboxOne">Art</label></li> <?php  } ?>
+                      <?php if($biographical == 0){ ?> <li><input type="checkbox" id="checkboxTwo" name="preferences[]" value="2" onclick='chk(1)'><label for="checkboxTwo">Biographical</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxTwo" name="preferences[]" value="2" checked><label for="checkboxTwo">Biographical</label></li> <?php  } ?>
+                      <?php if($community == 0){ ?> <li><input type="checkbox" id="checkboxThree" name="preferences[]" value="3" onclick='chk(2)'><label for="checkboxThree">Community</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxThree" name="preferences[]" value="3" checked><label for="checkboxThree">Community</label></li> <?php  } ?>
+                      <?php if($historical == 0){ ?> <li><input type="checkbox" id="checkboxFour" name="preferences[]" value="4" onclick='chk(3)'><label for="checkboxFour">Historical</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxFour" name="preferences[]" value="4" checked><label for="checkboxFour">Historical</label></li> <?php  } ?>
+                      <?php if($neighborhood == 0){ ?> <li><input type="checkbox" id="checkboxFive" name="preferences[]" value="5" onclick='chk(4)'><label for="checkboxFive">Neighborhood</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxFive" name="preferences[]" value="5" checked><label for="checkboxFive">Neighborhood</label></li> <?php  } ?>
+                      <?php if($military == 0){ ?> <li><input type="checkbox" id="checkboxSix" name="preferences[]" value="6" onclick='chk(5)'><label for="checkboxSix">Military</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxSix" name="preferences[]" value="6" checked><label for="checkboxSix">Military</label></li> <?php  } ?>
+                      <?php if($science == 0){ ?> <li><input type="checkbox" id="checkboxSeven" name="preferences[]" value="7" onclick='chk(6)'><label for="checkboxSeven">Science</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxSeven" name="preferences[]" value="7" checked><label for="checkboxSeven">Science</label></li> <?php  } ?>
+                      <?php if($themed == 0){ ?> <li><input type="checkbox" id="checkboxEight" name="preferences[]" value="8" onclick='chk(7)'><label for="checkboxEight">Themed</label></li>
+                    <?php }else{ ?> <li><input type="checkbox" id="checkboxEight" name="preferences[]" value="8" checked><label for="checkboxEight">Themed</label></li> <?php  } ?>
+                    </ul>
           <br><br>
           <label for="description"><strong>Description:</strong></label>
           <input type="text" class="form-control" required name="description" value="<?php echo $registo[6]; ?>" />

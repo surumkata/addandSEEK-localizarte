@@ -3,9 +3,9 @@
 require_once("../connectDB.php");
 $oldName = $_POST['oldName'];
 $newName = $_POST['museumName'];
-$newImage = str_replace(' ', '_',$newName).$_SESSION['username'];
+$newImage = str_replace(' ', '_',$newName).";".$_SESSION['username'];
 
-if(isSet($_FILES["fileToUpload"])){
+if(isSet($_FILES["fileToUpload"]) && strlen($_FILES["fileToUpload"]['name'])>0){
   $target_dir = "../pictures/submissions/";
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $notUpload = 0;
@@ -37,7 +37,7 @@ if(isSet($_FILES["fileToUpload"])){
   }
 
   // Check if $uploadOk is set to 0 by an error
-}else{echo "entrei";
+}else{
   $notUpload = 1;
   $uploadOk = 1;
 }
@@ -64,17 +64,24 @@ if ($uploadOk == 0) {
   $price = $_POST['price'];
   $site = $_POST['website'];
   $contact = $_POST['contact'];
-  $categories = $_POST['categories'];
+
+  $preferences = "";
+  $behind = 0;
+  foreach ($_POST['preferences'] as $preference) {
+       if($behind == 1) $preferences = $preferences . ";" . $preference;
+       else {
+         $preferences = $preference;
+         $behind = 1;
+       }
+   }
+
   $description = $_POST['description'];
-
-
   $id = $oldName .";".$_SESSION['username'];
   $consult = "SELECT * FROM requests WHERE (LOWER( id ) = LOWER('".$id."'))";
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
-
   if(mysqli_num_rows($resultado) > 0){
-    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),newName=('" . $newName . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
+    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),newName=('" . $newName . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
     echo "<br>";
     if(mysqli_query($connection,$query)===true){
       echo "atualizado com sucesso";
@@ -83,7 +90,7 @@ if ($uploadOk == 0) {
     }
   }else{
     echo "<br>";
-    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,newName,description) values('$id','$address','$price','$categories','$contact','$site','$picture','$newName','$description')";
+    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,newName,description) values('$id','$address','$price','$preferences','$contact','$site','$picture','$newName','$description')";
     if(mysqli_query($connection,$query)===true){
       echo "inseriu com sucesso";
     }else{
@@ -91,8 +98,8 @@ if ($uploadOk == 0) {
     }
   }
 }
-  $refName = str_replace(' ', '-', $oldName);
-  header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
+$refName = str_replace(' ', '-', $oldName);
+header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
 
 
 ?>
