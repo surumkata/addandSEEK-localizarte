@@ -1,6 +1,8 @@
 <?php
+  require_once("connectDB.php");
     $today = date("Y-m-d");
     $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
+
  ?>
 
 
@@ -48,6 +50,13 @@
                 <a href="#" title="term of services">term of services</a>
             </label>
         </div>
+        <?php
+          if(isSet($_SESSION['registerError']) && $_SESSION['registerError'] == 1){
+            ?>
+            <p align="center" style="color:red;position:relative">Username/Email already in use.</p>
+            <?php
+          }
+         ?>
         <button type="submit">Register</button>
         <footer>Already a member? <a href="login.php">Login here</a></footer>
     </form>
