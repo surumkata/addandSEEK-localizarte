@@ -2,6 +2,10 @@
 
 require_once("../connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
 $name = $_POST['name'];
 $email = $_POST['email'];
 $birthdate = strtotime($_POST["birthdate"]);
@@ -24,5 +28,7 @@ $update = mysqli_query($connection,$query);
 
 header('Location: http://localhost/Li4/profileUser.php');
 
-
+}
+}
+else header('Location: http://localhost/LI4/login.php');
 ?>

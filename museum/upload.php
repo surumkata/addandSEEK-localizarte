@@ -1,9 +1,14 @@
 <?php
 
 require_once("../connectDB.php");
+
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
+
 $oldName = $_POST['oldName'];
-$newName = $_POST['museumName'];
-$newImage = str_replace(' ', '_',$newName).";".$_SESSION['username'];
+$newImage = str_replace(' ', '_',$oldName).";".$_SESSION['username'];
 
 if(isSet($_FILES["fileToUpload"]) && strlen($_FILES["fileToUpload"]['name'])>0){
   $target_dir = "../pictures/submissions/";
@@ -81,7 +86,7 @@ if ($uploadOk == 0) {
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
   if(mysqli_num_rows($resultado) > 0){
-    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),newName=('" . $newName . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
+    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
     echo "<br>";
     if(mysqli_query($connection,$query)===true){
       echo "atualizado com sucesso";
@@ -90,7 +95,7 @@ if ($uploadOk == 0) {
     }
   }else{
     echo "<br>";
-    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,newName,description) values('$id','$address','$price','$preferences','$contact','$site','$picture','$newName','$description')";
+    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description')";
     if(mysqli_query($connection,$query)===true){
       echo "inseriu com sucesso";
     }else{
@@ -98,8 +103,12 @@ if ($uploadOk == 0) {
     }
   }
 }
+
 $refName = str_replace(' ', '-', $oldName);
 header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
 
+}
+}
+else header('Location: http://localhost/LI4/login.php');
 
 ?>

@@ -1,5 +1,8 @@
 <?php
 require_once("../connectDB.php");
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
 ?>
 
 <html lang="en">
@@ -51,3 +54,8 @@ require_once("../connectDB.php");
   	</div>
   </div
 </body>
+
+<?php }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

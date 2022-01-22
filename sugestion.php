@@ -2,6 +2,10 @@
 
 require_once("connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
+
 $username = $_SESSION['username'];
 $consult = "SELECT preferences FROM users WHERE username = ('" . $_SESSION['username'] . "')";
 $resultado = mysqli_query($connection,$consult);
@@ -50,4 +54,7 @@ else{
   header('Location: http://localhost/Li4/museum/museum.php?name='.$refName);
 };
 
- ?>
+  }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

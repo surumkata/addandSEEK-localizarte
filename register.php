@@ -25,7 +25,7 @@
         </div>
         <div>
             <label for="username">Username:</label>
-            <input type="text" required name="username" id="username">
+            <input type="text" required name="username" id="username" onkeypress="return event.charCode != 32">
         </div>
         <div>
             <label for="email">Email:</label>

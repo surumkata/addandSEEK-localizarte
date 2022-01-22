@@ -33,22 +33,31 @@ if(isSet($_SESSION['username'])){
         <html>
            <head>
               <title>Map</title>
+              <link href="../css/default.css" rel="stylesheet">
               <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
               <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
            </head>
            <body>
-            <div class="w3-top">
-               <div class="w3-bar w3-orange w3-card">
-                 <img href="../index.php" src="../pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
-                 <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-                 <a href="../profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-                 <a href="../sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-                 <a href="../logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+             <div class="w3-top orange" style="height:8vh">
+               <div class="w3-bar w3-card" style="height:8vh">
+                 <a href="../index.php">
+                 <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+                 <a href="../profileUser.php">
+                 <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" width="50" height="50">
+                 </a>
+                 <a href="../sugestion.php">
+                 <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" width="50" height="50">
+                 </a>
+                 <a href="../logout.php">
+                 <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" width="50" height="50">
+                 </a>
                  <form method="GET" action="../search.php">
-                   <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-                 <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
-               </form>
+                   <button type="submit" class="nav-button-search">
+                      <img src="../pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
+                  </button>
+                 <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
+                 </form>
                </div>
              </div>
               <div id = "map" style = "position:relative;width: 900px; height: 580px;left:20%;top:10vh"></div>

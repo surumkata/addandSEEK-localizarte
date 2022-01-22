@@ -1,6 +1,9 @@
 <?php
 require_once("connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
+
 //get 5 last visited places order by datetime
 $result = mysqli_query($connection,"SELECT museum FROM history WHERE username='".$_SESSION['username']."' ORDER BY datetime DESC LIMIT 5 ");
 ?>
@@ -64,3 +67,8 @@ $result = mysqli_query($connection,"SELECT museum FROM history WHERE username='"
 
   </body>
 </html>
+
+<?php }
+}
+else header('Location: http://localhost/LI4/login.php');
+?>

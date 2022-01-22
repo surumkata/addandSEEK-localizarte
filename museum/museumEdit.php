@@ -1,10 +1,12 @@
 <?php
 require_once("../connectDB.php");
 
+if(isSet($_SESSION['username'])){
+  if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
 
-$museum = $_POST['name'];
 
-if(isSet($museum)){
+if(isSet($_POST['name'])){
+  $museum = $_POST['name'];
   $consult = "SELECT * FROM museums WHERE (LOWER( name ) = LOWER('".$museum."'))";
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
@@ -21,7 +23,7 @@ if(isSet($museum)){
     }
   }
 
-  $preferences = $registo[6];
+  $preferences = $registo[3];
 
 
   $art = 0;
@@ -103,7 +105,7 @@ if(isSet($museum)){
       <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="oldName" value="<?php echo $museum ?>"/>
         <h1 class="w3-wide">
-          <input type="text" class="form-control" required name="museumName" value="<?php echo $registo[0]; ?>" />
+          <p style="font-size:150%"><?php echo $registo[0]; ?> <p/>
         </h1>
 
         <div class="w3-container w3-content w3-center w3-padding-64">
@@ -179,26 +181,10 @@ if(isSet($museum)){
 
 
     <?php
-  }else{
-    echo "museum not found";
+      }else{
+        echo "museum not found";
+      }
+    }
   }
-
-
-
-
-
-/*
-     $going= 'Indore, MP 452001';
-    $address =$going; // Google HQ
-    $prepAddr = str_replace(' ','+',$address);
-    $apiKey = 'AIzaSyD9wpDRjXQU1JeKfzGgv0VzVIJYhLhJrnI'; // Google maps now requires an API key.
-
-    $geocode=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($address).'&sensor=false&key='.$apiKey);
-
-    print_r($geocode);
-
-    $output= json_decode($geocode);
-    $latitude = $output->results[0]->geometry->location->lat;
-    $longitude = $output->results[0]->geometry->location->lng;
-    */
+else header('Location: http://localhost/LI4/login.php');
 ?>
