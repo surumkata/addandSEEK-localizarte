@@ -111,8 +111,8 @@ body {font-family: "Lato", sans-serif}
 
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">LOCALIZARTE</h2>
-    <p class="w3-opacity"><i>Art is just a click away</i></p>
+    <img src="pictures/assets/logo.png" alt="Logo" style="width:50%">
+    <p class="w3-opacity regular_text">Art is just a click away</p>
     <p class="w3-justify regular_text">Localizarte is a web-based application that allows you searching information about museums and recommends to you options according with your preferences. </p>
     <p class="w3-center"><b>Developers</b> </p>
     <div class="w3-row w3-padding-32">
@@ -162,7 +162,7 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p>This project was done in <i>Informatic Laboratories IV</i> course at University of Minho.</a></p>
+  <p class="regular_text">This project was done in <b>Informatic Laboratories IV</b> course at University of Minho.</a></p>
   <img src="pictures/assets/eng.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:15%">
   <p class="w3-medium">2021/2022 <a href="https://www.eng.uminho.pt/pt" target="_blank">@uminho</a></p>
 </footer>
