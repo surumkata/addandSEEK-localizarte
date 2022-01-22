@@ -88,32 +88,33 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_do_prado.png" style="width:100%">
+    <img src="pictures/museums/museu_louvre.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>
+      <h3>Louvre Museum </h3>
+      <p><b>Paris - France</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_do_prado.png" style="width:100%">
+    <img src="pictures/museums/museu_prado.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Museu do Prado</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>
+      <h3>Prado Museum</h3>
+      <p><b>Madrid - Spain</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_do_prado.png" style="width:100%">
+    <img src="pictures/museums/museu_coches.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>
+      <h3>Coach Museum </h3>
+      <p><b>Lisbon - Portugal</b></p>
     </div>
   </div>
 
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">LOCALIZARTE</h2>
-    <p class="w3-opacity"><i>slogan bacano</i></p>
-    <p class="w3-justify">Meter aqui ganda informçao do localizarte!</p>
+    <p class="w3-opacity"><i>Find your art with a click!</i></p>
+    <p class="w3-justify">Localizarte is a web-based application that allows you searching information about museums and recommends to you options according with your preferences. </p>
+    <p class="w3-center"><b>Developers</b> </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-quarter">
         <img src="pictures/assets/braz.png" class="w3-round w3-margin-bottom" alt="Gonçalo Braz" style="width:60%">
@@ -144,8 +145,8 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p>localizarte@outlook.pt</a><p>
-  <p>"o cunha fica de mudar este texto"</a></p>
+  <p>This project was done in the course Informatic Laboratories IV in University of Minho.</a></p>
+  <img src="pictures/assets/eng.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:15%">
 </footer>
 
 <script>
