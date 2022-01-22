@@ -1,0 +1,148 @@
+@font-face {
+  font-family:"MarlinGeo-Bold";
+  src: url("../fonts/MarlinGeo-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family:"MarlinGeo-Regular";
+  src: url("../fonts/MarlinGeo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family:"MarlinGeo-Thin";
+  src: url("../fonts/MarlinGeo-Light.ttf") format("truetype");
+}
+
+.regular_text{
+  font-family:"MarlinGeo-Regular";
+}
+
+.bold_text{
+  font-family:"MarlinGeo-Bold";
+}
+
+.thin_text{
+  font-family:"MarlinGeo-Thin";
+}
+
+.small_text{
+  font-size: 2vh !important;
+}
+
+.medium_text{
+  font-size: 2.5vh !important;
+}
+
+.large_text{
+  font-size: 3vh !important;
+}
+
+.text_black{
+  color: #212529;
+}
+
+.orange{
+  background: #ff9800 !important;
+}
+
+.nav-button-img {
+      height: 8vh !important;
+      -webkit-transition: all 0.1s ease !important;
+      -moz-transition: all 0.1s ease !important;
+      -ms-transition: all 0.1s ease !important;
+      transition: all 0.1s ease !important;
+      background: #ff9800 !important;
+    }
+    .nav-button-img:hover {
+      border-style: solid !important;
+  }
+
+.nav-button {
+        font-family:"MarlinGeo-Regular";
+        height: 5vh;
+        width: 25vh !important;
+        text-decoration: initial !important;
+        font-size: 2.7vh !important;
+        margin-top: 1.5vh !important;
+        margin-bottom:: 1.5vh !important;
+        margin-right:1vh !important;
+        -webkit-transition: all 0.1s ease !important;
+        -moz-transition: all 0.1s ease !important;
+        -ms-transition: all 0.1s ease !important;
+        transition: all 0.1s ease !important;
+        background: #ffffff !important;
+      }
+    .nav-button:hover {
+        background: #eff4f8 !important;
+      }
+
+.nav-button-search {
+        border-style: none !important;
+        height: 5.5vh !important;
+        width: 20vh !important;
+        text-decoration: initial !important;
+        font-weight: bold !important;
+        font-size: 2.7vh !important;
+        margin-top: 1.5vh !important;
+        margin-bottom:: 1vh !important;
+        margin-right:1vh !important;
+        -webkit-transition: all 0.1s ease !important;
+        -moz-transition: all 0.1s ease !important;
+        -ms-transition: all 0.1s ease !important;
+        transition: all 0.1s ease !important;
+        background: #ff9800 !important;
+            }
+    .nav-button-search:hover {
+          border-style: groove !important;
+        }
+
+.simple-button {
+  font-family:"MarlinGeo-Regular";
+  font-weight:400;
+  padding:.375rem .75rem;
+  font-size:1rem;
+  line-height:1.5;
+  width: 30vh;
+  height: 7vh;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ff9800;
+  padding: 1.55vh 1.9vh 1.55vh 1.55vh;
+  border-radius: 50px;
+  display: inline-block;
+  border:0.25vh solid #db8300;
+  transition: all 0.4s ease 0s;
+    }
+    .simple-button:hover {
+	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0px 4px 20px -8px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 3px 20px -8px rgba(0,0,0,0.3);
+	transition: all 0.4s ease 0s;
+}
+
+/*
+.simple-button {
+  font-family:"MarlinGeo-Regular";
+  display:inline-block;
+  font-weight:400;
+  line-height:1.5;
+  color:#212529;
+  text-align:center;
+  text-decoration:none;
+  vertical-align:middle;
+  -webkit-transition: all 0.1s ease !important;
+  -moz-transition: all 0.1s ease !important;
+  -ms-transition: all 0.1s ease !important;
+  transition: all 0.1s ease !important;
+  background-color:#ff9800;
+  border:1px solid transparent;
+  padding:.375rem .75rem;
+  font-size:1rem;
+  border-radius:.25rem;
+  }
+  .simple-button:hover {
+    background: #d47801;
+    color:#212529;
+    }
+    */

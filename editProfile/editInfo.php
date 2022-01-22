@@ -48,6 +48,7 @@ if(str_contains($preferences,"7")){
 if(str_contains($preferences,"8")){
   $themed = 1;
 }
+
 $profileImg = "../pictures/users/" . $username . ".png";
 if (!file_exists($profileImg)) {
   $profileImg = "../pictures/users/pattern.jpg";
@@ -58,8 +59,9 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../css/default.css">
     <link href="../css/profileUser.css" rel="stylesheet" id="profileUser-css">
-    <link href="../css/preferences.css" rel="stylesheet">
+    <link href="../css/preferencesOnly.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -82,17 +84,25 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
     <meta charset="UTF-8">
 </head>
 <body>
-  <div class="w3-top">
-    <div class="w3-bar w3-orange w3-card">
-      <img href="../index.php" src="../pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
-      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a href="../profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-      <a href="../sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-      <a href="../logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
-      <form method="GET" action="search.php">
-        <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-      <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
-    </form>
+  <div class="w3-top orange" style="height:8vh">
+    <div class="w3-bar w3-card" style="height:8vh">
+      <a href="../index.php">
+      <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+      <a href="../profileUser.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" width="50" height="50">
+      </a>
+      <a href="../sugestion.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" width="50" height="50">
+      </a>
+      <a href="../logout.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" width="50" height="50">
+      </a>
+      <form method="GET" action="../search.php">
+        <button type="submit" class="nav-button-search">
+           <img src="../pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
+       </button>
+      <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
+      </form>
     </div>
   </div>
   <br><br>
@@ -100,9 +110,11 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <center><div class="bold_text large_text text_black" style="margin-top:6.5vh;">User's Image</div></center>
+            <div class="zoomin d-flex flex-column align-items-center text-center p-3 py-5">
               <a href="editImage.php" target="_blank" rel="noopener noreferrer">
-              <img class="mt-5 button-img rounded-circle" width="60%" src="<?php echo $profileImg; ?>">
+              <img class="mt-5 rounded-circle" width="150vh" height="150vh" src="<?php echo $profileImg; ?>">
+              <br>
             </a>
           </div>
         </div>
@@ -111,17 +123,19 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
           <form action="changeInfo.php" method="post">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">User's Profile</h4>
+                    <div class="bold_text large_text text_black">Edit Profile</div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" required name="name" value="<?php echo $name; ?>"></div>
-                  </div>
+                    <div class="col-md-6"><label class="bold_text small_text text_black">Name</label><input type="text" class="thin_text medium_text text_black form-control" required name="name" value="<?php echo $name; ?>" style="margin-top:1vh;"></div>
+                  </div><br>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Email</label><input type="text" class="form-control" required name="email" value="<?php echo $email; ?>"></div>
-                    <div class="col-md-6"><label class="labels">Birth Date</label><input type="date" class="form-control" required name="birthdate" value="<?php echo $birthdate; ?>" max="<?php echo $today ?>"></div>
-                  </div><br><br>
+                    <div class="col-md-6"><label class="bold_text small_text text_black">Email</label><input type="text" class="thin_text medium_text text_black form-control" required name="email" value="<?php echo $email; ?>" style="margin-top:1vh;"></div>
+                  </div><br>
                   <div class="row mt-2">
-                    <label class="labels">Preferences</label>
+                    <div class="col-md-6"><label class="bold_text small_text text_black">Birth Date</label><input type="date" class="thin_text medium_text text_black form-control" required name="birthdate" value="<?php echo $birthdate; ?>" max="<?php echo $today ?>" style="margin-top:1vh;"></div>
+                  <div class="row mt-2">
+                  </div><br>
+                    <label class="bold_text small_text text_black">Preferences</label>
                     <ul class="ks-cboxtags">
                       <?php if($art == 0){ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" onclick='chk(0)'><label for="checkboxOne">Art</label></li>
                     <?php }else{ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" onclick='chk(0)' checked><label for="checkboxOne">Art</label></li> <?php  } ?>
@@ -143,7 +157,7 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
                   </div>
                   <div class="row mt-3">
                     <div class="mt-5 text-center">
-                      <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                      <input type="submit" class="simple-button" value="Save Changes">
                   </div>
                 </div>
               </div>

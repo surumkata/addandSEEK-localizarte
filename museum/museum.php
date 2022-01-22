@@ -19,10 +19,11 @@ if(isSet($museum)){
     if (!file_exists($image)) {
       $image = "../pictures/museums/museum_default.png";
     }
+
     if (!function_exists('str_contains')) {
-    function str_contains($haystack, $needle) {
-        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
-    }
+function str_contains($haystack, $needle) {
+    return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+}
 }
 
 $preferences = "";
@@ -30,89 +31,95 @@ $preferences = "";
 $behind = 0;
 
 if(str_contains($registo[3],"1")){
-  $preferences = "Art";
-  $behind = 1;
+$preferences = "Art";
+$behind = 1;
 }
 if(str_contains($registo[3],"2")){
-  if($behind == 1) $preferences = $preferences." Biographical";
-  else {
-    $preferences = $preferences."Biographical";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Biographical";
+else {
+$preferences = $preferences."Biographical";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"3")){
-  if($behind == 1) $preferences = $preferences." Community";
-  else {
-    $preferences = $preferences."Community";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Community";
+else {
+$preferences = $preferences."Community";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"4")){
-  if($behind == 1) $preferences = $preferences." Historical";
-  else {
-    $preferences = $preferences."Historical";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Historical";
+else {
+$preferences = $preferences."Historical";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"5")){
-  if($behind == 1) $preferences = $preferences." Neighborhood";
-  else {
-    $preferences = $preferences."Neighborhood";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Neighborhood";
+else {
+$preferences = $preferences."Neighborhood";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"6")){
-  if($behind == 1) $preferences = $preferences." Military";
-  else {
-    $preferences = $preferences."Military";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Military";
+else {
+$preferences = $preferences."Military";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"7")){
-  if($behind == 1) $preferences = $preferences." Science";
-  else {
-    $preferences = $preferences."Science";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Science";
+else {
+$preferences = $preferences."Science";
+$behind = 1;
+}
 }
 if(str_contains($registo[3],"8")){
-  if($behind == 1) $preferences = $preferences." Themed";
-  else {
-    $preferences = $preferences."Themed";
-    $behind = 1;
-  }
+if($behind == 1) $preferences = $preferences." Themed";
+else {
+$preferences = $preferences."Themed";
+$behind = 1;
 }
-
+}
       ?>
 
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
+      <link href="../css/default.css" rel="stylesheet">
       <link rel="stylesheet" href="../css/museumPage.css?ts=<?=time()?>">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
 
-    <body style="background-color:#eff4f8">
-      <div class="w3-top">
-        <div class="w3-bar w3-orange w3-card">
-          <img href="../index.php" src="../pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
-          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a href="../profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-          <a href="../sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-          <a href="../logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
-          <form method="GET" action="../search.php">
-            <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-          <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
+    <div class="w3-top orange" style="height:8vh">
+      <div class="w3-bar w3-card" style="height:8vh">
+        <a href="../index.php">
+        <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+        <a href="../profileUser.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" width="50" height="50">
+        </a>
+        <a href="../sugestion.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" width="50" height="50">
+        </a>
+        <a href="../logout.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" width="50" height="50">
+        </a>
+        <form method="GET" action="../search.php">
+          <button type="submit" class="nav-button-search">
+             <img src="../pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
+         </button>
+        <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
         </form>
-        </div>
       </div>
+    </div>
 
-    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%" id="body">
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%;background:#eff4f8" id="body">
         <h1 class="w3-wide"><?php echo $registo[0]; ?></h1>
         <div style="padding:3%">
           <img src=<?php echo $image;?> class="w3-image" alt="Museum" style="width:70%">
@@ -132,6 +139,8 @@ if(str_contains($registo[3],"8")){
           <img src="../pictures/assets/contact.png" alt="contact" style="width:4%">
           <a>Contact: <?php echo $registo[4]; ?></a>
           <br><br>
+
+
           <img src="../pictures/assets/category.png" alt="categories" style="width:4%">
           <a>Categories:<?php echo $preferences ?></a>
            <br><br>

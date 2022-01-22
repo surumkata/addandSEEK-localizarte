@@ -23,13 +23,17 @@ body {font-family: "Lato", sans-serif}
 <?php if(!isSet($_SESSION['username'])){ // not logged
   ?>
 
-<div class="w3-top">
-  <div class="w3-bar w3-orange w3-card">
+<div class="w3-top orange">
+  <div class="w3-bar w3-card">
     <a href="index.php">
-    <img src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%"> </a>
+    <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="login.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
-    <a href="register.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">REGISTER</a>
+    <a href="login.php">
+    <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/login.png" width="50" height="50">
+    </a>
+    <a href="register.php">
+    <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/register.png" width="50" height="50">
+    </a>
   </div>
 </div>
 <?php
@@ -37,28 +41,42 @@ body {font-family: "Lato", sans-serif}
 
  if($_SESSION['type'] == "user"){
    ?>
-<div class="w3-top">
-  <div class="w3-bar w3-orange w3-card">
-    <img href="index.php" src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-    <a href="sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-    <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
-    <form method="GET" action="search.php">
-      <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-    <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
-  </form>
-  </div>
-</div>
+   <div class="w3-top orange">
+     <div class="w3-bar w3-card">
+       <a href="index.php">
+       <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+       <a href="profileUser.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/profile.png" width="50" height="50">
+       </a>
+       <a href="sugestion.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/dice.png" width="50" height="50">
+       </a>
+       <a href="logout.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" width="50" height="50">
+       </a>
+       <form method="GET" action="search.php">
+         <button type="submit" class="nav-button-search">
+            <img src="pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
+        </button>
+       <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
+       </form>
+     </div>
+   </div>
 <?php
 }else{
 ?>
-<div class="w3-top">
-  <div class="w3-bar w3-orange w3-card">
-    <img href="index.php" src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
+<div class="w3-top orange">
+  <div class="w3-bar w3-card">
+    <a href="index.php">
+    <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+    <a href="profileUser.php">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="requests.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTS</a>
-    <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+    <a href="requests.php">
+    <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/requests.png" width="50" height="50">
+    </a>
+    <a href="logout.php">
+    <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" width="50" height="50">
+    </a>
   </div>
 </div>
 <?php

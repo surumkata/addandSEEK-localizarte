@@ -87,6 +87,7 @@ if(str_contains($pfs[0],"8")){
 
 <html lang="en">
 <head>
+    <link href="css/default.css" rel="stylesheet">
     <link href="css/profileUser.css" rel="stylesheet" id="profileUser-css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -96,50 +97,60 @@ if(str_contains($pfs[0],"8")){
     <meta charset="UTF-8">
 </head>
 <body>
-  <div class="w3-top">
-    <div class="w3-bar w3-orange w3-card">
+  <div class="w3-top orange" style="height:8vh">
+    <div class="w3-bar w3-card" style="height:8vh">
       <a href="index.php">
-      <img src="pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%"> </a>
-      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a href="profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-      <a href="sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-      <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+      <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+      <a href="profileUser.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/profile.png" width="50" height="50">
+      </a>
+      <a href="sugestion.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/dice.png" width="50" height="50">
+      </a>
+      <a href="logout.php">
+      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" width="50" height="50">
+      </a>
       <form method="GET" action="search.php">
-        <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-      <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
-    </form>
+        <button type="submit" class="nav-button-search">
+           <img src="pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
+       </button>
+      <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
+      </form>
     </div>
   </div>
   <br><br>
 
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded bg-white mt-5 mb-5" style="background: #EFF4F8">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="60%" height="60%" src="<?php echo $profileImg; ?>"><br><span class="font-weight-bold"><?php echo $name; ?></span><span class="text-black-50"><?php echo $username; ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150vh" height="150vh" src="<?php echo $profileImg; ?>"><br><span class="bold_text medium_text text_black"><?php echo $name; ?></span><span class="regular_text small_text text_black"><?php echo $username; ?></span><span> </span></div>
         </div>
         <div class="col-md-9 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right"><?php echo $name; ?>'s Profile</h4>
+                    <div class="bold_text large_text text_black"><?php echo $name; ?>'s Profile</div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Email</label><h6><?php echo $email ?></h6></div>
-                    <div class="col-md-6"><label class="labels">Birth Date</label><h6><?php echo $birthdate ?></h6></div>
+                    <div class="col-md-6"><label class="bold_text small_text text_black">Email</label><div class="thin_text medium_text text_black"><?php echo $email ?></div></div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6"><label class="bold_text small_text text_black">Birth Date</label><div class="thin_text medium_text text_black"><?php echo $birthdate ?></div></div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-6">
-                      <label class="labels">Preferences</label><h6><?php echo $preferences ?></h6>
+                      <label class="bold_text small_text text_black">Preferences</label><div class="thin_text medium_text text_black"><?php echo $preferences ?></div>
                     </div>
                   </div>
+                  <br><br><br>
                   <div class="row mt-3">
                     <div class="col-md-3">
-                      <a href="editProfile/editInfo.php" class="btn btn-primary profile-button" type="button">Edit Information</a>
+                      <a href="editProfile/editInfo.php" class="simple-button" type="button">Edit Information</a>
                   </div>
                     <div class="col-md-3">
-                      <a href="historico.php" class="btn btn-primary profile-button" type="button">View History</a>
+                      <a href="history.php" class="simple-button" type="button">View History</a>
                   </div>
                   <div class="col-md-3">
-                    <a href="editProfile/changePassword.php" class="btn btn-primary profile-button" target="_blank" rel="noopener noreferrer" type="button">Change Password</a>
+                    <a href="editProfile/changePassword.php" class="simple-button" target="_blank" rel="noopener noreferrer" type="button">Change Password</a>
                 </div>
                 </div>
               </div>
