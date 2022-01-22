@@ -152,7 +152,7 @@ $behind = 1;
         </footer>
 
     </div>
-    </body>
+  
     <?php
   }else{
     echo "museum not found";
