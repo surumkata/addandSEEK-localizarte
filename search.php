@@ -6,7 +6,6 @@ $_SESSION['searchKey'] = $searchkey;
 $searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
 $searchBySubString = mysqli_query($connection,"SELECT * FROM museums WHERE name LIKE '%$searchkey%' ");
 $rowNumb = mysqli_num_rows ( $searchBySubString );
-//TODO : fazer outras queries de pesquisa
 ?>
 
 <!doctype html>
@@ -38,7 +37,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
       <a href="logout.php">
       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" width="50" height="50">
       </a>
-      <form method="GET" action="search1.php">
+      <form method="GET" action="search.php">
         <button type="submit" class="nav-button-search">
            <img src="pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
        </button>
@@ -65,18 +64,28 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 						  <tbody>
                 <?php
                  if($rowNumb>0){
+
                    while($row = mysqli_fetch_assoc($searchBySubString)){
                      $refName = str_replace(' ', '-', $row["name"]);
+                     $imgName = str_replace(' ', '_', $row["name"]);
+                     $imgName = $imgName.".png";
                      $textName = ucfirst($row["name"]);
-                     echo "<tr>";
-                     echo "<td class=title><a href=museum/museum.php?name=".$refName .">".$textName." </a> </td>";
-                     echo "<td class=adress>".$row["adress"]." </td>";
-                     echo "</tr>";
+                     $url = "museum/museum.php?name=".$refName;
+                     ?>
+                     <tr onclick="window.location.assign('<?php echo $url; ?>')">
+                     <th scope="row"><img alt="No image available"width="70vh" height="70vh" src="pictures/museums/<?php echo $imgName;?>"> </th>
+                     <td class=title><?php echo $textName; ?></td>
+                     <td class=adress><?php echo $row["adress"]; ?></td>
+                     </tr>
+                     <?php
                    }
-                 }else{
-                       echo "<h1 class=notFound>No results...</h1>";
+                 }else{?>
+                        <td>No results...</td>
+
+
+             <?php
                    }
-                   ?>
+                ?>
 
 						      <!--<th scope="row">1</th>-->
 						  </tbody>
