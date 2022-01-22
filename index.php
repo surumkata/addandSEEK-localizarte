@@ -112,29 +112,46 @@ body {font-family: "Lato", sans-serif}
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">LOCALIZARTE</h2>
-    <p class="w3-opacity"><i>Find your art with a click!</i></p>
-    <p class="w3-justify">Localizarte is a web-based application that allows you searching information about museums and recommends to you options according with your preferences. </p>
+    <p class="w3-opacity"><i>Art is just a click away</i></p>
+    <p class="w3-justify regular_text">Localizarte is a web-based application that allows you searching information about museums and recommends to you options according with your preferences. </p>
     <p class="w3-center"><b>Developers</b> </p>
     <div class="w3-row w3-padding-32">
-      <div class="w3-quarter">
+      <div class="w3-quarter regular_text">
         <img src="pictures/assets/braz.png" class="w3-round w3-margin-bottom" alt="Gonçalo Braz" style="width:60%">
         <p>Gonçalo Braz</p>
-        <p>a93178</p>
+        <p>a93178
+        <a href="https://github.com/brazafonso">
+        <img class="w3-center" src="pictures/assets/github.png" width="20" height="20">
+        </a>
+        </p>
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter regular_text">
         <img src="pictures/assets/pereira.png" class="w3-round w3-margin-bottom" alt="Gonçalo Pereira" style="width:60%">
         <p>Gonçalo Pereira</p>
-        <p>a93168</p>
+        <p>a93168
+        <a href="https://github.com/realRunlo">
+        <img class="w3-center" src="pictures/assets/github.png" width="20" height="20">
+        </a>
+        </p>
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter regular_text">
         <img src="pictures/assets/cunha.png" class="w3-round w3-margin-bottom" alt="Simão Cunha" style="width:60%">
         <p>Simão Cunha</p>
-        <p>a93262</p>
+        <p>a93262
+        <a href="https://github.com/simaocunha71">
+        <img class="w3-center" src="pictures/assets/github.png" width="20" height="20">
+        </a>
+        </p>
+
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter regular_text">
         <img src="pictures/assets/silva.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:60%">
         <p>Tiago Silva</p>
-        <p>a93277</p>
+        <p>a93277
+        <a href="https://github.com/Surumkata">
+        <img class="w3-center" src="pictures/assets/github.png" width="20" height="20">
+        </a>
+        </p>
       </div>
     </div>
   </div>
@@ -145,8 +162,9 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p>This project was done in the course Informatic Laboratories IV in University of Minho.</a></p>
+  <p>This project was done in <i>Informatic Laboratories IV</i> course at University of Minho.</a></p>
   <img src="pictures/assets/eng.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:15%">
+  <p class="w3-medium">2021/2022 <a href="https://www.eng.uminho.pt/pt" target="_blank">@uminho</a></p>
 </footer>
 
 <script>
