@@ -50,7 +50,7 @@ $row = mysqli_fetch_assoc($result);
         <table>
           <?php
            echo "<tr>";
-           echo "<th>"."Name"." </th>";
+           echo "<th>"."Original name"." </th>";
            echo "<td class=title>".$museu." </td>";
            echo "</tr>";
 
@@ -99,7 +99,7 @@ $row = mysqli_fetch_assoc($result);
 
          </table>
 
-         
+
          <form action="approve.php" method="post">
            <input type="hidden" name="reqID" value=<?php echo $postID; ?>>
            <input type="image" alt="Approve" src="pictures/assets/yes.png"/>
