@@ -3,9 +3,13 @@ require_once("../connectDB.php");
 
 
 $museum = str_replace('-', ' ',$_GET['name']);
+$_SESSION['museum'] = $museum;
 
-//add to history
-mysqli_query($connection,"INSERT INTO history (museum,username) values('$museum','".$_SESSION['username']."') ");
+$visited = 0; //not visited
+$r = mysqli_query($connection,"SELECT* FROM history WHERE museum ='$museum' AND username = '".$_SESSION['username']."' ");
+if(mysqli_num_rows($r) > 0){
+    $visited = 1; //visited
+}
 
 
 if(isSet($museum)){
@@ -89,8 +93,18 @@ $behind = 1;
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
       <link href="../css/default.css" rel="stylesheet">
-      <link rel="stylesheet" href="../css/museumPage.css?ts=<?=time()?>">
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link href="../css/preferencesOnly.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+      <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+    function chk() {
+      var elem = document.getElementsByName('visit');
+      if(elem[0].checked==true ){
+        window.location = 'http://stackoverflow.com';
+      }
+        }
+      }
+  </script>
     </head>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -118,16 +132,21 @@ $behind = 1;
       </div>
     </div>
 
+
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%;background:#eff4f8" id="body">
         <h1 class="w3-wide"><?php echo $registo[0]; ?></h1>
         <div style="padding:3%">
           <img src=<?php echo $image;?> class="w3-image" alt="Museum" style="width:70%">
         </div>
         <footer class="w3-container w3-padding-64 w3-left-align w3-opacity w3-white w3-large" style="width:100%;height:150%">
+          <ul class="ks-cboxtags">
+          <?php if($visited == 0){ ?> <li><input type="checkbox" id="checkboxOne" name="visit" onclick='window.location.assign("insertVisited.php")'><label for="checkboxOne">visited</label></li>
+        <?php }else{ ?> <li><input type="checkbox" id="checkboxOne" name="visit"  checked onclick='window.location.assign("deleteVisited.php")'><label for="checkboxOne">visited</label></li> <?php  } ?>
+      </ul>
           <a href="drawMap.php?address=<?php echo $registo[1];?>&name=<?php echo $museum; ?>" style="text-decoration:none">
             <img src="../pictures/assets/location.png" alt="address" style="width:5%">
           </a>
-          <a>Adress: <?php echo $registo[1];?> </a>
+          <a>Address: <?php echo $registo[1];?> </a>
           <br><br>
           <img src="../pictures/assets/ticket.png" alt="ticket" style="width:4%">
           <a>Price: <?php echo $registo[2]; ?> $</a>
@@ -152,7 +171,7 @@ $behind = 1;
         </footer>
 
     </div>
-  
+
     <?php
   }else{
     echo "museum not found";
