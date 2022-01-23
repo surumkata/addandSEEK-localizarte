@@ -30,29 +30,60 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 	<link rel="stylesheet" href="css/table.css">
 
 	</head>
-  <div class="w3-top orange">
-    <div class="w3-bar w3-card">
-      <a href="index.php">
-      <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
-      <a href="profileUser.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/profile.png" width="50" height="50">
-      </a>
-      <a href="sugestion.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/dice.png" width="50" height="50">
-      </a>
-      <a href="logout.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" width="50" height="50">
-      </a>
-      <form method="GET" action="search.php">
-        <button type="submit" class="nav-button-search">
-           <img src="pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
-       </button>
-      <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
-      </form>
-    </div>
-  </div>
-
 	<body style="background-color: #eff4f8">
+    <?php if($_SESSION['type'] == "user"){
+      ?>
+      <div class="w3-top orange">
+        <div class="w3-bar w3-card" style="max-height:7vh;">
+          <a href="index.php">
+          <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+          <a href="profileUser.php">
+          <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/profile.png" style="max-height:7vh;">
+          </a>
+          <a href="sugestion.php">
+          <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/dice.png" style="max-height:7vh;">
+          </a>
+          <a href="logout.php">
+          <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" style="max-height:7vh;">
+          </a>
+          <form method="GET" action="search.php" style="margin-top:0vh">
+            <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+               <img src="pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+           </button>
+          <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+          </form>
+        </div>
+      </div>
+   <?php
+   }else{
+   ?>
+   <div class="w3-top orange">
+     <div class="w3-bar w3-card" style="max-height:7vh;">
+       <a href="index.php">
+       <img src="pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+       <a href="profileUser.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/profile.png" style="max-height:7vh;">
+       </a>
+       <a href="sugestion.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/dice.png" style="max-height:7vh;">
+       </a>
+       <a href="requests.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="pictures/assets/requests.png" style="max-height:7vh;">
+       </a>
+       <a href="logout.php">
+       <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="pictures/assets/logout.png" style="max-height:7vh;">
+       </a>
+       <form method="GET" action="search.php" style="margin-top:0vh">
+         <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+            <img src="pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+        </button>
+       <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+       </form>
+     </div>
+   </div>
+   <?php
+   }
+   ?>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
