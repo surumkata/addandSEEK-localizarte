@@ -15,7 +15,7 @@ if(isSet($_FILES["fileToUpload"]) && strlen($_FILES["fileToUpload"]['name'])>0){
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $notUpload = 0;
   $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  $imageFileType = mb_strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   $target_file = $target_dir . $newImage . "." . $imageFileType;
   unset($_SESSION['museum_image']);
   // Check if image file is a actual image or fake image

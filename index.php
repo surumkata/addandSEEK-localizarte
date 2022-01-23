@@ -87,26 +87,48 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
   <!-- Automatic Slideshow Images -->
-  <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/musée_du_louvre.png" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Louvre Museum </h3>
-      <p><b>Paris - France</b></p>
-    </div>
+
+  <div class="mySlides w3-display-container w3-center"
+          style="background-image:url('http://localhost/Li4/pictures/museums/museu_dos_coches.png');
+              width: 100%;
+              height: 66vh;
+              background-position:center center;
+              background-size:cover; ">
+              <a href="http://localhost/Li4/museum/museum.php?name=Museu-dos-Coches" style="display:block; width:100%; height:100%;"></a>
+                <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                  <div class="bold_text text_black large_text">Museu dos Coches
+                    </div>
+                  <div class="regular_text text_black medium_text">Lisbon - Portugal
+                    </div>
+            </div>
   </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museo_del_prado.png" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Prado Museum</h3>
-      <p><b>Madrid - Spain</b></p>
-    </div>
+  <div class="mySlides w3-display-container w3-center"
+          style="background-image:url('http://localhost/Li4/pictures/museums/mus%C3%A9e_du_louvre.png');
+              width: 100%;
+              height: 66vh;
+              background-position:center center;
+              background-size:cover; ">
+              <a href="http://localhost/Li4/museum/museum.php?name=Mus%C3%A9e-du-Louvre" style="display:block; width:100%; height:100%;"></a>
+                <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                  <div class="bold_text text_black large_text">Musée du Louvre
+                    </div>
+                  <div class="regular_text text_black medium_text">Paris - France
+                    </div>
+            </div>
   </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_dos_coches.png" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Coach Museum </h3>
-      <p><b>Lisbon - Portugal</b></p>
-    </div>
+  <div class="mySlides w3-display-container w3-center"
+          style="background-image:url('http://localhost/Li4/pictures/museums/anacostia_community_museum.png');
+              width: 100%;
+              height: 66vh;
+              background-position:center center;
+              background-size:cover; ">
+              <a href="http://localhost/Li4/museum/museum.php?name=Anacostia-Community-Museum" style="display:block; width:100%; height:100%;"></a>
+                <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                  <div class="bold_text text_black large_text">Anacostia Community Museum
+                    </div>
+                  <div class="regular_text text_black medium_text">Washington - USA
+                    </div>
+            </div>
   </div>
 
   <!-- The Band Section -->
@@ -161,10 +183,12 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p class="regular_text">This project was done in <b>Informatic Laboratories IV</b> course at University of Minho.</a></p>
-  <img src="pictures/assets/eng.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:15%">
-  <p class="w3-medium">2021/2022 <a href="https://www.eng.uminho.pt/pt" target="_blank">@uminho</a></p>
+<footer class="w3-container w3-center footerorange">
+  <div class="small_text thin_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="regular_text text_black">@uminho</a></div>
+  <img src="pictures/assets/eng.png" class="w3-round" alt="Tiago Silva" style="width:10%">
+  <div class="small_text thin_text text_black paddingfooter">Any doubts please contact us at localizarte@outlook.pt</div>
+  <div class="small_text thin_text text_black paddingfooter"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="regular_text text_black">Terms of conditions</a> © 2022 Localizarte</div>
+  <div class="small_text thin_text text_black" style="padding-top:0.3vh;padding-bottom:2vh;">This web application was done for Laboratórios de Informática IV, subject of MIEI at University of Minho.</a></div>
 </footer>
 
 <script>

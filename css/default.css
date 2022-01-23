@@ -12,15 +12,17 @@
 }
 
 .regular_text{
-  font-family:"MarlinGeo-Regular";
+  font-family:"MarlinGeo-Regular" !important;
+  text-decoration: none !important;
 }
 
 .bold_text{
-  font-family:"MarlinGeo-Bold";
+  font-family:"MarlinGeo-Bold" !important;
+  text-decoration: none !important;
 }
 
 .thin_text{
-  font-family:"MarlinGeo-Thin";
+  font-family:"MarlinGeo-Thin" !important;
 }
 
 .small_text{
@@ -41,6 +43,17 @@
 
 .orange{
   background: #ff9800 !important;
+}
+
+.footerorange{
+  background-color:#ff9800;
+  max-width:100%;
+  max-height:40vh;
+}
+
+.paddingfooter{
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh;
 }
 
 .nav-button-img {
@@ -95,7 +108,7 @@
         }
 
 .simple-button {
-  font-family:"MarlinGeo-Regular";
+  font-family:"MarlinGeo-Regular" !important;
   font-weight:400;
   padding:.375rem .75rem;
   font-size:1rem;
@@ -107,7 +120,7 @@
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #ff9800;
+  background: #ff9800 !important;
   padding: 1.55vh 1.9vh 1.55vh 1.55vh;
   border-radius: 50px;
   display: inline-block;
@@ -128,6 +141,68 @@
 .img {
   border-radius: 8px;
 }
+
+body {
+    background: #EFF4F8 !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ff9000;
+}
+
+.back:hover {
+    color: #ff9800;
+    cursor: pointer
+}
+
+.add-experience:hover {
+    background: #ff9800;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+.zoomin img {
+      height: 20vh;
+      width: 20vh;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      opacity:100%;
+    }
+    .zoomin img:hover {
+      width: 22vh;
+      height: 22vh;
+      opacity:72%
+  }
+
+
+  .pass_show{position: relative}
+
+  .pass_show .ptxt {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: 10px;
+
+  z-index: 1;
+
+  color: #f36c01;
+
+  margin-top: -10px;
+
+  cursor: pointer;
+
+  transition: .3s ease all;
+
+  }
+
+  .pass_show .ptxt:hover{color: #333333;}
+
 
 
 /*

@@ -93,7 +93,6 @@ if(str_contains($pfs[0],"8")){
 <head>
     <title>Profile</title>
     <link href="css/default.css" rel="stylesheet">
-    <link href="css/profileUser.css" rel="stylesheet" id="profileUser-css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

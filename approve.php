@@ -31,7 +31,7 @@ if($row["picture"]==1){
   echo $museuImg."\n";
 
   $nameMaux = explode(";",$museuImgAux);
-  $lowNameM = strtolower($nameMaux[0]);
+  $lowNameM = mb_strtolower($nameMaux[0]);
   $museuImgMove = "pictures/museums/".$lowNameM.".png";
   echo $museuImgMove."\n";
 
