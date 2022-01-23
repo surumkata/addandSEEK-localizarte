@@ -88,21 +88,21 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_louvre.png" style="width:100%">
+    <img src="pictures/museums/musée_du_louvre.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Louvre Museum </h3>
       <p><b>Paris - France</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_prado.png" style="width:100%">
+    <img src="pictures/museums/museo_del_prado.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Prado Museum</h3>
       <p><b>Madrid - Spain</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="pictures/museums/museu_coches.png" style="width:100%">
+    <img src="pictures/museums/museu_dos_coches.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Coach Museum </h3>
       <p><b>Lisbon - Portugal</b></p>

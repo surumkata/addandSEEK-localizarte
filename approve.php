@@ -11,7 +11,17 @@ if(isSet($_SESSION['username'])){
 $id = str_replace('-', ' ', $_POST["reqID"]);
 $nameM = explode(";",$id);
 
-$consult = "SELECT* FROM requests WHERE id = '$id'";
+
+$museuImgAux = str_replace('-', '_', $_POST["reqID"]);
+$museuImg = "pictures/submissions/".$museuImgAux.".png";
+echo $museuImg."\n";
+
+$nameMaux = explode(";",$museuImgAux);
+$lowNameM = strtolower($nameMaux[0]);
+$museuImgMove = "pictures/museums/".$lowNameM.".png";
+echo $museuImgMove."\n";
+
+$consult = "SELECT * FROM requests WHERE id = '$id'";
 $result = mysqli_query($connection,$consult);
 $row = mysqli_fetch_assoc($result);
 
@@ -22,15 +32,18 @@ $categories = $row["categories"];
 $contact = $row["contact"];
 $website = $row["website"];
 $description = $row["description"];
-$newName = $row["newName"];
 
-$upd = "UPDATE museums SET name = '$newName',
-                           adress = '$address',
+
+//moves and overwrite if there is already one
+rename($museuImg , $museuImgMove);
+
+
+$upd = "UPDATE museums SET adress = '$address',
                            price = '$price',
                            categories = '$categories',
                            contact = '$contact',
                            website = '$website',
-                           description = '$description' WHERE name = '$name[0]'";
+                           description = '$description' WHERE name = '$nameM[0]'";
 
 mysqli_query($connection,$upd);
 
