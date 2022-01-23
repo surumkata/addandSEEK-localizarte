@@ -13,10 +13,12 @@
 
 .regular_text{
   font-family:"MarlinGeo-Regular" !important;
+  text-decoration: none !important;
 }
 
 .bold_text{
   font-family:"MarlinGeo-Bold" !important;
+  text-decoration: none !important;
 }
 
 .thin_text{
