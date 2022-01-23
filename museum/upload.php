@@ -85,11 +85,13 @@ if ($uploadOk == 0) {
   $consult = "SELECT * FROM requests WHERE (LOWER( id ) = LOWER('".$id."'))";
   $resultado = mysqli_query($connection,$consult);
   $registo = mysqli_fetch_row($resultado);
+  $notificar = 0;
   if(mysqli_num_rows($resultado) > 0){
     $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
     echo "<br>";
     if(mysqli_query($connection,$query)===true){
       echo "atualizado com sucesso";
+      $notificar = 1;
     }else{
       echo " nao conseguiu atualizar";
     }
@@ -98,9 +100,14 @@ if ($uploadOk == 0) {
     $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description')";
     if(mysqli_query($connection,$query)===true){
       echo "inseriu com sucesso";
+      $notificar = 1;
     }else{
       echo " nao conseguiu inserir";
     }
+  }
+  if($notificar == 1){ //sending mail to admin
+    require("sendNotification.php");
+    sendNotification($_SESSION['username'],$oldName);
   }
 }
 
