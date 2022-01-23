@@ -124,7 +124,7 @@ body {font-family: "Lato", sans-serif}
               background-size:cover; ">
               <a href="http://localhost/Li4/museum/museum.php?name=Anacostia-Community-Museum" style="display:block; width:100%; height:100%;"></a>
                 <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-                  <div class="bold_text text_black large_text">Museu dos Coches
+                  <div class="bold_text text_black large_text">Anacostia Community Museum
                     </div>
                   <div class="regular_text text_black medium_text">Washington - USA
                     </div>
