@@ -21,13 +21,12 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/searchPage.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="css/style.css?ts=<?=time()?>" rel="stylesheet" >
+	<link rel="stylesheet" href="css/table.css">
 
 	</head>
   <div class="w3-top orange">
@@ -61,13 +60,15 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table table-bordered table-dark table-hover">
-						  <thead >
-                <th class="align-center">Results</th>
-
+					<div>
+						<table class="table table-bordered table-hover">
+						  <thead class="thead-custom" >
+                <th class="align-center">Picture</th>
+                <th class="align-center">Museum</th>
+                <th class="align-center">Address</th>
 						  </thead>
-						  <tbody>
+
+						  <tbody class="table-custom">
                 <?php
                  if($rowNumb>0){
 
@@ -79,15 +80,16 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
                      $url = "museum/museum.php?name=".$refName;
                      ?>
                      <tr onclick="window.location.assign('<?php echo $url; ?>')">
-                     <th scope="row"><img alt="No image available"width="70vh" height="70vh" src="pictures/museums/<?php echo $imgName;?>"> </th>
-                     <td class=title><?php echo $textName; ?></td>
-                     <td class=adress><?php echo $row["adress"]; ?></td>
+                     <th scope="row" class="align-center img"><img alt="No image available"width="70vh" height="70vh" src="pictures/museums/<?php echo $imgName;?>"> </th>
+                     <td class="align-center"><?php echo $textName; ?></td>
+                     <td class="align-center"><?php echo $row["adress"]; ?></td>
                      </tr>
                      <?php
                    }
                  }else{?>
                         <td>No results...</td>
-
+                        <td></td>
+                        <td></td>
 
              <?php
                    }
@@ -112,5 +114,5 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 <?php
   }
 }
-else header('Location: http://localhost/LI4/login.php');
+else header('Location: http://localhost:8888/login.php');
 ?>
