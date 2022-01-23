@@ -183,13 +183,12 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p class="regular_text medium_text">This web application was done for <b>Laboratórios de Informática IV</b>, subject of <b>MIEI</b> at <b>University of Minho</b>.</a></p>
-  <img src="pictures/assets/eng.png" class="w3-round w3-margin-bottom" alt="Tiago Silva" style="width:15%">
-  <p class="w3-medium regular_text">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="bold_text">@uminho</a></p>
-  <p class="w3-medium regular_text">Any doubts please contact us at <b>localizarte@outlook.pt</b></p>
-  <p class="w3-medium regular_text"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="bold_text">Terms of conditions</a></p>
-  <p class="w3-medium bold_text">© 2022 Localizarte</p>
+<footer class="w3-container w3-center footerorange">
+  <div class="small_text thin_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="regular_text text_black">@uminho</a></div>
+  <img src="pictures/assets/eng.png" class="w3-round" alt="Tiago Silva" style="width:10%">
+  <div class="small_text thin_text text_black paddingfooter">Any doubts please contact us at localizarte@outlook.pt</div>
+  <div class="small_text thin_text text_black paddingfooter"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="regular_text text_black">Terms of conditions</a> © 2022 Localizarte</div>
+  <div class="small_text thin_text text_black" style="padding-top:0.3vh;padding-bottom:2vh;">This web application was done for Laboratórios de Informática IV, subject of MIEI at University of Minho.</a></div>
 </footer>
 
 <script>

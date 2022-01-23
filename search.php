@@ -81,7 +81,12 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
                      $url = "museum/museum.php?name=".$refName;
                      ?>
                      <tr onclick="window.location.assign('<?php echo $url; ?>')">
-                     <th scope="row" class="align-center img"><img alt="No image available"width="70vh" height="70vh" src="pictures/museums/<?php echo $imgName;?>"> </th>
+                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo$imgName; ?>');
+                         width: 40vh;
+                         height: 17vh;
+                         background-position:center center;
+                         background-size:cover;
+                         border-radius:0%"> </th>
                      <td class="align-center"><?php echo $textName; ?></td>
                      <td class="align-center"><?php echo $row["adress"]; ?></td>
                      </tr>
@@ -111,6 +116,13 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
   <script src="js/main.js"></script>
 
 	</body>
+  <footer class="w3-container w3-center footerorange">
+    <div class="small_text thin_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="regular_text text_black">@uminho</a></div>
+    <img src="pictures/assets/eng.png" class="w3-round" alt="Tiago Silva" style="width:10%">
+    <div class="small_text thin_text text_black paddingfooter">Any doubts please contact us at localizarte@outlook.pt</div>
+    <div class="small_text thin_text text_black paddingfooter"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="regular_text text_black">Terms of conditions</a> © 2022 Localizarte</div>
+    <div class="small_text thin_text text_black" style="padding-top:0.3vh;padding-bottom:2vh;">This web application was done for Laboratórios de Informática IV, subject of MIEI at University of Minho.</a></div>
+  </footer>
 </html>
 <?php
   }

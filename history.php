@@ -4,7 +4,7 @@ require_once("connectDB.php");
 if(isSet($_SESSION['username'])){
 //get 5 last visited places order by datetime
 
-$query = "SELECT museum FROM history WHERE username='" . $_SESSION['username'] . "' ORDER BY datetime DESC LIMIT 5 ";
+$query = "SELECT museum,datetime FROM history WHERE username='" . $_SESSION['username'] . "' ORDER BY datetime DESC LIMIT 5 ";
 $result = mysqli_query($connection,$query);
 $rowNumb = mysqli_num_rows($result);
 ?>
