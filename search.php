@@ -107,6 +107,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 					</div>
 				</div>
 			</div>
+      <div class="medium_text regular_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">If you didn't find the museum you were looking for, please request <a href="museum/addMuseum.php" target="_blank" class="bold_text text_orange">here</a>.</div>
 		</div>
 	</section>
 
