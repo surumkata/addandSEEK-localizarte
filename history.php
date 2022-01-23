@@ -72,13 +72,15 @@ $rowNumb = mysqli_num_rows($result);
                    if($rowNumb>0){
                         while($row = mysqli_fetch_assoc($result)){
                             $textName = ucfirst($row["museum"]);
-                            $date = date('Y-m-d H:i:s',$row['datetime']);
+                            $date = new DateTime($row['datetime']);
+                            //$date = date('Y-m-d H:i:s',$row['datetime']);
                             $refName = str_replace(' ', '-', $row["museum"]);
+
                             $url = "museum/museum.php?name=".$refName;
                             ?>
                             <tr  onclick="window.location.assign('<?php echo $url; ?>')">
                               <td class="align-center"><?php echo $textName ?> </td>
-                              <td class="align-center"> <?php echo $date; ?> </td>
+                              <td class="align-center"> <?php echo $date->format('d-m-Y H:i'); ?> </td>
                             </tr>
                             <?php
                           }
