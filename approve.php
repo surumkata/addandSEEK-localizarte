@@ -1,7 +1,6 @@
 <?php
 require_once("connectDB.php");
 
-
 if(isSet($_SESSION['username'])){
   if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
     if($_SESSION['type'] == "admin"){
@@ -16,6 +15,7 @@ $nameM = explode(";",$id);
 $consult = "SELECT * FROM requests WHERE id = '$id'";
 $result = mysqli_query($connection,$consult);
 $row = mysqli_fetch_assoc($result);
+
 
 
 $address = $row["address"];
@@ -37,26 +37,40 @@ if($row["picture"]==1){
 
 
   //moves and overwrite if there is already one
-  rename($museuImg , $museuImgMove);
+  rename($museuImg,$museuImgMove);
 }
 
 
+$checkSubType = "SELECT * FROM museums WHERE name = '$nameM[0]'";
+$result = mysqli_query($connection,$checkSubType);
+
+//if exists update
+if(mysqli_num_rows($row) > 0){
+  $upd = "UPDATE museums SET adress = '$address',
+                             price = '$price',
+                             categories = '$categories',
+                             contact = '$contact',
+                             website = '$website',
+                             description = '$description' WHERE name = '$nameM[0]'";
+
+    mysqli_query($connection,$upd);
+
+    mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
+
+    header('Location: http://localhost:8888/requests.php');
+
+}else{
+  //insert
+  $upd = "INSERT INTO museums values('$nameM[0]','$address','$price','$categories','$contact','$website','$description','')";
+  echo $upd ;
+  mysqli_query($connection,$upd);
+
+  mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
 
 
+ header('Location: http://localhost/LI4/museum/addCords.php?n='.$nameM[0]."&d=".$address);
 
-
-$upd = "UPDATE museums SET adress = '$address',
-                           price = '$price',
-                           categories = '$categories',
-                           contact = '$contact',
-                           website = '$website',
-                           description = '$description' WHERE name = '$nameM[0]'";
-
-mysqli_query($connection,$upd);
-
-mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
-
-header('Location: http://localhost/LI4/requests.php');
+}
 
 }else{
   echo "Permition Denied";
