@@ -67,7 +67,6 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 <head>
     <title>Edit profile</title>
     <link rel="stylesheet" href="../css/default.css">
-    <link href="../css/profileUser.css" rel="stylesheet" id="profileUser-css">
     <link href="../css/preferencesOnly.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

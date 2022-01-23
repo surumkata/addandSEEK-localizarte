@@ -4,13 +4,14 @@ require_once("connectDB.php");
 if(isSet($_SESSION['username'])){
   if(isSet($_SESSION['loginErro']) && $_SESSION['loginErro'] == 0){
 
+$searchkey = str_replace('+',' ',mb_strtolower($_GET['key']));
 
 
-$searchkey = str_replace('+',' ',strtolower($_GET['key']));
 $_SESSION['searchKey'] = $searchkey;
 
-$searchByName = mysqli_query($connection,"SELECT * FROM museums WHERE name = '$searchkey'");
-$searchBySubString = mysqli_query($connection,"SELECT * FROM museums WHERE name LIKE '%$searchkey%' ");
+
+$query = "SELECT * FROM museums WHERE name LIKE '%$searchkey%'";
+$searchBySubString = mysqli_query($connection,$query);
 $rowNumb = mysqli_num_rows ( $searchBySubString );
 ?>
 

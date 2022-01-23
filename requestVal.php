@@ -203,7 +203,7 @@ if(str_contains($row['categories'],"8")){
 
 <?php
 }else{
-  echo "Permition Denied";
+  header('Location: http://localhost/LI4/index.php');
 }
 }
 }else header('Location: http://localhost/LI4/login.php');
