@@ -8,24 +8,12 @@ if(isSet($_SESSION['username'])){
 
   $address = $_GET['address'];
   $location = $_GET['name'];
-  $search_url = "https://nominatim.openstreetmap.org/search?q=".$address."&format=json";
 
-  $httpOptions = [
-      "http" => [
-          "method" => "GET",
-          "header" => "User-Agent: Nominatim-Test"
-      ]
-  ];
   $refName = str_replace(' ', '-',$location);
-
-  $streamContext = stream_context_create($httpOptions);
-  $json = file_get_contents($search_url, false, $streamContext);
-
-
-  $decoded = json_decode($json, true);
-  if(isSet($decoded[0]["lat"]) && isSet($decoded[0]["lon"])){
-    $lat = $decoded[0]["lat"];
-    $lng = $decoded[0]["lon"];
+  if(isSet($address)){
+  $coords = explode(", ",$address);
+  $lat = $coords[0];
+  $lng = $coords[1];
 
 ?>
 

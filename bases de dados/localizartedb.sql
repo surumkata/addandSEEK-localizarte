@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 23-Jan-2022 às 01:01
+-- Tempo de geração: 23-Jan-2022 às 02:24
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -35,63 +35,14 @@ CREATE TABLE IF NOT EXISTS `history` (
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_history`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `history`
 --
 
 INSERT INTO `history` (`id_history`, `username`, `museum`, `datetime`) VALUES
-(136, 'surumkata', 'Museu D. Diogo de Sousa', '2022-01-23 00:57:59'),
-(137, 'surumkata', 'Museu D. Diogo de Sousa', '2022-01-23 00:58:00'),
-(138, 'surumkata', 'Museu Militar do Porto', '2022-01-23 00:58:01'),
-(139, 'surumkata', 'Museu Militar do Porto', '2022-01-23 00:58:01'),
-(140, 'surumkata', 'Centro de Interpretação da História Militar', '2022-01-23 00:58:01'),
-(141, 'surumkata', 'Musée du Louvre', '2022-01-23 00:58:02'),
-(142, 'surumkata', 'Madame Tussauds London', '2022-01-23 00:58:02'),
-(143, 'surumkata', 'Museu da Cidade Porto', '2022-01-23 00:58:02'),
-(144, 'surumkata', 'Museu do Douro', '2022-01-23 00:58:02'),
-(145, 'surumkata', 'Museu dos Coches', '2022-01-23 00:58:02'),
-(146, 'surumkata', 'Brooklyn Museum', '2022-01-23 00:58:02'),
-(147, 'surumkata', 'Museo del Prado', '2022-01-23 00:58:03'),
-(148, 'surumkata', 'Museu da Cidade Porto', '2022-01-23 00:58:06'),
-(149, 'surumkata', 'Museu da Cidade Porto', '2022-01-23 00:58:06'),
-(150, 'surumkata', 'Musée du Louvre', '2022-01-23 00:58:07'),
-(151, 'surumkata', 'Mosteiro dos Jerónimos', '2022-01-23 00:58:07'),
-(152, 'surumkata', 'Centro de Interpretação da História Militar', '2022-01-23 00:58:07'),
-(153, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:07'),
-(154, 'surumkata', 'Mosteiro dos Jerónimos', '2022-01-23 00:58:07'),
-(155, 'surumkata', 'Museo del Prado', '2022-01-23 00:58:08'),
-(156, 'surumkata', 'Madame Tussauds London', '2022-01-23 00:58:09'),
-(157, 'surumkata', 'Museo del Prado', '2022-01-23 00:58:09'),
-(158, 'surumkata', 'Museu dos Coches', '2022-01-23 00:58:10'),
-(159, 'surumkata', 'Museu dos Coches', '2022-01-23 00:58:10'),
-(160, 'surumkata', 'Madame Tussauds London', '2022-01-23 00:58:15'),
-(161, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:15'),
-(162, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:15'),
-(163, 'surumkata', 'Brooklyn Museum', '2022-01-23 00:58:16'),
-(164, 'surumkata', 'Museu D. Diogo de Sousa', '2022-01-23 00:58:16'),
-(165, 'surumkata', 'Centro de Interpretação da História Militar', '2022-01-23 00:58:16'),
-(166, 'surumkata', 'Mosteiro dos Jerónimos', '2022-01-23 00:58:16'),
-(167, 'surumkata', 'Museu do Douro', '2022-01-23 00:58:16'),
-(168, 'surumkata', 'Museu do Douro', '2022-01-23 00:58:16'),
-(169, 'surumkata', 'Brooklyn Museum', '2022-01-23 00:58:17'),
-(170, 'surumkata', 'Museu da Cidade Porto', '2022-01-23 00:58:17'),
-(171, 'surumkata', 'Museu dos Coches', '2022-01-23 00:58:17'),
-(172, 'surumkata', 'Mosteiro dos Jerónimos', '2022-01-23 00:58:18'),
-(173, 'surumkata', 'Museu D. Diogo de Sousa', '2022-01-23 00:58:18'),
-(174, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:18'),
-(175, 'surumkata', 'Museu Militar do Porto', '2022-01-23 00:58:18'),
-(176, 'surumkata', 'Museu Benfica Cosme Damião', '2022-01-23 00:58:18'),
-(177, 'surumkata', 'Madame Tussauds London', '2022-01-23 00:58:23'),
-(178, 'surumkata', 'Brooklyn Museum', '2022-01-23 00:58:23'),
-(179, 'surumkata', 'Museu dos Biscaínhos', '2022-01-23 00:58:23'),
-(180, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:23'),
-(181, 'surumkata', 'Centro de Interpretação da História Militar', '2022-01-23 00:58:23'),
-(182, 'surumkata', 'Brooklyn Museum', '2022-01-23 00:58:24'),
-(183, 'surumkata', 'The Sherlock Holmes Museum', '2022-01-23 00:58:24'),
-(184, 'surumkata', 'Mosteiro dos Jerónimos', '2022-01-23 00:58:24'),
-(185, 'surumkata', 'Museu da Cidade de Aveiro', '2022-01-23 00:58:24');
+(187, 'surumkata', 'Brooklyn Museum', '2022-01-23 01:31:29');
 
 -- --------------------------------------------------------
 
@@ -135,7 +86,7 @@ INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `contact`, `webs
 ('Museu Militar do Porto', 'Rua do Heroísmo 329, 4300-096 Porto', 3, '4;5;6', '', 'http://www.patrimoniocultural.gov.pt/pt/museus-e-monumentos/rede-portuguesa/m/museu-militar-do-porto/', 'O Museu Militar do Porto é uma instituição pertencente ao Exército Português, vocacionada para a preservação da história popular.', '41.14654505007665, -8.594999338632649'),
 ('Centro de Interpretação da História Militar', 'Paço do Marquês, 4990-062 Pte. de Lima', 1, '4;6', '(+351) 258 240 211', 'http://www.museuspontedelima.com/', 'Instalado no imponente edifício conhecido como Paço do Marquês, erguido na segunda metade do século XV como residência do alcaide-mor D. Leonel de Lima, o Centro de Interpretação da História Militar de Ponte de Lima resulta de um protocolo estabelecido entre o Exército Português e o Município de Ponte de Lima em 2011.', ''),
 ('Museu Nacional de História Natural e da Ciência', 'R. da Escola Politécnica 56, 1250-102 Lisboa', 20, '1;4;5;7', '(+351) 213 921 800', 'https://www.museus.ulisboa.pt/', 'O Museu Nacional de História Natural e da Ciência / Museus da Universidade de Lisboa (MUHNAC / MULisboa) é um organismo da Universidade de Lisboa que tem como missão promover a curiosidade e a compreensão pública sobre a natureza e a ciência, através da valorização das suas colecções e do património universitário, da investigação, da realização de exposições, conferências e outras acções de carácter científico, educativo, cultural e de lazer.', '38.71848341526484, -9.150701369316325'),
-('Galeria da Biodiversidade - Centro Ciência Viva', 'Rua do Campo Alegre 1191, 4150-181 Porto', 5, '5;7', '(+351) 220 408 700', 'https://mhnc.up.pt/galeria-da-biodiversidade/', 'Instalada na Casa Andresen, no Jardim Botânico do Porto, a Galeria da Biodiversidade – Centro Ciência Viva surge como o produto da primeira fase do ambicioso plano de reabilitação do MHNC-UP, que se encontra neste momento em curso, em colaboração próxima com a Agência Ciência Viva.', '41.15434853040452, -8.642620230683676'),
+('Galeria da Biodiversidade', 'Rua do Campo Alegre 1191, 4150-181 Porto', 5, '5;7', '(+351) 220 408 700', 'https://mhnc.up.pt/galeria-da-biodiversidade/', 'Instalada na Casa Andresen, no Jardim Botânico do Porto, a Galeria da Biodiversidade – Centro Ciência Viva surge como o produto da primeira fase do ambicioso plano de reabilitação do MHNC-UP, que se encontra neste momento em curso, em colaboração próxima com a Agência Ciência Viva.', '41.15434853040452, -8.642620230683676'),
 ('Museu Benfica Cosme Damião', 'Av. Eusébio da Silva Ferreira Porta 9, 1500-313 Lisboa', 10, '2;3;4;5;8', '(+351) 217 219 590', 'https://museubenfica.slbenfica.pt/', 'O Museu Benfica – Cosme Damião é um museu dedicado à história do Sport Lisboa e Benfica, da cidade de Lisboa e do mundo e está situado no exterior do Estádio da Luz, em Lisboa, Portugal.', '38.75212383176818, -9.184086507948974');
 
 -- --------------------------------------------------------
@@ -156,6 +107,13 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `description` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `requests`
+--
+
+INSERT INTO `requests` (`id`, `address`, `price`, `categories`, `contact`, `website`, `picture`, `description`) VALUES
+('Museo del Prado;surumkata', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 25, '1;7', '(+34) 913 30 28 00', 'https://www.museodelprado.es/', 1, 'opa buéde grande e tal, mas pequeno em valor');
 
 -- --------------------------------------------------------
 

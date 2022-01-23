@@ -8,7 +8,7 @@ $museum = str_replace('-', ' ',$_GET['name']);
 $_SESSION['museum'] = $museum;
 
 $visited = 0; //not visited
-$r = mysqli_query($connection,"SELECT* FROM history WHERE museum ='$museum' AND username = '".$_SESSION['username']."' ");
+$r = mysqli_query($connection,"SELECT * FROM history WHERE museum ='$museum' AND username = '".$_SESSION['username']."' ");
 if(mysqli_num_rows($r) > 0){
     $visited = 1; //visited
 }
@@ -145,7 +145,7 @@ $behind = 1;
           <?php if($visited == 0){ ?> <li><input type="checkbox" id="checkboxOne" name="visit" onclick='window.location.assign("insertVisited.php")'><label for="checkboxOne">visited</label></li>
         <?php }else{ ?> <li><input type="checkbox" id="checkboxOne" name="visit"  checked onclick='window.location.assign("deleteVisited.php")'><label for="checkboxOne">visited</label></li> <?php  } ?>
       </ul>
-          <a href="drawMap.php?address=<?php echo $registo[1];?>&name=<?php echo $museum; ?>" style="text-decoration:none">
+          <a href="drawMap.php?address=<?php echo $registo[7];?>&name=<?php echo $museum; ?>" style="text-decoration:none">
             <img src="../pictures/assets/location.png" alt="address" style="width:5%">
           </a>
           <a>Address: <?php echo $registo[1];?> </a>

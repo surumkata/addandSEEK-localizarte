@@ -11,12 +11,82 @@ $aux = $_GET["m"];
 $user = $_GET["u"];
 
 $museu = str_replace('-', ' ', $aux);
+$museuImg = str_replace(' ', '_', $museu);
 $id = $museu.";".$user;
 $postID = str_replace(' ','-',$id);
 
 $consult = "SELECT * FROM requests WHERE id = '$id' ";
 $result = mysqli_query($connection,$consult);
 $row = mysqli_fetch_assoc($result);
+
+$image = "pictures/submissions/".$museuImg.";".$user.".png";
+$imageOrg = "pictures/museums/".$museuImg.".png";
+
+
+$preferences = "";
+
+$behind = 0;
+
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+if(str_contains($row['categories'],"1")){
+  $preferences = "Art";
+  $behind = 1;
+}
+if(str_contains($row['categories'],"2")){
+  if($behind == 1) $preferences = $preferences." - Biographical";
+  else {
+    $preferences = $preferences."Biographical";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"3")){
+  if($behind == 1) $preferences = $preferences." - Community";
+  else {
+    $preferences = $preferences."Community";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"4")){
+  if($behind == 1) $preferences = $preferences." - Historical";
+  else {
+    $preferences = $preferences."Historical";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"5")){
+  if($behind == 1) $preferences = $preferences." - Neighborhood";
+  else {
+    $preferences = $preferences."Neighborhood";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"6")){
+  if($behind == 1) $preferences = $preferences." - Military";
+  else {
+    $preferences = $preferences."Military";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"7")){
+  if($behind == 1) $preferences = $preferences." - Science";
+  else {
+    $preferences = $preferences."Science";
+    $behind = 1;
+  }
+}
+if(str_contains($row['categories'],"8")){
+  if($behind == 1) $preferences = $preferences." - Themed";
+  else {
+    $preferences = $preferences."Themed";
+    $behind = 1;
+  }
+}
+
 
 ?>
 
@@ -57,13 +127,15 @@ $row = mysqli_fetch_assoc($result);
         </div>
             <div class="w3-center col-sm-11">
               <table class="table table-hover col-sm-2">
+                <!--vertical-align: middle-->
+                <thead class="thead-custom">
+                  <tr>
+                    <th class="vertical-align: middle">Museum Name</th>
+                    <th class="vertical-align: middle"><?php echo $museu; ?></th>
+                  </tr>
+                </thead>
                 <tbody class="table-custom">
                   <?php
-                   echo "<tr>";
-                   echo "<th class>"."Original name"." </th>";
-                   echo "<td class=title>".$museu." </td>";
-                   echo "</tr>";
-
                    echo "<tr>";
                    echo "<th>"."Address"." </th>";
                    echo "<td class=title>".$row["address"]." </td>";
@@ -76,7 +148,7 @@ $row = mysqli_fetch_assoc($result);
 
                    echo "<tr>";
                    echo "<th>"."Categories"." </th>";
-                   echo "<td class=title>".$row["categories"]." </td>";
+                   echo "<td class=title>".$preferences." </td>";
                    echo "</tr>";
 
                    echo "<tr>";
@@ -91,20 +163,15 @@ $row = mysqli_fetch_assoc($result);
 
                    echo "<tr>";
                    echo "<th>"."Picture"." </th>";
-                   echo "<td class=title>".$row["picture"]." </td>";
-                   echo "</tr>";
-
-                   echo "<tr>";
-                   echo "<th>"."New name"." </th>";
-                   echo "<td class=title>".$row["newName"]." </td>";
-                   echo "</tr>";
-
+                   if($row['picture'] == 0) { ?>
+                      <td class=title><img alt="No image available" size=40% src='<?php echo $imageOrg; ?>'> </td>
+                    <?php }else { ?>
+                       <td class=title><img alt="No image available" size=40% src='<?php echo $image; ?>'> </td>
+                     <?php }
                    echo "<tr>";
                    echo "<th>"."Description"." </th>";
                    echo "<td class=title>".$row["description"]." </td>";
                    echo "</tr>";
-
-
                   ?>
 
                 </tbody>
@@ -126,10 +193,6 @@ $row = mysqli_fetch_assoc($result);
                       </div>
                   </div>
               </div>
-
-
-
-
             </div>
       </div>
     </section>
