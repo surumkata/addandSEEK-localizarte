@@ -12,14 +12,6 @@ $id = str_replace('-', ' ', $_POST["reqID"]);
 $nameM = explode(";",$id);
 
 
-$museuImgAux = str_replace('-', '_', $_POST["reqID"]);
-$museuImg = "pictures/submissions/".$museuImgAux.".png";
-echo $museuImg."\n";
-
-$nameMaux = explode(";",$museuImgAux);
-$lowNameM = strtolower($nameMaux[0]);
-$museuImgMove = "pictures/museums/".$lowNameM.".png";
-echo $museuImgMove."\n";
 
 $consult = "SELECT * FROM requests WHERE id = '$id'";
 $result = mysqli_query($connection,$consult);
@@ -33,9 +25,24 @@ $contact = $row["contact"];
 $website = $row["website"];
 $description = $row["description"];
 
+if($row["picture"]==1){
+  $museuImgAux = str_replace('-', '_', $_POST["reqID"]);
+  $museuImg = "pictures/submissions/".$museuImgAux.".png";
+  echo $museuImg."\n";
 
-//moves and overwrite if there is already one
-rename($museuImg , $museuImgMove);
+  $nameMaux = explode(";",$museuImgAux);
+  $lowNameM = strtolower($nameMaux[0]);
+  $museuImgMove = "pictures/museums/".$lowNameM.".png";
+  echo $museuImgMove."\n";
+
+
+  //moves and overwrite if there is already one
+  rename($museuImg , $museuImgMove);
+}
+
+
+
+
 
 
 $upd = "UPDATE museums SET adress = '$address',

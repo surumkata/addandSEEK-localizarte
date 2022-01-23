@@ -6,9 +6,16 @@ if(isSet($_SESSION['username'])){
     if($_SESSION['type'] == "admin"){
 
 
-    $id = str_replace('-', ' ', $_POST["reqID"]);
+    $id = str_replace('-',' ', $_POST["reqID"]);
+    $idImg = str_replace('-', '_', $_POST["reqID"]);
+    $img = "pictures/submissions/".$idImg.".png";
 
     mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
+
+    //talvez verificar se havia uma submissão de imag
+    //mas provavelmente n vale a pena
+    unlink($img);
+
     header('Location: http://localhost/LI4/requests.php');
     }else{
       echo "Permition Denied";
