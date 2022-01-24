@@ -4,7 +4,7 @@ require_once("connectDB.php");
 if(isSet($_SESSION['username'])){
 //get 5 last visited places order by datetime
 
-$query = "SELECT museum,datetime FROM history WHERE username='" . $_SESSION['username'] . "' ORDER BY datetime DESC LIMIT 5 ";
+$query = "SELECT museum,datetime FROM history WHERE username='" . $_SESSION['username'] . "' ORDER BY datetime DESC ";
 $result = mysqli_query($connection,$query);
 $rowNumb = mysqli_num_rows($result);
 ?>
@@ -73,7 +73,6 @@ $rowNumb = mysqli_num_rows($result);
                         while($row = mysqli_fetch_assoc($result)){
                             $textName = ucfirst($row["museum"]);
                             $date = new DateTime($row['datetime']);
-                            //$date = date('Y-m-d H:i:s',$row['datetime']);
                             $refName = str_replace(' ', '-', $row["museum"]);
 
                             $url = "museum/museum.php?name=".$refName;
@@ -91,7 +90,7 @@ $rowNumb = mysqli_num_rows($result);
                <?php
                      }
                   ?>
-  						      <!--<th scope="row">1</th>-->
+
   						  </tbody>
   						</table>
   					</div>

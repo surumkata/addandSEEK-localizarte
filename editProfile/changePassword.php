@@ -30,8 +30,8 @@ if(isSet($_SESSION['username'])){
     <meta charset="UTF-8">
 </head>
 <body>
-<div class="container rounded bg-white mt-5 mb-5" style="width:30%">
-  	<div class="row" style="width: 100%">
+<div class="container  bg-white mt-5 mb-5" style="width:28%;border-radius:3%;">
+  	<div class="row" style="width: 100%;margin-top:20vh;">
         <form method="POST" action="changePasswordDb.php">
           <br>
   		    <label>Current Password</label>
@@ -48,7 +48,7 @@ if(isSet($_SESSION['username'])){
               </div>
               <?php if( isSet( $_SESSION['error'] )) {?> <p style="color:red"> <?php echo $_SESSION['error']; ?> </p> <?php unset($_SESSION['error']);} ?>
               <div class="mt-5 text-center">
-                <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                <input type="submit" class="simple-button " value="Save Changes">
               </div>
         </form>
   	</div>

@@ -24,17 +24,17 @@ if($error == 0){
   if(!(md5($currentpsw) == $password[0])){
     $error = 1;
     $_SESSION['error'] = "Invalid current password!\n";
-    header('Location: http://localhost/Li4/editProfile/changePassword.php');
+    header('Location: http://localhost/LI4/editProfile/changePassword.php');
   }
   else{
     $update = "UPDATE users SET password=('".md5($newpsw)."') WHERE username = ('" . $_SESSION['username'] . "')";
     $update = mysqli_query($connection,$update);
-    header('Location: http://localhost/Li4/profileUser.php');
+    header('Location: http://localhost/LI4/profileUser.php');
   }
 }
 else{
   $_SESSION['error'] = "Passwords don't match!\n";
-  header('Location: http://localhost/Li4/editProfile/changePassword.php');
+  header('Location: http://localhost/LI4/editProfile/changePassword.php');
 }
 
 

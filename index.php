@@ -98,12 +98,12 @@ body {font-family: "Lato", sans-serif}
   <!-- Automatic Slideshow Images -->
 
   <div class="mySlides w3-display-container w3-center"
-          style="background-image:url('http://localhost/Li4/pictures/museums/museu_dos_coches.png');
+          style="background-image:url('http://localhost/LI4/pictures/museums/museu_dos_coches.png');
               width: 100%;
               height: 66vh;
               background-position:center center;
               background-size:cover; ">
-              <a href="http://localhost/Li4/museum/museum.php?name=Museu-dos-Coches" style="display:block; width:100%; height:100%;"></a>
+              <a href="http://localhost/LI4/museum/museum.php?name=Museu-dos-Coches" style="display:block; width:100%; height:100%;"></a>
                 <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
                   <div class="bold_text text_black large_text">Museu dos Coches
                     </div>
@@ -112,12 +112,12 @@ body {font-family: "Lato", sans-serif}
             </div>
   </div>
   <div class="mySlides w3-display-container w3-center"
-          style="background-image:url('http://localhost/Li4/pictures/museums/mus%C3%A9e_du_louvre.png');
+          style="background-image:url('http://localhost/LI4/pictures/museums/mus%C3%A9e_du_louvre.png');
               width: 100%;
               height: 66vh;
               background-position:center center;
               background-size:cover; ">
-              <a href="http://localhost/Li4/museum/museum.php?name=Mus%C3%A9e-du-Louvre" style="display:block; width:100%; height:100%;"></a>
+              <a href="http://localhost/LI4/museum/museum.php?name=Mus%C3%A9e-du-Louvre" style="display:block; width:100%; height:100%;"></a>
                 <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
                   <div class="bold_text text_black large_text">Musée du Louvre
                     </div>
@@ -126,12 +126,12 @@ body {font-family: "Lato", sans-serif}
             </div>
   </div>
   <div class="mySlides w3-display-container w3-center"
-          style="background-image:url('http://localhost/Li4/pictures/museums/anacostia_community_museum.png');
+          style="background-image:url('http://localhost/LI4/pictures/museums/anacostia_community_museum.png');
               width: 100%;
               height: 66vh;
               background-position:center center;
               background-size:cover; ">
-              <a href="http://localhost/Li4/museum/museum.php?name=Anacostia-Community-Museum" style="display:block; width:100%; height:100%;"></a>
+              <a href="http://localhost/LI4/museum/museum.php?name=Anacostia-Community-Museum" style="display:block; width:100%; height:100%;"></a>
                 <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
                   <div class="bold_text text_black large_text">Anacostia Community Museum
                     </div>

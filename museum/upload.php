@@ -85,7 +85,7 @@ if ($uploadOk == 0) {
   $registo = mysqli_fetch_row($resultado);
   $horarios = $_POST['date'];
   $horariosString = "";
-  
+
   for($dia=0;$dia<7;$dia++){
     $i = $dia*4;
     if($horarios[$i+0] != "" && $horarios[$i+1] != ""){
@@ -107,7 +107,7 @@ if ($uploadOk == 0) {
 
   $notificar = 0;
   if(mysqli_num_rows($resultado) > 0){
-    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "'),horarios=('" . $horariosString . "') WHERE id=('" . $id . "')";
+    $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "'),schedule =('" . $horariosString . "') WHERE id=('" . $id . "')";
     echo "<br>";
     if(mysqli_query($connection,$query)===true){
       echo "atualizado com sucesso";
@@ -117,7 +117,7 @@ if ($uploadOk == 0) {
     }
   }else{
     echo "<br>";
-    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description,horarios) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description','$horariosString')";
+    $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description,schedule) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description','$horariosString')";
     if(mysqli_query($connection,$query)===true){
       echo "inseriu com sucesso";
       $notificar = 1;

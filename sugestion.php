@@ -35,7 +35,7 @@ if(strpos($preferences[0], ";") != false){
 
   echo $museus[0];
   $refName = str_replace(' ', '-', $museus[0]);
-  header('Location: http://localhost/Li4/museum/museum.php?name='.$refName);
+  header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
 
 }
 else{
@@ -51,7 +51,7 @@ else{
 
   echo $museus[0];
   $refName = str_replace(' ', '-', $museus[0]);
-  header('Location: http://localhost/Li4/museum/museum.php?name='.$refName);
+  header('Location: http://localhost/LI4/museum/museum.php?name='.$refName);
 };
 
   }

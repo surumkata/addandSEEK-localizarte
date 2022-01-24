@@ -13,6 +13,7 @@ if(isSet($_POST['name'])){
   $name = str_replace(' ', '_',$registo[0]);
   $refName = str_replace(' ', '-',$registo[0]);
   $image = $string = "../pictures/museums/".$name.".png";
+
   if(isSet($registo[8])) $horarios = explode(';',$registo[8]);
 
   if(isSet($horarios[0]) && $horarios[0] != "_") {
@@ -182,7 +183,7 @@ if(isSet($_POST['name'])){
      ?>
 
       <div class= "w3-display-container w3-center"
-              style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo $name.'.png';?>');
+              style="background-image:url('http://localhost/LI4/pictures/museums/<?php echo $name.'.png';?>');
                   width: 100%;
                   height: 66vh;
                   background-position:center center;
@@ -210,16 +211,16 @@ if(isSet($_POST['name'])){
           <img src="../pictures/assets/location.png" alt="address" style="width:5%;padding-bottom:1vh;">
           <label for="address">Address:</label>
           <br>
-          <textarea class="" name="adress" required value="<?php echo $registo[1]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <textarea class="" name="address" required style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"><?php echo $registo[1]; ?></textarea><br><br>
           <img src="../pictures/assets/ticket.png" alt="ticket" style="width:5%;padding-bottom:1vh;">
           <label for="price">Price:</label><br>
-          <textarea class="" name="price" required value="<?php echo $registo[2]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <textarea class="" name="price" required  style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"><?php echo $registo[2]; ?></textarea><br><br>
           <img src="../pictures/assets/website.png" alt="site" style="width:5%;padding-bottom:1vh;">
           <label for="website">Site:</label><br>
-          <textarea class="" name="website" value="<?php echo $registo[5]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <textarea class="" name="website"  style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"><?php echo $registo[5]; ?></textarea><br><br>
           <img src="../pictures/assets/contact.png" alt="contact" style="width:5%;padding-bottom:1vh;">
           <label for="contact">Contact:</label><br>
-          <textarea class="" name="contact" value="<?php echo $registo[4]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <textarea class="" name="contact" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"><?php echo $registo[4]; ?></textarea><br><br>
           <img src="../pictures/assets/category.png" alt="category" style="width:5%;padding-bottom:1vh;">
           <label class="labels">Categories:</label>
                     <ul class="ks-cboxtags" style="margin:0vh;">
@@ -244,7 +245,7 @@ if(isSet($_POST['name'])){
 
           <img src="../pictures/assets/description.png" alt="description" style="width:5%;padding-bottom:1vh;">
           <label for="description">Description:</label><br>
-          <textarea class="form-control" name="description" value="<?php echo $registo[6]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 1vh;width:50vh;height:15vh;"></textarea><br><br>
+          <textarea class="form-control" name="description"  style="border-radius:3vh;padding-left:1vh;padding-top: 1vh;width:50vh;height:15vh;"><?php echo $registo[6]; ?></textarea><br><br>
           <br><br>
 
           <div>
@@ -253,8 +254,8 @@ if(isSet($_POST['name'])){
                   <img src="../pictures/assets/schedule.png" alt="schedule" style="width:5%;padding-bottom:1vh;">Schedule</div>
                 <table style="margin:auto">
                   <thead>
-                  <th class="align-center"> 1º Openning </th>
-                  <th class="align-center"> 2º Openning </th>
+                  <th class="align-center"> 1º Opening </th>
+                  <th class="align-center"> 2º Opening </th>
                   <th class="align-center"> Day of the Week </th>
                 </thead>
                 <tbody>

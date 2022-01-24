@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Tempo de geração: 23-Jan-2022 às 23:51
--- Versão do servidor: 5.7.36
--- versão do PHP: 7.4.26
+-- Host: localhost:8889
+-- Generation Time: Jan 24, 2022 at 07:16 PM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,50 +18,45 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `localizartedb`
+-- Database: `localizarteDB`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `history`
+-- Table structure for table `history`
 --
 
-DROP TABLE IF EXISTS `history`;
-CREATE TABLE IF NOT EXISTS `history` (
-  `id_history` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `history` (
+  `id_history` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `museum` varchar(60) CHARACTER SET utf8mb4 NOT NULL,
-  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_history`),
-  KEY `username` (`username`)
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `museums`
+-- Table structure for table `museums`
 --
 
-DROP TABLE IF EXISTS `museums`;
-CREATE TABLE IF NOT EXISTS `museums` (
+CREATE TABLE `museums` (
   `name` varchar(60) NOT NULL,
-  `adress` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `price` float NOT NULL,
   `categories` varchar(150) NOT NULL,
   `contact` varchar(40) NOT NULL,
   `website` varchar(150) NOT NULL,
   `description` varchar(500) NOT NULL,
   `coords` varchar(50) NOT NULL,
-  `horario` varchar(170) NOT NULL,
-  PRIMARY KEY (`name`)
+  `schedule` varchar(170) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `museums`
+-- Dumping data for table `museums`
 --
 
-INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `contact`, `website`, `description`, `coords`, `horario`) VALUES
+INSERT INTO `museums` (`name`, `address`, `price`, `categories`, `contact`, `website`, `description`, `coords`, `schedule`) VALUES
 ('Museo del Prado', 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Espanha', 15, '1', '(+34) 913 30 28 00', 'https://www.museodelprado.es/', 'O Museu do Prado é o mais importante museu da Espanha e um dos mais importantes do mundo. Apresentando belas e preciosas obras de arte, localiza-se em Madrid e foi mandado construir por Carlos III. As obras de construção se estenderam por muitos anos, tendo sido inaugurado somente no reinado de Fernando VII.', '40.41433727248034, -3.6922129306929286', '10:00-19:00;10:00-20:00;10:00-20:00;10:00-20:00;10:00-20:00;10:00-20:00;10:00-20:00'),
 ('Museu do Douro', 'R. do Marquês de Pombal, 5050-282 Peso da Régua', 30, '3;8', '(+351) 254 310 190', 'https://www.museudodouro.pt/', 'O Museu do Douro é um museu localizado em Peso da Régua dedicado ao estudo e divulgação do património da Região Demarcada do Douro e dos seus vinhos, nomeadamente o vinho do Porto. Foi criado pela Assembleia da República, em 1997, através da Lei n.º 125/97 de 2 de Dezembro.', '41.16167605455531, -7.789968784653535', '10:00-18:00;10:00-18:00;10:00-18:00;10:00-18:00;10:00-18:00;10:00-18:00;10:00-18:00'),
 ('Museu D. Diogo de Sousa', 'R. dos Bombeiros Voluntários s/n, 4700-025 Braga', 3, '4;7', '(+351) 253 273 706 / 253 615 844', 'https://www.museuddiogodesousa.gov.pt/', 'O Museu de Arqueologia D. Diogo de Sousa é um museu de arqueologia localizado em Braga, Portugal.', '41.54658589900556, -8.427328346039392', '10:00-17:30;_;10:00-17:30;10:00-17:30;10:00-17:30;10:00-17:30;10:00-17:30'),
@@ -86,11 +81,10 @@ INSERT INTO `museums` (`name`, `adress`, `price`, `categories`, `contact`, `webs
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `requests`
+-- Table structure for table `requests`
 --
 
-DROP TABLE IF EXISTS `requests`;
-CREATE TABLE IF NOT EXISTS `requests` (
+CREATE TABLE `requests` (
   `id` varchar(150) NOT NULL,
   `address` varchar(100) NOT NULL,
   `price` float NOT NULL,
@@ -99,34 +93,30 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `website` varchar(150) NOT NULL,
   `picture` tinyint(1) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `horarios` varchar(170) NOT NULL,
-  PRIMARY KEY (`id`)
+  `schedule` varchar(170) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   `name` varchar(30) NOT NULL,
   `password` varchar(150) NOT NULL,
   `email` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
   `admin` tinyint(1) NOT NULL,
-  `preferences` varchar(150) NOT NULL,
-  PRIMARY KEY (`username`)
+  `preferences` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`username`, `name`, `password`, `email`, `birthdate`, `admin`, `preferences`) VALUES
-('', '', 'd41d8cd98f00b204e9800998ecf8427e', '', '1970-01-01', 0, ''),
 ('biladeiro', 'biladeiro', '69ed29fa5d6c9707d8a0e494e10641f0', 'localizarte@outlook.pt', '2001-01-20', 1, ''),
 ('brazafonso', 'Goncalo Braz', '435cad5c96a4cfc723361bfee68bd78a', 'brazafonso2001@gmail.com', '2001-02-02', 0, ''),
 ('runlo', 'Gonçalo Pereira', '6c6f35f15c9f3f7d88ddc5be3e746c23', 'phpmaster@gmail.com', '2001-05-06', 0, '3;4;8'),
@@ -134,11 +124,50 @@ INSERT INTO `users` (`username`, `name`, `password`, `email`, `birthdate`, `admi
 ('surumkata', 'Tiago Silva', '1416bda6db1517eed29b34c964f70180', 'tstiagosilva2001@gmail.com', '2001-07-27', 0, '1;4;8');
 
 --
--- Restrições para despejos de tabelas
+-- Indexes for dumped tables
 --
 
 --
--- Limitadores para a tabela `history`
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id_history`),
+  ADD KEY `username` (`username`);
+
+--
+-- Indexes for table `museums`
+--
+ALTER TABLE `museums`
+  ADD PRIMARY KEY (`name`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `history`
 --
 ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`);

@@ -37,13 +37,13 @@ if($imageFileType != "png") {
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   $_SESSION['upload'] = $error;
-  header('Location: http://localhost/Li4/editProfile/editImage.php');
+  header('Location: http://localhost/LI4/editProfile/editImage.php');
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    header('Location: http://localhost/Li4/profileUser.php');
+    header('Location: http://localhost/LI4/profileUser.php');
   } else {
       $_SESSION['upload'] = "Sorry, there was an error uploading your file.\n";
-      header('Location: http://localhost/Li4/editProfile/editImage.php');
+      header('Location: http://localhost/LI4/editProfile/editImage.php');
   }
 }
 }

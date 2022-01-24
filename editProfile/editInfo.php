@@ -55,10 +55,12 @@ if(str_contains($preferences,"8")){
   $themed = 1;
 }
 
-$profileImg = "../pictures/users/" . $username . ".png";
-if (!file_exists($profileImg)) {
-  $profileImg = "../pictures/users/pattern.jpg";
+$profileImg = $username . ".png";
+$profileUrl = "../pictures/users/".$profileImg;
+if (!file_exists($profileUrl)) {
+  $profileImg = "pattern.jpg";
 }
+
 $today = date("Y-m-d");
 $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 ?>
@@ -148,11 +150,17 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
-        <div class="col-md-3 border-right">
+        <div class="col-md-3 border-right zoomin">
           <center><div class="bold_text large_text text_black" style="margin-top:6.5vh;">User's Image</div></center>
-            <div class="zoomin d-flex flex-column align-items-center text-center p-3 py-5">
+            <div class=" d-flex flex-column align-items-center text-center p-3 py-5">
               <a href="editImage.php" target="_blank" rel="noopener noreferrer">
-              <img class="mt-5 rounded-circle" width="150vh" height="150vh" src="<?php echo $profileImg; ?>">
+                <div style="background-image:url('http://localhost/LI4/pictures/users/<?php echo $profileImg; ?>');
+                    width:20vh;
+                    height: 20vh;
+                    margin-top: 6vh;
+                    background-position:center center;
+                    background-size:cover;
+                    border-radius:10vh;" > </div>
               <br>
             </a>
           </div>

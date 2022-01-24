@@ -114,7 +114,7 @@ if(mysqli_num_rows($res) == 0){
     }
     $notificar = 0;
     if(mysqli_num_rows($resultado) > 0){
-      $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "'),description=('" . $horariosString . "') WHERE id=('" . $id . "')";
+      $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "'), schedule =('" . $horariosString . "') WHERE id=('" . $id . "')";
       echo "<br>";
       if(mysqli_query($connection,$query)===true){
         echo "atualizado com sucesso";
@@ -124,7 +124,7 @@ if(mysqli_num_rows($res) == 0){
       }
     }else{
       echo "<br>";
-      $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description,horarios) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description','$horariosString')";
+      $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description,schedule) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description','$horariosString')";
       echo $query;
       if(mysqli_query($connection,$query)===true){
         echo "inseriu com sucesso";

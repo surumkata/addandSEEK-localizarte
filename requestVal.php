@@ -13,7 +13,6 @@ $user = $_GET["u"];
 $museu = str_replace('-', ' ', $aux);
 $museuImg = str_replace(' ', '_', $museu);
 $id = $museu.";".$user;
-$postID = str_replace(' ','-',$id);
 
 $consult = "SELECT * FROM requests WHERE id = '$id' ";
 $result = mysqli_query($connection,$consult);
@@ -21,7 +20,7 @@ $row = mysqli_fetch_assoc($result);
 
 $image = $museuImg.";".$user.".png";
 $imageOrg = $museuImg.".png";
-$horarios = explode(";",$row['horarios']);
+$horarios = explode(";",$row['schedule']);
 
 $preferences = "";
 
@@ -174,14 +173,14 @@ if(str_contains($row['categories'],"8")){
                    echo "<tr>";
                    echo "<th>"."Picture"." </th>";
                    if($row['picture'] == 0) { ?>
-                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo$imageOrg; ?>');
+                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/pictures/museums/<?php echo$imageOrg; ?>');
                          width: 80vh;
                          height: 40vh;
                          background-position:center center;
                          background-size:cover;
                          border-radius:0%"> </th>
                     <?php }else { ?>
-                      <th scope="row" class="align-center img" style="background-image:url('http://localhost/Li4/pictures/submissions/<?php echo$image; ?>');
+                      <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/pictures/submissions/<?php echo$image; ?>');
                           width: 80vh;
                           height: 40vh;
                           background-position:center center;
@@ -212,13 +211,13 @@ if(str_contains($row['categories'],"8")){
                     <th>Sábado</th>
                   </thead>
                   <tbody class="table-custom align-center">
-                    <td><?php if(isSet($horarios[0]) && $horarios[0]!="" && $horarios[0]!="-,-"){ echo $horarios[0]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[1]) && $horarios[1]!="" && $horarios[1]!="-,-"){ echo $horarios[1]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[2]) && $horarios[2]!="" && $horarios[2]!="-,-"){ echo $horarios[2]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[3]) && $horarios[3]!="" && $horarios[3]!="-,-"){ echo $horarios[3]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[4]) && $horarios[4]!="" && $horarios[4]!="-,-"){ echo $horarios[4]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[5]) && $horarios[5]!="" && $horarios[5]!="-,-"){ echo $horarios[5]; }else { echo "Encerrado";}?></td>
-                    <td><?php if(isSet($horarios[6]) && $horarios[6]!="" && $horarios[6]!="-,-"){ echo $horarios[6]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[0]) && $horarios[0]!="" && $horarios[0]!="_"){ echo $horarios[0]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[1]) && $horarios[1]!="" && $horarios[1]!="_"){ echo $horarios[1]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[2]) && $horarios[2]!="" && $horarios[2]!="_"){ echo $horarios[2]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[3]) && $horarios[3]!="" && $horarios[3]!="_"){ echo $horarios[3]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[4]) && $horarios[4]!="" && $horarios[4]!="_"){ echo $horarios[4]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[5]) && $horarios[5]!="" && $horarios[5]!="_"){ echo $horarios[5]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[6]) && $horarios[6]!="" && $horarios[6]!="_"){ echo $horarios[6]; }else { echo "Encerrado";}?></td>
                   </tbody>
                 </table>
               </div>
@@ -227,13 +226,13 @@ if(str_contains($row['categories'],"8")){
                     <div class="row mt-1">
                       <div class="col-md-6">
                         <form action="approve.php" method="post">
-                          <input type="hidden" name="reqID" value=<?php echo $postID; ?>>
+                          <input type="hidden" name="reqID" value="<?php echo $id; ?>">
                           <input type="image" alt="Approve" class="center" src="pictures/assets/yes.png"/>
                         </form>
                       </div>
                       <div class="col-md-6">
                         <form action="reject.php" method="post">
-                            <input type="hidden" name="reqID" value=<?php echo $postID; ?>>
+                            <input type="hidden" name="reqID" value="<?php echo $id; ?>">
                             <input type="image" alt="Reject" class="center" src="pictures/assets/no.png"/>
                         </form>
                       </div>

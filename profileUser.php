@@ -14,9 +14,10 @@ $name = $registo[1];
 $email = $registo[3];
 $birthdate = $registo[4];
 $preferences = $registo[6];
-$profileImg = "pictures/users/" . $username . ".png";
-if (!file_exists($profileImg)) {
-  $profileImg = "pictures/users/pattern.jpg";
+$profileImg = $username . ".png";
+$profileUrl = "pictures/users/".$profileImg;
+if (!file_exists($profileUrl)) {
+  $profileImg = "pattern.jpg";
 }
 
 
@@ -159,7 +160,15 @@ if(str_contains($pfs[0],"8")){
 <div class="container rounded bg-white mt-5 mb-5" style="background: #EFF4F8">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150vh" height="150vh" src="<?php echo $profileImg; ?>"><br><span class="bold_text medium_text text_black"><?php echo $name; ?></span><span class="regular_text small_text text_black"><?php echo $username; ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <div style="background-image:url('http://localhost/LI4/pictures/users/<?php echo $profileImg; ?>');
+                  width:20vh;
+                  height: 20vh;
+                  margin-top: 6vh;
+                  background-position:center center;
+                  background-size:cover;
+                  border-radius:10vh;"> </div>
+              <br><span class="bold_text medium_text text_black"><?php echo $name; ?></span><span class="regular_text small_text text_black"><?php echo $username; ?></span><span> </span></div>
         </div>
         <div class="col-md-9 border-right">
             <div class="p-3 py-5">

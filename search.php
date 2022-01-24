@@ -112,7 +112,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
                      $url = "museum/museum.php?name=".$refName;
                      ?>
                      <tr onclick="window.location.assign('<?php echo $url; ?>')">
-                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo$imgName; ?>');
+                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/pictures/museums/<?php echo$imgName; ?>');
                          width: 40vh;
                          height: 17vh;
                          background-position:center center;
@@ -138,7 +138,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 					</div>
 				</div>
 			</div>
-      <div class="medium_text regular_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">If you didn't find the museum you were looking for, please request <a href="museum/addMuseum.php" target="_blank" class="bold_text text_orange">here</a>.</div>
+      <div class="medium_text regular_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">If you didn't find the museum you were looking for, please request <a href="museum/addMuseum.php"  class="bold_text text_orange">here</a>.</div>
 		</div>
 	</section>
 

@@ -115,7 +115,7 @@ if(isSet($_SESSION['username'])){
         <img src="../pictures/assets/location.png" alt="address" style="width:5%;padding-bottom:1vh;">
         <label for="address">Address:</label>
         <br>
-        <textarea class="" name="adress" required style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+        <textarea class="" name="address" required style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
         <img src="../pictures/assets/ticket.png" alt="ticket" style="width:5%;padding-bottom:1vh;">
         <label for="price">Price:</label><br>
         <textarea class="" name="price" required style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
