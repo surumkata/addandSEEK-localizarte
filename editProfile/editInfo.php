@@ -91,27 +91,59 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 
 </head>
 <body>
-  <div class="w3-top orange" style="height:8vh">
-    <div class="w3-bar w3-card" style="height:8vh">
-      <a href="../index.php">
-      <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
-      <a href="../profileUser.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" width="50" height="50">
-      </a>
-      <a href="../sugestion.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" width="50" height="50">
-      </a>
-      <a href="../logout.php">
-      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" width="50" height="50">
-      </a>
-      <form method="GET" action="../search.php">
-        <button type="submit" class="nav-button-search">
-           <img src="../pictures/assets/search.png"  style="max-widht:5vh; max-height:5vh;">
-       </button>
-      <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
-      </form>
+  <?php if($_SESSION['type'] == "user"){
+    ?>
+    <div class="w3-top orange">
+      <div class="w3-bar w3-card" style="max-height:7vh;">
+        <a href="../index.php">
+        <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+        <a href="../profileUser.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
+        </a>
+        <a href="../sugestion.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
+        </a>
+        <a href="../logout.php">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
+        </a>
+        <form method="GET" action="../search.php" style="margin-top:0vh">
+          <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+             <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+         </button>
+        <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+        </form>
+      </div>
     </div>
-  </div>
+ <?php
+ }else{
+ ?>
+ <div class="w3-top orange">
+   <div class="w3-bar w3-card" style="max-height:7vh;">
+     <a href="../index.php">
+     <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+     <a href="../profileUser.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
+     </a>
+     <a href="../sugestion.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
+     </a>
+     <a href="../requests.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/requests.png" style="max-height:7vh;">
+     </a>
+     <a href="../logout.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
+     </a>
+     <form method="GET" action="../search.php" style="margin-top:0vh">
+       <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+          <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+      </button>
+     <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+     </form>
+   </div>
+ </div>
+ <?php
+ }
+ ?>
   <br><br>
 
 <div class="container rounded bg-white mt-5 mb-5">
@@ -177,6 +209,14 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 </div>
 </div>
 </body>
+<footer class="w3-container w3-center footerorange">
+  <div class="small_text thin_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="regular_text text_black">@uminho</a></div>
+  <img src="../pictures/assets/eng.png" class="w3-round" alt="Tiago Silva" style="width:10%">
+  <div class="small_text thin_text text_black paddingfooter">Any doubts please contact us at localizarte@outlook.pt</div>
+  <div class="small_text thin_text text_black paddingfooter"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="regular_text text_black">Terms of conditions</a> © 2022 Localizarte</div>
+  <div class="small_text thin_text text_black" style="padding-top:0.3vh;padding-bottom:2vh;">This web application was done for Laboratórios de Informática IV, subject of MIEI at University of Minho.</a></div>
+</footer>
+</html>
 <?php
     }
   }

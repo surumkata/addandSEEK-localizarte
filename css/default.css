@@ -41,12 +41,22 @@
   color: #212529;
 }
 
+.text_orange{
+  color: #ff9800 !important;
+}
+
 .orange{
   background: #ff9800 !important;
 }
 
+.museum_padding{
+  padding-top: 3vh !important;
+  padding-bottom: 3vh !important;
+  padding-left: 3vh !important;
+}
+
 .footerorange{
-  background-color:#ff9800;
+  background-color:#fff;
   max-width:100%;
   max-height:40vh;
 }
@@ -54,6 +64,11 @@
 .paddingfooter{
   padding-top: 0.3vh;
   padding-bottom: 0.3vh;
+}
+
+.iconmuseum{
+  width:6%;
+  margin-left:3vh;
 }
 
 .nav-button-img {
@@ -66,6 +81,8 @@
     }
     .nav-button-img:hover {
       border-style: solid !important;
+      border-width: 0.1vh !important;
+      border-color: #212529 !important;
   }
 
 .nav-button {
@@ -97,6 +114,7 @@
         margin-top: 1.5vh !important;
         margin-bottom:: 1vh !important;
         margin-right:1vh !important;
+        margin-left:0.5vh !important;
         -webkit-transition: all 0.1s ease !important;
         -moz-transition: all 0.1s ease !important;
         -ms-transition: all 0.1s ease !important;
@@ -104,7 +122,9 @@
         background: #ff9800 !important;
             }
     .nav-button-search:hover {
-          border-style: groove !important;
+          border-style: solid !important;
+          border-width: 0.1vh !important;
+          border-color: #212529 !important;
         }
 
 .simple-button {
@@ -202,7 +222,6 @@ body {
   }
 
   .pass_show .ptxt:hover{color: #333333;}
-
 
 
 /*
