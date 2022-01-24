@@ -70,38 +70,52 @@ if(isSet($_SESSION['username'])){
               <div  text_black style="margin-top:6vh;" >
                 <div class="bold_text align-center" style="margin-top:-2vh;">Schedule</div>
                 <br>
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Sunday</label>
                 <br><br>
 
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Monday</label>
 
                 <br><br>
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Tuesday</label>
                 <br><br>
 
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Wednesday</label>
                 <br><br>
 
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Tahursday</label>
                 <br><br>
 
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Friday</label>
                 <br><br>
 
-                <input id="date" type="time" name = "date[]">
-                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
+                <input id="date" type="time" name = "date[]" value="">
                 <label>Saturday</label>
               </div><br>
 

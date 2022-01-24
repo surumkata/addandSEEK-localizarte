@@ -47,8 +47,6 @@ if(isSet($_FILES["fileToUpload"]) && strlen($_FILES["fileToUpload"]['name'])>0){
   $uploadOk = 1;
 }
 
-echo $notUpload;
-
 if ($uploadOk == 0) {
   $_SESSION['upload'] = $error;
   //header
@@ -87,20 +85,23 @@ if ($uploadOk == 0) {
   $registo = mysqli_fetch_row($resultado);
   $horarios = $_POST['date'];
   $horariosString = "";
-  for($i =0;$i<14;$i++){
-    if(isSet($horarios[$i]) && $horarios[$i]!=null){
-      $horarios[$i] = str_replace(':','-',$horarios[$i]);
-      $horariosString = $horariosString . $horarios[$i];
-    }else{
-      $horariosString = $horariosString . "-";
+  
+  for($dia=0;$dia<7;$dia++){
+    $i = $dia*4;
+    if($horarios[$i+0] != "" && $horarios[$i+1] != ""){
+      if($horariosString == "") {
+        $horariosString = $horarios[$i+0]."-".$horarios[$i+1];
+      }
+      else $horariosString = $horariosString.";".$horarios[$i+0]."-".$horarios[$i+1];
+      if($horarios[$i+2] != "" && $horarios[$i+3] != ""){
+        $horariosString = $horariosString.",".$horarios[$i+2]."-".$horarios[$i+3];
+      }
     }
-    $i++;
-    if(isSet($horarios[$i]) && $horarios[$i]!=null){
-      $horarios[$i] = str_replace(':','-',$horarios[$i]);
-      $horariosString = $horariosString .",";
-      $horariosString = $horariosString . $horarios[$i].";";
-    }else{
-      $horariosString = $horariosString . ",-;";
+    else {
+      if($horariosString == "") {
+        $horariosString = "_";
+      }
+      else $horariosString = $horariosString.";"."_";
     }
   }
 

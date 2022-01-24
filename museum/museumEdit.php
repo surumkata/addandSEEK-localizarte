@@ -13,7 +13,46 @@ if(isSet($_POST['name'])){
   $name = str_replace(' ', '_',$registo[0]);
   $refName = str_replace(' ', '-',$registo[0]);
   $image = $string = "../pictures/museums/".$name.".png";
-  $horarios = explode(';',$registo[8]);
+  if(isSet($registo[8])) $horarios = explode(';',$registo[8]);
+
+  if(isSet($horarios[0]) && $horarios[0] != "_") {
+    $domingo = explode(",",$horarios[0]);
+    if(isSet($domingo[0])) $hora_manha_domingo = explode("-",$domingo[0]);
+    if(isSet($domingo[1])) $hora_tarde_domingo = explode("-",$domingo[1]);
+  }
+
+  if(isSet($horarios[1]) && $horarios[1] != "_") {
+    $segunda = explode(",",$horarios[0]);
+    if(isSet($segunda[0])) $hora_manha_segunda = explode("-",$segunda[0]);
+    if(isSet($segunda[1])) $hora_tarde_segunda = explode("-",$segunda[1]);
+  }
+  if(isSet($horarios[2]) && $horarios[2] != "_") {
+    $terca = explode(",",$horarios[0]);
+    if(isSet($terca[0])) $hora_manha_terca = explode("-",$terca[0]);
+    if(isSet($terca[1])) $hora_tarde_terca = explode("-",$terca[1]);
+  }
+  if(isSet($horarios[3]) && $horarios[3] != "_") {
+    $quarta = explode(",",$horarios[0]);
+    if(isSet($quarta[0])) $hora_manha_quarta = explode("-",$quarta[0]);
+    if(isSet($quarta[1])) $hora_tarde_quarta = explode("-",$quarta[1]);
+  }
+  if(isSet($horarios[4]) && $horarios[4] != "_") {
+    $quinta = explode(",",$horarios[0]);
+    if(isSet($quinta[0])) $hora_manha_quinta = explode("-",$quinta[0]);
+    if(isSet($quinta[1])) $hora_tarde_quinta = explode("-",$quinta[1]);
+  }
+  if(isSet($horarios[5]) && $horarios[5] != "_") {
+    $sexta = explode(",",$horarios[0]);
+    if(isSet($sexta[0])) $hora_manha_sexta = explode("-",$sexta[0]);
+    if(isSet($sexta[1])) $hora_tarde_sexta = explode("-",$sexta[1]);
+  }
+  if(isSet($horarios[6]) && $horarios[6] != "_") {
+    $sabado = explode(",",$horarios[0]);
+    if(isSet($sabado[0])) $hora_manha_sabado = explode("-",$sabado[0]);
+    if(isSet($sabado[1])) $hora_tarde_sabado = explode("-",$sabado[1]);
+  }
+
+
   if (!file_exists($image)) {
     $image = "../pictures/museums/museum_default.png";
   }
@@ -67,6 +106,7 @@ if(isSet($_POST['name'])){
     <html lang="en">
     <head>
       <title>Localizarte-<?php echo $museum ;?></title>
+      <link href="../css/default.css" rel="stylesheet">
       <link href="../css/preferencesOnly.css" rel="stylesheet">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
       <script src="https://kit.fontawesome.com/918c4f4171.js" crossorigin="anonymous"></script>
@@ -85,42 +125,33 @@ if(isSet($_POST['name'])){
     </head>
 
     <body style="background-color:#eff4f8">
-      <div class="w3-top">
-        <div class="w3-bar w3-orange w3-card">
-          <img href="../index.php" src="../pictures/assets/logo.png" class="w3-bar-item w3-button" alt="Logo" style="width:11%">
-          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a href="../profileUser.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
-          <a href="../sugestion.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUGESTION</a>
-          <a href="../logout.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
-          <form method="GET" action="../search.php">
-            <input type="text" class="w3-right" required name="key" id="search" style="margin-top:0.58%">
-          <button type="submit" class="w3-padding-large w3-button w3-hide-small w3-right"><i class="fa fa-search"></i></button>
-        </form>
-        </div>
+
+      <div class= "w3-display-container w3-center"
+              style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo $name.'.png';?>');
+                  width: 100%;
+                  height: 66vh;
+                  background-position:center center;
+                  background-size:cover;">
       </div>
 
-
-
-    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%" id="body">
+    <div class="w3-container w3-padding-16 regular_text" style="max-width:100%;" id="body">
 
       <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="oldName" value="<?php echo $museum ?>"/>
-        <h1 class="w3-wide">
+        <input type="hidden" name="oldName" value="<?php echo $museum ?>">
+        <h1 class="w3-wide w3-center bold_text text_black">
           <p style="font-size:150%"><?php echo $registo[0]; ?> <p/>
         </h1>
 
-        <div class="w3-container w3-content w3-center w3-padding-64">
-          <img src=<?php echo $image; ?> class="w3-image" alt="MuseumImage" name = 'image' style="width:80%"/>
-          <p>Select image to upload:</p>
-          <input type="file" name="fileToUpload" id="fileToUpload"/>
-          <?php if(isSet($_SESSION['upload'])){
-            echo $_SESSION['upload'];
-            unset($_SESSION['upload']);
-            }
-          ?>
-        </div>
-
-        <footer class="w3-container w3-padding-32 w3-opacity w3-white w3-large" style="width:50%;position: relative;left: 25%;height:150%">
+        <div class="w3-container w3-padding-16 w3-white w3-large" style="width:50%;position: relative;left: 25%;height:150%;border-radius:5vh;">
+          <div class="w3-container w3-content w3-center w3-padding-64">
+            <p><b>Want to edit image?</b> Select image to upload:</p>
+            <input type="file" name="fileToUpload" id="fileToUpload"/>
+            <?php if(isSet($_SESSION['upload'])){
+              echo $_SESSION['upload'];
+              unset($_SESSION['upload']);
+              }
+            ?>
+          </div>
           <img src="../pictures/assets/location.png" alt="address" style="width:5%">
           <label for="address">Address:</label>
           <input type="text" class="form-control" required name="address" value="<?php echo $registo[1]; ?>"/>
@@ -162,42 +193,60 @@ if(isSet($_POST['name'])){
           <input type="text" class="form-control" required name="description" value="<?php echo $registo[6]; ?>" />
           <br><br>
 
-          <div class="stickout orange">
-              <div  text_black style="margin-top:6vh;" >
-                <div class="bold_text align-center" style="margin-top:-2vh;">Schedule</div>
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[0])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[0])[1]); ?>">
-                <label>Sunday</label>
-                <br><br>
-
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[1])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[1])[1]); ?>">
-                <label>Monday</label>
-
-                <br><br>
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[2])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[2])[1]); ?>">
-                <label>Tuesday</label>
-                <br><br>
-
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[3])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[3])[1]); ?>">
-                <label>Wednesday</label>
-                <br><br>
-
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[4])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[4])[1]); ?>">
-                <label>Tahursday</label>
-                <br><br>
-
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[5])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[5])[1]); ?>">
-                <label>Friday</label>
-                <br><br>
-
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[6])[0]); ?>">
-                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[6])[1]); ?>">
-                <label>Saturday</label>
+          <div>
+              <div class="text_black w3-center" style="margin-top:6vh;" >
+                <div class="bold_text" style="margin-top:-2vh;">Schedule</div>
+                <table style="margin:auto">
+                  <thead>
+                  <th class="align-center"> 1º Openning </th>
+                  <th class="align-center"> 2º Openning </th>
+                  <th class="align-center"> Day of the Week </th>
+                </thead>
+                <tbody>
+                  <tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_domingo[0])){ echo $hora_manha_domingo[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_domingo[1])){ echo $hora_manha_domingo[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_domingo[0])){ echo $hora_tarde_domingo[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_domingo[1])){ echo $hora_tarde_domingo[1]; } else { echo ""; }?>"></td>
+                <div class="align-center"><td class="align-center">Sunday</td></div></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_segunda[0])){ echo $hora_manha_segunda[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_segunda[1])){ echo $hora_manha_segunda[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_segunda[0])){ echo $hora_tarde_segunda[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_segunda[1])){ echo $hora_tarde_segunda[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Monday</td></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_terca[0])){ echo $hora_manha_terca[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_terca[1])){ echo $hora_manha_terca[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_terca[0])){ echo $hora_tarde_terca[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_terca[1])){ echo $hora_tarde_terca[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Tuesday</td></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_quarta[0])){ echo $hora_manha_quarta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_quarta[1])){ echo $hora_manha_quarta[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_quarta[0])){ echo $hora_tarde_quarta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_quarta[1])){ echo $hora_tarde_quarta[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Wednesday</td></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_quinta[0])){ echo $hora_manha_quinta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_quinta[1])){ echo $hora_manha_quinta[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_quinta[0])){ echo $hora_tarde_quinta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_quinta[1])){ echo $hora_tarde_quinta[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Thursday</td></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_sexta[0])){ echo $hora_manha_sexta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_sexta[1])){ echo $hora_manha_sexta[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_sexta[0])){ echo $hora_tarde_sexta[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_sexta[1])){ echo $hora_tarde_sexta[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Friday</td></tr>
+<tr>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_sabado[0])){ echo $hora_manha_sabado[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_manha_sabado[1])){ echo $hora_manha_sabado[1]; } else { echo ""; }?>"></td>
+                <td><input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_sabado[0])){ echo $hora_tarde_sabado[0]; } else { echo ""; }?>">
+                <input id="date" type="time" name = "date[]" value="<?php if(isSet($hora_tarde_sabado[1])){ echo $hora_tarde_sabado[1]; } else { echo ""; }?>"></td>
+                <td class="align-center">Saturday</td></tr>
+              </tbody>
+              </table>
               </div><br>
 
           </div>
@@ -212,7 +261,7 @@ if(isSet($_POST['name'])){
         </form>
 
 
-        </footer>
+      </div>
       </div>
 
 
