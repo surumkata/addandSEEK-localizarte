@@ -24,6 +24,7 @@ $categories = $row["categories"];
 $contact = $row["contact"];
 $website = $row["website"];
 $description = $row["description"];
+$horarios = $row["horarios"];
 
 if($row["picture"]==1){
   $museuImgAux = str_replace('-', '_', $_POST["reqID"]);
@@ -53,25 +54,25 @@ if(mysqli_num_rows($row) > 0){
                              website = '$website',
                              description = '$description',
                              coords = '',
-                             horarios = ''
+                             horarios = $horarios
                              WHERE name = '$nameM[0]'";
 
     mysqli_query($connection,$upd);
 
     mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
 
-    header('Location: http://localhost:8888/requests.php');
+    header('Location: http://localhost/LI4/requests.php');
 
 }else{
   //insert
-  $upd = "INSERT INTO museums values('$nameM[0]','$address','$price','$categories','$contact','$website','$description','','')";
+  $upd = "INSERT INTO museums values('$nameM[0]','$address','$price','$categories','$contact','$website','$description','','$horarios')";
   echo $upd;
   mysqli_query($connection,$upd);
 
   mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
 
 
- header('Location: http://localhost:8888/museum/addCords.php?n='.$nameM[0]."&d=".$address);
+ header('Location: http://localhost/LI4/museum/addCords.php?n='.$nameM[0]."&d=".$address);
 
 }
 
@@ -79,5 +80,5 @@ if(mysqli_num_rows($row) > 0){
   echo "Permition Denied";
 }
 }
-}else header('Location: http://localhost:8888/login.php');
+}else header('Location: http://localhost/LI4/login.php');
 ?>

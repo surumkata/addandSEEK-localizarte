@@ -8,9 +8,9 @@ if(isSet($_POST['lat']) && isSet($_POST['lon']) && isSet($_POST['name'])){
 
   mysqli_query($connection,$upd);
 
- header('Location: http://localhost:8888/requests.php');
+ header('Location: http://localhost/LI4/requests.php');
 }else {
-  header('Location: http://localhost:8888/index.php');
+  header('Location: http://localhost/LI4/index.php');
 }
 
 

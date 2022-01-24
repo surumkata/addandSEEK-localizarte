@@ -13,6 +13,7 @@ if(isSet($_POST['name'])){
   $name = str_replace(' ', '_',$registo[0]);
   $refName = str_replace(' ', '-',$registo[0]);
   $image = $string = "../pictures/museums/".$name.".png";
+  $horarios = explode(';',$registo[8]);
   if (!file_exists($image)) {
     $image = "../pictures/museums/museum_default.png";
   }
@@ -159,8 +160,49 @@ if(isSet($_POST['name'])){
           <br><br>
           <label for="description"><strong>Description:</strong></label>
           <input type="text" class="form-control" required name="description" value="<?php echo $registo[6]; ?>" />
-
           <br><br>
+
+          <div class="stickout orange">
+              <div  text_black style="margin-top:6vh;" >
+                <div class="bold_text align-center" style="margin-top:-2vh;">Schedule</div>
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[0])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[0])[1]); ?>">
+                <label>Sunday</label>
+                <br><br>
+
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[1])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[1])[1]); ?>">
+                <label>Monday</label>
+
+                <br><br>
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[2])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[2])[1]); ?>">
+                <label>Tuesday</label>
+                <br><br>
+
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[3])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[3])[1]); ?>">
+                <label>Wednesday</label>
+                <br><br>
+
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[4])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[4])[1]); ?>">
+                <label>Tahursday</label>
+                <br><br>
+
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[5])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[5])[1]); ?>">
+                <label>Friday</label>
+                <br><br>
+
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[6])[0]); ?>">
+                <input id="date" type="time" name = "date[]" value="<?php echo str_replace('-',':',explode(',', $horarios[6])[1]); ?>">
+                <label>Saturday</label>
+              </div><br>
+
+          </div>
+
+
           <input type="submit" class="w3-button" value="Save" style="position:relative"/>
         </form>
 

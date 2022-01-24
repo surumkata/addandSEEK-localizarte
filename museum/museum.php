@@ -92,7 +92,7 @@ $behind = 1;
 }
 $havecoords = 0;
 if($registo[7] != ""){
-  $coords = explode(", ",$registo[7]);
+  $coords = explode(",",$registo[7]);
   $lat = $coords[0];
   $lng = $coords[1];
   $havecoords = 1;
@@ -286,13 +286,13 @@ $horarios = explode(";",$registo[8]);
             <th>Sábado</th>
           </thead>
           <tbody class="table-custom align-center">
-            <td><?php if($horarios[0]!="" && $horarios[0]!="_"){ echo $horarios[0]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[1]!="" && $horarios[1]!="_"){ echo $horarios[1]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[2]!="" && $horarios[2]!="_"){ echo $horarios[2]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[3]!="" && $horarios[3]!="_"){ echo $horarios[3]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[4]!="" && $horarios[4]!="_"){ echo $horarios[4]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[5]!="" && $horarios[5]!="_"){ echo $horarios[5]; }else { echo "Encerrado";}?></td>
-            <td><?php if($horarios[6]!="" && $horarios[6]!="_"){ echo $horarios[6]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[0]) && $horarios[0]!="" && $horarios[0]!="-,-"){ echo $horarios[0]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[1]) && $horarios[1]!="" && $horarios[1]!="-,-"){ echo $horarios[1]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[2]) && $horarios[2]!="" && $horarios[2]!="-,-"){ echo $horarios[2]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[3]) && $horarios[3]!="" && $horarios[3]!="-,-"){ echo $horarios[3]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[4]) && $horarios[4]!="" && $horarios[4]!="-,-"){ echo $horarios[4]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[5]) && $horarios[5]!="" && $horarios[5]!="-,-"){ echo $horarios[5]; }else { echo "Encerrado";}?></td>
+            <td><?php if(isSet($horarios[6]) && $horarios[6]!="" && $horarios[6]!="-,-"){ echo $horarios[6]; }else { echo "Encerrado";}?></td>
           </tbody>
         </table>
       </div>

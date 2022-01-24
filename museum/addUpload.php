@@ -14,7 +14,7 @@ $res = mysqli_query($connection,$checkName);
 $row = mysqli_fetch_row($res);
 
 //only add if don't exist
-if(mysqli_num_rows($row) == 0){
+if(mysqli_num_rows($res) == 0){
   $newImage = str_replace(' ', '_',$name).";".$_SESSION['username'];
 
   if(isSet($_FILES["fileToUpload"]) && strlen($_FILES["fileToUpload"]['name'])>0){
@@ -92,9 +92,27 @@ if(mysqli_num_rows($row) == 0){
     $consult = "SELECT * FROM requests WHERE (LOWER( id ) = LOWER('".$id."'))";
     $resultado = mysqli_query($connection,$consult);
     $registo = mysqli_fetch_row($resultado);
+    $horarios = $_POST['date'];
+    $horariosString = "";
+    for($i =0;$i<14;$i++){
+      if(isSet($horarios[$i]) && $horarios[$i]!=null){
+        $horarios[$i] = str_replace(':','-',$horarios[$i]);
+        $horariosString = $horariosString . $horarios[$i];
+      }else{
+        $horariosString = $horariosString . "-";
+      }
+      $i++;
+      if(isSet($horarios[$i]) && $horarios[$i]!=null){
+        $horarios[$i] = str_replace(':','-',$horarios[$i]);
+        $horariosString = $horariosString .",";
+        $horariosString = $horariosString . $horarios[$i].";";
+      }else{
+        $horariosString = $horariosString . ",-;";
+      }
+    }
     $notificar = 0;
     if(mysqli_num_rows($resultado) > 0){
-      $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "') WHERE id=('" . $id . "')";
+      $query = "UPDATE requests SET address=('" . $address . "'),price=('" . $price . "'),categories=('" . $preferences . "'),website=('" . $site . "'),contact=('" . $contact . "'),picture=('" . $picture . "'),description=('" . $description . "'),description=('" . $horariosString . "') WHERE id=('" . $id . "')";
       echo "<br>";
       if(mysqli_query($connection,$query)===true){
         echo "atualizado com sucesso";
@@ -104,7 +122,8 @@ if(mysqli_num_rows($row) == 0){
       }
     }else{
       echo "<br>";
-      $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description')";
+      $query = "INSERT INTO requests (id,address,price,categories,contact,website,picture,description,horarios) values('$id','$address','$price','$preferences','$contact','$site','$picture','$description','$horariosString')";
+      echo $query;
       if(mysqli_query($connection,$query)===true){
         echo "inseriu com sucesso";
         $notificar = 1;
@@ -117,10 +136,7 @@ if(mysqli_num_rows($row) == 0){
       sendNotification($_SESSION['username'],$name,"A submission has been made to add a museum");
     }
   }
-
-  header('Location: http://localhost/LI4/search.php?name='.$_SESSION['searchKey']);
-
-
+  header('Location: http://localhost/LI4/search.php?key='.$_SESSION['searchKey']);
 }
 
 

@@ -66,35 +66,42 @@ if(isSet($_SESSION['username'])){
 
         <div class="bold_text align-center large_text text_black" style="margin-top:8vh;">Submisson: new museum</div>
         <form action="addUpload.php" method="post" enctype="multipart/form-data" class="regular_text" style="margin-top:8vh;height:130vh;position:relative;">
-          <div class="stickout orange ">
-              <div  text_black style="margin-top:6vh;">
+          <div class="stickout orange">
+              <div  text_black style="margin-top:6vh;" >
                 <div class="bold_text align-center" style="margin-top:-2vh;">Schedule</div>
                 <br>
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Sunday</label>
                 <br><br>
 
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Monday</label>
 
                 <br><br>
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Tuesday</label>
                 <br><br>
 
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Wednesday</label>
                 <br><br>
 
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Tahursday</label>
                 <br><br>
 
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Friday</label>
                 <br><br>
 
-                <input id="date" type="time">
+                <input id="date" type="time" name = "date[]">
+                <input id="date" type="time" name = "date[]">
                 <label>Saturday</label>
               </div><br>
 
@@ -122,7 +129,7 @@ if(isSet($_SESSION['username'])){
           <div class=" w3-center"style="margin-top:2vh;" >
             <a class="regular_text"> Select image to upload:<br></a>
             <label class="custom-file-upload">
-            <input type="file" name="fileToUpload" id="fileToUpload"/>
+            <input type="file" required name="fileToUpload" id="fileToUpload"/>
             <?php if(isSet($_SESSION['upload'])){
               echo $_SESSION['upload'];
               unset($_SESSION['upload']);
@@ -189,5 +196,5 @@ if(isSet($_SESSION['username'])){
 
     }
   }
-else header('Location: http://localhost:8888/login.php');
+else header('Location: http://localhost/LI4/login.php');
 ?>

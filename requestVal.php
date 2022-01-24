@@ -21,7 +21,7 @@ $row = mysqli_fetch_assoc($result);
 
 $image = $museuImg.";".$user.".png";
 $imageOrg = $museuImg.".png";
-
+$horarios = explode(";",$row['horarios']);
 
 $preferences = "";
 
@@ -196,6 +196,32 @@ if(str_contains($row['categories'],"8")){
 
                 </tbody>
               </table>
+              <div class="text_black regular_text w3-container" style="max-width:100%;margin-top:3vh;" id="body">
+                <div>
+                  <img src="pictures/assets/schedule.png" alt="schedule" style="width:4%" class="iconmuseum">
+                  <a class="bold_text large_text">Schedule:</a>
+                </div>
+                <table class="table table-hover table-bordered">
+                  <thead class="thead-custom align-center">
+                    <th>Domingo</th>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th>Sexta</th>
+                    <th>Sábado</th>
+                  </thead>
+                  <tbody class="table-custom align-center">
+                    <td><?php if(isSet($horarios[0]) && $horarios[0]!="" && $horarios[0]!="-,-"){ echo $horarios[0]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[1]) && $horarios[1]!="" && $horarios[1]!="-,-"){ echo $horarios[1]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[2]) && $horarios[2]!="" && $horarios[2]!="-,-"){ echo $horarios[2]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[3]) && $horarios[3]!="" && $horarios[3]!="-,-"){ echo $horarios[3]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[4]) && $horarios[4]!="" && $horarios[4]!="-,-"){ echo $horarios[4]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[5]) && $horarios[5]!="" && $horarios[5]!="-,-"){ echo $horarios[5]; }else { echo "Encerrado";}?></td>
+                    <td><?php if(isSet($horarios[6]) && $horarios[6]!="" && $horarios[6]!="-,-"){ echo $horarios[6]; }else { echo "Encerrado";}?></td>
+                  </tbody>
+                </table>
+              </div>
 
               <div class="p-1 py-1 ">
                     <div class="row mt-1">

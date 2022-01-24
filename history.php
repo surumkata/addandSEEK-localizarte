@@ -113,5 +113,5 @@ $rowNumb = mysqli_num_rows($result);
 </html>
 <?php
 }
-  else header('Location: http://localhost:8888/login.php');
+  else header('Location: http://localhost/LI4/login.php');
 ?>

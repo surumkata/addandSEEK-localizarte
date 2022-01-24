@@ -74,11 +74,11 @@ if(isSet($_SESSION['username'])){
 
 <?php
     }else{
-          header('Location: http://localhost:8888/index.php');
+          header('Location: http://localhost/LI4/index.php');
         }
       }else{
         echo "Permition Denied";
       }
     }
-}else header('Location: http://localhost:8888/login.php');
+}else header('Location: http://localhost/LI4/login.php');
  ?>
