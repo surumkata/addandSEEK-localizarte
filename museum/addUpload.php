@@ -139,7 +139,7 @@ if(mysqli_num_rows($res) == 0){
     }
   }
   header('Location: http://localhost/LI4/search.php?key='.$_SESSION['searchKey']);
-}
+}header('Location: http://localhost/LI4/index.php');
 
 
 }
