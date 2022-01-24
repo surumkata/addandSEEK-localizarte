@@ -22,6 +22,7 @@ if(isSet($_SESSION['username'])){
           </div>
           <div class="w3-half">
            <form action="uploadCords.php" method="post"style="margin-top:16vh; margin-left:10vh; ">
+             <input type="hidden" name="name" value="<?php echo $_GET['n'];?>"
              <div class="bold_text large_text text_black " style="margin-bottom:4vh">Set coordinates</div>
            <label class="regular_text medium_text text_black ">Latitude:</label>
            <br>

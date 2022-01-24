@@ -28,12 +28,12 @@ $description = $row["description"];
 if($row["picture"]==1){
   $museuImgAux = str_replace('-', '_', $_POST["reqID"]);
   $museuImg = "pictures/submissions/".$museuImgAux.".png";
-  echo $museuImg."\n";
+
 
   $nameMaux = explode(";",$museuImgAux);
   $lowNameM = mb_strtolower($nameMaux[0]);
   $museuImgMove = "pictures/museums/".$lowNameM.".png";
-  echo $museuImgMove."\n";
+
 
 
   //moves and overwrite if there is already one
@@ -51,7 +51,10 @@ if(mysqli_num_rows($row) > 0){
                              categories = '$categories',
                              contact = '$contact',
                              website = '$website',
-                             description = '$description' WHERE name = '$nameM[0]'";
+                             description = '$description',
+                             coords = '',
+                             horarios = ''
+                             WHERE name = '$nameM[0]'";
 
     mysqli_query($connection,$upd);
 
@@ -61,14 +64,14 @@ if(mysqli_num_rows($row) > 0){
 
 }else{
   //insert
-  $upd = "INSERT INTO museums values('$nameM[0]','$address','$price','$categories','$contact','$website','$description','')";
-  echo $upd ;
+  $upd = "INSERT INTO museums values('$nameM[0]','$address','$price','$categories','$contact','$website','$description','','')";
+  echo $upd;
   mysqli_query($connection,$upd);
 
   mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
 
 
- header('Location: http://localhost/LI4/museum/addCords.php?n='.$nameM[0]."&d=".$address);
+ header('Location: http://localhost:8888/museum/addCords.php?n='.$nameM[0]."&d=".$address);
 
 }
 
@@ -76,5 +79,5 @@ if(mysqli_num_rows($row) > 0){
   echo "Permition Denied";
 }
 }
-}else header('Location: http://localhost/LI4/login.php');
+}else header('Location: http://localhost:8888/login.php');
 ?>
