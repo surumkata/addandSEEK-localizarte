@@ -112,7 +112,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
                      $url = "museum/museum.php?name=".$refName;
                      ?>
                      <tr onclick="window.location.assign('<?php echo $url; ?>')">
-                     <th scope="row" class="align-center img" style="background-image:url('http://localhost:8888/pictures/museums/<?php echo$imgName; ?>');
+                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/src/pictures/museums/<?php echo$imgName; ?>');
                          width: 40vh;
                          height: 17vh;
                          background-position:center center;
@@ -159,5 +159,5 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
 <?php
   }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

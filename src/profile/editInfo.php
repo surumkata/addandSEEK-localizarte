@@ -154,7 +154,7 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
           <center><div class="bold_text large_text text_black" style="margin-top:6.5vh;">User's Image</div></center>
             <div class=" d-flex flex-column align-items-center text-center p-3 py-5">
               <a href="editImage.php" target="_blank" rel="noopener noreferrer">
-                <div style="background-image:url('http://localhost:8888/pictures/users/<?php echo $profileImg; ?>');
+                <div style="background-image:url('http://localhost/LI4/src/pictures/users/<?php echo $profileImg; ?>');
                     width:20vh;
                     height: 20vh;
                     margin-top: -10vh;
@@ -229,5 +229,5 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
 <?php
     }
   }
-else header('Location: http://localhost:8888/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
  ?>

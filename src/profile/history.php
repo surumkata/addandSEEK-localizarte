@@ -29,27 +29,61 @@ $rowNumb = mysqli_num_rows($result);
   </head>
   <body style="background-color: #eff4f8">
 
-    <div class="w3-top orange" style="height:8vh">
-      <div class="w3-bar w3-card" style="height:8vh">
-        <a href="../index.php">
-        <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo"> </a>
+<?php
+  if($_SESSION['type'] == "user"){
+    ?>
+    <div class="w3-top orange">
+      <div class="w3-bar w3-card" style="max-height:7vh;">
+        <a href="index.php">
+        <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
         <a href="profileUser.php">
-        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" width="50" height="50">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
         </a>
         <a href="../sugestion.php">
-        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" width="50" height="50">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
         </a>
         <a href="../authentication/logout.php">
-        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" width="50" height="50">
+        <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
         </a>
-        <form method="GET" action="../search.php">
-          <button type="submit" class="nav-button-search">
-             <img src="../pictures/assets/search.png"  style="max-height:5vh;">
+        <form method="GET" action="../search.php" style="margin-top:0vh">
+          <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+             <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
          </button>
-        <input type="text" class="w3-bar-item nav-button w3-padding-large w3-hide-small" required name="key" id="search">
+        <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:7vh;margin-top:1vh;border-radius:5vh;">
         </form>
       </div>
     </div>
+  <?php
+  }else{
+  ?>
+  <div class="w3-top orange">
+   <div class="w3-bar w3-card" style="max-height:7vh;">
+     <a href="../index.php">
+     <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+     <a href="profileUser.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
+     </a>
+     <a href="../sugestion.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
+     </a>
+     <a href="../requests/requests.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/requests.png" style="max-height:7vh;">
+     </a>
+     <a href="../authentication/logout.php">
+     <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
+     </a>
+     <form method="GET" action="../search.php" style="margin-top:0vh">
+       <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+          <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+      </button>
+     <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:7vh;margin-top:1vh;border-radius:5vh;">
+     </form>
+   </div>
+  </div>
+  <?php
+  }
+  ?>
+
 
   	<section class="ftco-section">
   		<div class="container">
@@ -111,5 +145,5 @@ $rowNumb = mysqli_num_rows($result);
 </html>
 <?php
 }
-  else header('Location: http://localhost:8888/authentication/login.php');
+  else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

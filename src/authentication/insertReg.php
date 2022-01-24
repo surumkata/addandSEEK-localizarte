@@ -15,10 +15,10 @@ $sql = "INSERT INTO users (username,name,password,email,birthdate,admin,preferen
 
 if(mysqli_num_rows($checkCredential) > 0){
     $_SESSION['registerError'] = 1;
-    header('Location: http://localhost:8888/register.php');
+    header('Location: http://localhost/LI4/src/register.php');
 }else{
   if (mysqli_query($connection,$sql) === TRUE) {
-    header('Location: http://localhost:8888/login.php');
+    header('Location: http://localhost/LI4/src/authentication/login.php');
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_connect_error();
   }

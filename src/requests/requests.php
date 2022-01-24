@@ -99,4 +99,4 @@ $rowNumb = mysqli_num_rows($result);
 
 <?php
 
-}else header('Location: http://localhost:8888/index.php');}else header('Location: http://localhost:8888/authentication/login.php');}else header('Location: http://localhost:8888/authentication/login.php'); ?>
+}else header('Location: http://localhost/LI4/src/index.php');}else header('Location: http://localhost/LI4/src/authentication/login.php');}else header('Location: http://localhost/LI4/src/authentication/login.php'); ?>

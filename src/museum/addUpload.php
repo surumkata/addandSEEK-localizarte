@@ -141,12 +141,12 @@ if(mysqli_num_rows($res) == 0){
       sendNotification($_SESSION['username'],$name,"A submission has been made to add a museum");
     }
   }
-  header('Location: http://localhost:8888/search.php?key='.$_SESSION['searchKey']);
-}header('Location: http://localhost:8888/index.php');
+  header('Location: http://localhost/LI4/src/search.php?key='.$_SESSION['searchKey']);
+}header('Location: http://localhost/LI4/src/index.php');
 
 
 }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 
 ?>

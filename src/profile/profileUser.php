@@ -144,7 +144,7 @@ if(str_contains($pfs[0],"8")){
      <a href="../authentication/logout.php">
      <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
      </a>
-     <form method="GET" action="search.php" style="margin-top:0vh">
+     <form method="GET" action="../search.php" style="margin-top:0vh">
        <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
           <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
       </button>
@@ -161,7 +161,7 @@ if(str_contains($pfs[0],"8")){
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <div style="background-image:url('http://localhost:8888/pictures/users/<?php echo $profileImg; ?>');
+              <div style="background-image:url('http://localhost/LI4/src/pictures/users/<?php echo $profileImg; ?>');
                   width:20vh;
                   height: 20vh;
                   margin-top: 6vh;
@@ -217,5 +217,5 @@ if(str_contains($pfs[0],"8")){
 </html>
 <?php }
 }
-else header('Location: http://localhost:8888/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

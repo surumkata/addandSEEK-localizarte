@@ -57,5 +57,5 @@ if(isSet($_SESSION['username'])){
 
 <?php }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

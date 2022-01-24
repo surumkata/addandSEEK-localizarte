@@ -181,7 +181,7 @@ $horarios = explode(";",$registo[8]);
      ?>
 
     <div class= "w3-display-container w3-center"
-            style="background-image:url('http://localhost:8888/pictures/museums/<?php echo $namepng;?>');
+            style="background-image:url('http://localhost/LI4/src/pictures/museums/<?php echo $namepng;?>');
                 width: 100%;
                 height: 66vh;
                 background-position:center center;
@@ -325,6 +325,6 @@ $horarios = explode(";",$registo[8]);
 }
 }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 
 ?>

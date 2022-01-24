@@ -172,14 +172,14 @@ if(str_contains($row['categories'],"8")){
                    echo "<tr>";
                    echo "<th>"."Picture"." </th>";
                    if($row['picture'] == 0) { ?>
-                     <th scope="row" class="align-center img" style="background-image:url('http://localhost:8888/../pictures/museums/<?php echo$imageOrg; ?>');
+                     <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/src/pictures/museums/<?php echo$imageOrg; ?>');
                          width: 80vh;
                          height: 40vh;
                          background-position:center center;
                          background-size:cover;
                          border-radius:0%"> </th>
                     <?php }else { ?>
-                      <th scope="row" class="align-center img" style="background-image:url('http://localhost:8888/../pictures/submissions/<?php echo$image; ?>');
+                      <th scope="row" class="align-center img" style="background-image:url('http://localhost/LI4/src/pictures/submissions/<?php echo$image; ?>');
                           width: 80vh;
                           height: 40vh;
                           background-position:center center;
@@ -254,8 +254,8 @@ if(str_contains($row['categories'],"8")){
 
 <?php
 }else{
-  header('Location: http://localhost:8888/index.php');
+  header('Location: http://localhost/LI4/src/index.php');
 }
 }
-}else header('Location: http://localhost:8888/authentication/login.php');
+}else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

@@ -21,10 +21,10 @@ if(isSet($_POST['credential']) && isSet($_POST['password'])){
      }
      $_SESSION['loginErro'] = 0;
      echo "sessao iniciada";
-     header('Location: http://localhost:8888/index.php');
+     header('Location: http://localhost/LI4/src/index.php');
    }else{
      $_SESSION['loginErro'] = 1;
-     header('Location: http://localhost:8888/authentication/login.php');
+     header('Location: http://localhost/LI4/src/authentication/login.php');
    }
 }
 ?>

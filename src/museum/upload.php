@@ -132,10 +132,10 @@ if ($uploadOk == 0) {
 }
 
 $refName = str_replace(' ', '-', $oldName);
-header('Location: http://localhost:8888/museum/museum.php?name='.$refName);
+header('Location: http://localhost/LI4/src/museum/museum.php?name='.$refName);
 
 }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 
 ?>

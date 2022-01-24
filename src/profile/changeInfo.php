@@ -26,9 +26,9 @@ foreach ($_POST['preferences'] as $preference) {
 $query = "UPDATE users SET name=('" . $name . "'),email=('" . $email . "'),birthdate=('" . $birthdate . "'),preferences=('".$preferences."') WHERE username=('" . $_SESSION['username'] . "')";
 $update = mysqli_query($connection,$query);
 
-header('Location: http://localhost:8888/profile/profileUser.php');
+header('Location: http://localhost/LI4/src/profile/profileUser.php');
 
 }
 }
-else header('Location: http://localhost:8888/authentication/login.php');
+else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>

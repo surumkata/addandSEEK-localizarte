@@ -66,7 +66,7 @@ if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
     $coords = explode(",",$row['coords'] );
 
-  header('Location: http://localhost:8888/museum/addCords.php?n='.$nameM[0]."&d=".$address."&lat=".$coords[0]."&lon=".$coords[1]);
+  header('Location: http://localhost/LI4/src/museum/addCords.php?n='.$nameM[0]."&d=".$address."&lat=".$coords[0]."&lon=".$coords[1]);
 
 }else{
   //insert
@@ -77,7 +77,7 @@ if(mysqli_num_rows($result) > 0){
   mysqli_query($connection,"DELETE FROM requests WHERE id = '$id'");
 
 
- header('Location: http://localhost:8888/museum/addCords.php?n='.$nameM[0]."&d=".$address);
+ header('Location: http://localhost/LI4/src/museum/addCords.php?n='.$nameM[0]."&d=".$address);
 
 }
 
@@ -85,5 +85,5 @@ if(mysqli_num_rows($result) > 0){
   echo "Permition Denied";
 }
 }
-}else header('Location: http://localhost:8888/authentication/login.php');
+}else header('Location: http://localhost/LI4/src/authentication/login.php');
 ?>
