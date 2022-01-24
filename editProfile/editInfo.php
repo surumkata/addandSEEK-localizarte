@@ -157,7 +157,8 @@ $today = date('Y-m-d',(strtotime ( '-4747 day' , strtotime ( $today) ) ));
                 <div style="background-image:url('http://localhost/LI4/pictures/users/<?php echo $profileImg; ?>');
                     width:20vh;
                     height: 20vh;
-                    margin-top: 6vh;
+                    margin-top: -10vh;
+                    margin-left: 19vh;
                     background-position:center center;
                     background-size:cover;
                     border-radius:10vh;" > </div>

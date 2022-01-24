@@ -119,7 +119,7 @@ $rowNumb = mysqli_num_rows ( $searchBySubString );
                          background-size:cover;
                          border-radius:0%"> </th>
                      <td class="align-center"><?php echo $textName; ?></td>
-                     <td class="align-center"><?php echo $row["adress"]; ?></td>
+                     <td class="align-center"><?php echo $row["address"]; ?></td>
                      </tr>
                      <?php
                    }

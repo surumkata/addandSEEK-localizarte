@@ -183,7 +183,7 @@ body {
     border: solid 1px #BA68C8
 }
 
-.zoomin img {
+.zoomin div {
       height: 20vh;
       width: 20vh;
       -webkit-transition: all 0.5s ease;
@@ -192,10 +192,10 @@ body {
       transition: all 0.5s ease;
       opacity:100%;
     }
-    .zoomin img:hover {
-      width: 22vh;
-      height: 22vh;
-      opacity:72%
+    .zoomin div:hover {
+      width: 21vh !important;
+      height: 21vh !important;
+      opacity:72% !important;
   }
 
 

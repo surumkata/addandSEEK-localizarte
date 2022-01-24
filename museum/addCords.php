@@ -29,7 +29,7 @@ if(isSet($_SESSION['username'])){
          </head>
          <body>
         <div class="w3-center w3-container w3-white  " style="margin-top:10vh;height:80vh; margin-left:40vh; margin-right:40vh;border-radius:5vh;">
-          <div class="regular_text">Adress submited:<?php echo $_GET['d'];?></div>
+          <div class="regular_text">Address submited:<?php echo $_GET['d'];?></div>
           <div class="w3-half" >
               <div id = "map" style = "position:relative;width: 60vh; height: 60vh;margin-top:10vh; margin-left:10vh; border-radius:2vh;"></div>
           </div>
