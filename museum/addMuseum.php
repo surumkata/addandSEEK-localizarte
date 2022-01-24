@@ -16,32 +16,6 @@ if(true){
   $military = 0;
   $science = 0;
   $themed = 0;
-/*
-  if(str_contains($preferences,"1")){
-    $art = 1;
-  }
-  if(str_contains($preferences,"2")){
-    $biographical = 1;
-  }
-  if(str_contains($preferences,"3")){
-    $community = 1;
-  }
-  if(str_contains($preferences,"4")){
-    $historical = 1;
-  }
-  if(str_contains($preferences,"5")){
-    $neighborhood = 1;
-  }
-  if(str_contains($preferences,"6")){
-    $military = 1;
-  }
-  if(str_contains($preferences,"7")){
-    $science = 1;
-  }
-  if(str_contains($preferences,"8")){
-    $themed = 1;
-  }*/
-
   ?>
 
     <!DOCTYPE html>
@@ -83,7 +57,7 @@ if(true){
 
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:100%" id="body">
 
-      <form action="addupload.php" method="post" enctype="multipart/form-data">
+      <form action="addUpload.php" method="post" enctype="multipart/form-data">
 
         <div class="w3-container w3-content w3-center w3-padding-64">
           <p>Select image to upload:</p>
