@@ -126,6 +126,61 @@ if(isSet($_POST['name'])){
 
     <body style="background-color:#eff4f8">
 
+
+      <?php if($_SESSION['type'] == "user"){
+        ?>
+        <div class="w3-top orange">
+          <div class="w3-bar w3-card" style="max-height:7vh;">
+            <a href="../index.php">
+            <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+            <a href="../profileUser.php">
+            <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
+            </a>
+            <a href="../sugestion.php">
+            <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
+            </a>
+            <a href="../logout.php">
+            <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
+            </a>
+            <form method="GET" action="../search.php" style="margin-top:0vh">
+              <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+                 <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+             </button>
+            <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+            </form>
+          </div>
+        </div>
+     <?php
+     }else{
+     ?>
+     <div class="w3-top orange">
+       <div class="w3-bar w3-card" style="max-height:7vh;">
+         <a href="../index.php">
+         <img src="../pictures/assets/logo.png" class="w3-bar-item nav-button-img" alt="Logo" style="max-height:7vh;"> </a>
+         <a href="../profileUser.php">
+         <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/profile.png" style="max-height:7vh;">
+         </a>
+         <a href="../sugestion.php">
+         <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/dice.png" style="max-height:7vh;">
+         </a>
+         <a href="../requests.php">
+         <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small" src="../pictures/assets/requests.png" style="max-height:7vh;">
+         </a>
+         <a href="../logout.php">
+         <img class="w3-bar-item nav-button-img w3-padding-large w3-hide-small w3-right" src="../pictures/assets/logout.png" style="max-height:7vh;">
+         </a>
+         <form method="GET" action="../search.php" style="margin-top:0vh">
+           <button type="submit" class="nav-button-search" style="max-width:14vh; max-height:14vh!important;margin-top:1vh !important;border-radius:5vh;">
+              <img src="../pictures/assets/search.png"  style="max-width:11vh; max-height:6vh;padding-bottom:0.4vh;">
+          </button>
+         <input type="text" class="w3-bar-item w3-hide-small" required name="key" id="search" style="max-width:20vh; max-height:5vh;margin-top:1vh;border-radius:5vh;">
+         </form>
+       </div>
+     </div>
+     <?php
+     }
+     ?>
+
       <div class= "w3-display-container w3-center"
               style="background-image:url('http://localhost/Li4/pictures/museums/<?php echo $name.'.png';?>');
                   width: 100%;
@@ -134,7 +189,7 @@ if(isSet($_POST['name'])){
                   background-size:cover;">
       </div>
 
-    <div class="w3-container w3-padding-16 regular_text" style="max-width:100%;" id="body">
+    <div class="w3-container regular_text" style="max-width:100%;" id="body">
 
       <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="oldName" value="<?php echo $museum ?>">
@@ -142,8 +197,8 @@ if(isSet($_POST['name'])){
           <p style="font-size:150%"><?php echo $registo[0]; ?> <p/>
         </h1>
 
-        <div class="w3-container w3-padding-16 w3-white w3-large" style="width:50%;position: relative;left: 25%;height:150%;border-radius:5vh;">
-          <div class="w3-container w3-content w3-center w3-padding-64">
+        <div class="w3-container w3-white w3-large w3-center" style="width:50%;position: relative;left: 25%;height:150%;border-radius:5vh;">
+          <div class="w3-container w3-content w3-center w3-padding-32">
             <p><b>Want to edit image?</b> Select image to upload:</p>
             <input type="file" name="fileToUpload" id="fileToUpload"/>
             <?php if(isSet($_SESSION['upload'])){
@@ -152,25 +207,22 @@ if(isSet($_POST['name'])){
               }
             ?>
           </div>
-          <img src="../pictures/assets/location.png" alt="address" style="width:5%">
+          <img src="../pictures/assets/location.png" alt="address" style="width:5%;padding-bottom:1vh;">
           <label for="address">Address:</label>
-          <input type="text" class="form-control" required name="address" value="<?php echo $registo[1]; ?>"/>
-          <br><br>
-          <img src="../pictures/assets/ticket.png" alt="ticket" style="width:4%">
-          <label for="price">Price:</label>
-          <input type="float" class="form-control" required name="price" value="<?php echo $registo[2]; ?>" />
-          <br><br>
-          <img src="../pictures/assets/website.png" alt="site" style="width:4%">
-          <label for="website">Site:</label>
-          <input type="text" class="form-control" required name="website" value="<?php echo $registo[5]; ?>" />
-          <br><br>
-          <img src="../pictures/assets/contact.png" alt="contact" style="width:4%">
-          <label for="contact">Contact:</label>
-          <input type="text" class="form-control" required name="contact" value="<?php echo $registo[4]; ?>" />
-          <br><br>
-          <img src="../pictures/assets/category.png" alt="category" style="width:4%">
+          <br>
+          <textarea class="" name="adress" required value="<?php echo $registo[1]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <img src="../pictures/assets/ticket.png" alt="ticket" style="width:5%;padding-bottom:1vh;">
+          <label for="price">Price:</label><br>
+          <textarea class="" name="price" required value="<?php echo $registo[2]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <img src="../pictures/assets/website.png" alt="site" style="width:5%;padding-bottom:1vh;">
+          <label for="website">Site:</label><br>
+          <textarea class="" name="website" value="<?php echo $registo[5]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <img src="../pictures/assets/contact.png" alt="contact" style="width:5%;padding-bottom:1vh;">
+          <label for="contact">Contact:</label><br>
+          <textarea class="" name="contact" value="<?php echo $registo[4]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 0.5vh;width:30vh;height:5vh;resize:none;overflow: hidden;"></textarea><br><br>
+          <img src="../pictures/assets/category.png" alt="category" style="width:5%;padding-bottom:1vh;">
           <label class="labels">Categories:</label>
-                    <ul class="ks-cboxtags">
+                    <ul class="ks-cboxtags" style="margin:0vh;">
                       <?php if($art == 0){ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" onclick='chk(0)'><label for="checkboxOne">Art</label></li>
                     <?php }else{ ?> <li><input type="checkbox" id="checkboxOne" name="preferences[]" value="1" checked><label for="checkboxOne">Art</label></li> <?php  } ?>
                       <?php if($biographical == 0){ ?> <li><input type="checkbox" id="checkboxTwo" name="preferences[]" value="2" onclick='chk(1)'><label for="checkboxTwo">Biographical</label></li>
@@ -188,14 +240,17 @@ if(isSet($_POST['name'])){
                       <?php if($themed == 0){ ?> <li><input type="checkbox" id="checkboxEight" name="preferences[]" value="8" onclick='chk(7)'><label for="checkboxEight">Themed</label></li>
                     <?php }else{ ?> <li><input type="checkbox" id="checkboxEight" name="preferences[]" value="8" checked><label for="checkboxEight">Themed</label></li> <?php  } ?>
                     </ul>
-          <br><br>
-          <label for="description"><strong>Description:</strong></label>
-          <input type="text" class="form-control" required name="description" value="<?php echo $registo[6]; ?>" />
+
+
+          <img src="../pictures/assets/description.png" alt="description" style="width:5%;padding-bottom:1vh;">
+          <label for="description">Description:</label><br>
+          <textarea class="form-control" name="description" value="<?php echo $registo[6]; ?>" style="border-radius:3vh;padding-left:1vh;padding-top: 1vh;width:50vh;height:15vh;"></textarea><br><br>
           <br><br>
 
           <div>
-              <div class="text_black w3-center" style="margin-top:6vh;" >
-                <div class="bold_text" style="margin-top:-2vh;">Schedule</div>
+              <div class="text_black w3-center">
+                <div class="regular_text" style="margin-top:-8vh;">
+                  <img src="../pictures/assets/schedule.png" alt="schedule" style="width:5%;padding-bottom:1vh;">Schedule</div>
                 <table style="margin:auto">
                   <thead>
                   <th class="align-center"> 1º Openning </th>
@@ -255,7 +310,7 @@ if(isSet($_POST['name'])){
           <input type="submit" class="w3-button" value="Save" style="position:relative"/>
         </form>
 
-        <form method="POST" action="<?php echo "museum.php?name=".$refName?>">
+        <form method="POST" action="<?php echo "museum.php?name=".$refName?>" style="margin-bottom:2vh;">
           <input type="hidden" value = "<?php  echo $registo[0];?>" name = "name" >
           <input type="submit" class="w3-button" value="Return" style="position:relative"/>
         </form>
@@ -268,7 +323,14 @@ if(isSet($_POST['name'])){
 
 
     </body>
-
+    <footer class="w3-container w3-center footerorange" style="margin-top:8vh;">
+      <div class="small_text thin_text text_black" style="padding-top:2vh;padding-bottom:0.3vh;">University of Minho, Engineering School, <a href="https://www.eng.uminho.pt/pt" target="_blank" class="regular_text text_black">@uminho</a></div>
+      <img src="../pictures/assets/eng.png" class="w3-round" alt="Tiago Silva" style="width:10%">
+      <div class="small_text thin_text text_black paddingfooter">Any doubts please contact us at localizarte@outlook.pt</div>
+      <div class="small_text thin_text text_black paddingfooter"><a href="https://www.termsofservicegenerator.net/live.php?token=apkS3wlBfNEDkF6vR3MofdAJyG6f9QRt" target="_blank" class="regular_text text_black">Terms of conditions</a> © 2022 Localizarte</div>
+      <div class="small_text thin_text text_black" style="padding-top:0.3vh;padding-bottom:2vh;">This web application was done for Laboratórios de Informática IV, subject of MIEI at University of Minho.</a></div>
+    </footer>
+</html>
 
 
     <?php
