@@ -1,4 +1,4 @@
-# add&SEEK - Trabalho prático da UC de Laboratórios de Informática IV
+# add&SEEK e Localizarte - Trabalho prático da UC de Laboratórios de Informática IV
 
 ### Tema: "Um guia para locais de interesse"
 
